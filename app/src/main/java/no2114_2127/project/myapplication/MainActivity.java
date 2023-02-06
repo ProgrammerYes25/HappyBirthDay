@@ -11,5 +11,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Y-초기커밋~~~!!
+        //C-테스트커밋!!
     }
 }
