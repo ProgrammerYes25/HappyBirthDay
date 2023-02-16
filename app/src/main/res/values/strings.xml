@@ -24,6 +24,7 @@
     <string name="to_hint_text">to ...</string>
     <string name="rolling_paper_hint_text">롤링페이퍼를 적어주세요</string>
     <string name="form_hint_text">from .</string>
+    <string name="decoration_text">장식 달기</string>
     <!--폴라로이드꾸미기-->
     <string name="make_polaroid1_text">폴라로이드 사진을 만들어요!</string>
     <string name="make_polaroid2_text">폴라로이드의 색상, 사진을 선택한 후 제목을 붙여봐요.</string>
@@ -41,6 +42,7 @@
     <string name="award_title_hint_text">친구에게 주고싶은 상은? (ex. 귀염상)</string>
     <string name="award_text_hint_text">상 내용을 적어주세요!\n(ex. 평고 귀엽기 떄문에 이 상장을 수여합니다.</string>
     <string name="award_name_text">본인의 이름을 적어주세요!</string>
+    <string name="make_award_choice_text">상장 고르기</string>
     <string name="finish_text">완성</string>
     <string name="finish_made_link_text">완성 링크 만들기</string>
     <!--main-->

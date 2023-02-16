@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HappyBirthDay">
         <activity
+            android:name=".CakeMakeWritingPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AwardMakeWritingPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AwardMakePageActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

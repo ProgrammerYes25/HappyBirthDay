@@ -12,4 +12,5 @@
     <color name="black_100">#F2F4F7</color>
     <color name="black_50">#F9FAFB</color>
     <color name="black_25">#FCFCFD</color>
+    <color name="white">#ffffff</color>
 </resources>
