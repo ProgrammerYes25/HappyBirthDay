@@ -13,6 +13,9 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".VideoUploadActivity"
+            android:exported="true" />
+        <activity
             android:name=".CakeMakeWritingPageActivity"
             android:exported="false" />
         <activity
