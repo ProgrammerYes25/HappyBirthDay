@@ -12,6 +12,7 @@
     <!--<ImageView
         android:layout_width="500dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_gravity="top|center"
         android:src="@drawable/garland"/>-->
 
@@ -72,8 +73,8 @@
 
     <!--받침대 이미지뷰-->
    <ImageView
-        android:layout_width="312dp"
-        android:layout_height="29dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/pedestal"
         android:layout_gravity="center"/>
 
