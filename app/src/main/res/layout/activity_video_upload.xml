@@ -32,7 +32,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rectangle_video_resource_black_200">
-
+                <ImageView
+                    android:id="@+id/upload_icon_image_view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/upload_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/upload_icon_image_view1"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/make_video3_text"/>
             </RelativeLayout>
        <!--     <VideoView
                 android:id="@+id/upload_video1_video_view"
@@ -40,16 +53,65 @@
                 android:layout_height="150dp"
                 />-->
         </FrameLayout>
-
-        <VideoView
-            android:id="@+id/upload_video2_video_view"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_marginTop="20dp"/>
-        <VideoView
-            android:id="@+id/upload_video3_video_view"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rectangle_video_resource">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_video_resource_black_200">
+                <ImageView
+                    android:id="@+id/upload_icon_image_view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/upload_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/upload_icon_image_view2"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/make_video3_text"/>
+            </RelativeLayout>
+            <!--     <VideoView
+                     android:id="@+id/upload_video2_video_view"
+                     android:layout_width="match_parent"
+                     android:layout_height="150dp"
+                     />-->
+        </FrameLayout>
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rectangle_video_resource">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_video_resource_black_200">
+                <ImageView
+                    android:id="@+id/upload_icon_image_view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/upload_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/upload_icon_image_view3"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/make_video3_text"/>
+            </RelativeLayout>
+            <!--     <VideoView
+                     android:id="@+id/upload_video3_video_view"
+                     android:layout_width="match_parent"
+                     android:layout_height="150dp"
+                     />-->
+        </FrameLayout>
     </LinearLayout>
 </LinearLayout>
