@@ -1,9 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/signup_background"
     tools:context=".SignUpActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="@string/app_name"
+        android:textStyle="bold"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/title_text"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="@string/signin_text"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="284dp"
+        android:layout_height="48dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="@string/input_nickname_text"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"/>
+    <EditText
+        android:layout_width="284dp"
+        android:layout_height="48dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="@string/input_id_text"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:layout_width="284dp"
+        android:layout_height="48dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="@string/input_pin_text"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:layout_width="284dp"
+        android:layout_height="48dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="@string/check_pin_text"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="73dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rectangle_rounded_corner"
+            android:textSize="15sp"
+            android:text="     2023"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/year_text"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="55dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rectangle_rounded_corner"
+            android:textSize="15sp"
+            android:text="     01"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/month_text"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="55dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rectangle_rounded_corner"
+            android:textSize="15sp"
+            android:text="     01"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day_text"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
