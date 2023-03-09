@@ -78,8 +78,4 @@
         android:src="@drawable/pedestal"
         android:layout_gravity="center"/>
 
-
-
-
-
 </LinearLayout>
