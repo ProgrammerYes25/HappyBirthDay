@@ -39,37 +39,37 @@
         android:layout_gravity="center"
         android:layout_marginBottom="15dp"/>
     <EditText
-        android:layout_width="284dp"
-        android:layout_height="48dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/id_text"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="14dp"/>
     <EditText
-        android:layout_width="284dp"
-        android:layout_height="48dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/pin_text"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="14dp"/>
     <Button
-        android:layout_width="284dp"
-        android:layout_height="48dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
         android:text="@string/login_text"
         android:background="@drawable/rectangle_rounded_corner"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="14dp"/>
     <Button
-        android:layout_width="284dp"
-        android:layout_height="48dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:layout_gravity="center"
         android:text="@string/signin_text"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="12dp"/>
 
     <!--받침대 이미지뷰-->
    <ImageView
