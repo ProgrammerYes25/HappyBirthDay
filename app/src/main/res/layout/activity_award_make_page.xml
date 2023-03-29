@@ -22,36 +22,27 @@
         android:text="@string/make_award2_text"/>
     <GridView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
-        android:layout_weight="2"
         android:numColumns="2">
     </GridView>
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="6"
-        android:orientation="vertical"
-        android:layout_gravity="bottom">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="13dp"
-            android:gravity="center"
-            android:textColor="@color/black_600"
-            android:textSize="17sp"
-            android:background="@drawable/rectangle_resource_black_300"
-            android:text="@string/decoration_text"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="13dp"
-            android:gravity="center"
-            android:textColor="@color/black_600"
-            android:textSize="17sp"
-            android:background="@drawable/rectangle_resource_black_300"
-            android:text="@string/decoration_text"/>
-    </LinearLayout>
+        android:layout_height="30dp"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:textColor="@color/black_600"
+        android:textSize="17sp"
+        android:background="@drawable/rectangle_resource_black_300"
+        android:text="@string/decoration_text"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:textColor="@color/black_600"
+        android:textSize="17sp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_resource_black_300"
+        android:text="@string/decoration_text"/>
 </LinearLayout>

@@ -21,16 +21,13 @@
         android:text="@string/make_polaroid2_text"/>
     <GridView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_weight="1"
         android:numColumns="3">
     </GridView>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="5"
-        android:layout_gravity="bottom"
+        android:layout_height="50dp"
         android:gravity="center"
         android:layout_marginTop="13dp"
         android:textColor="@color/black_600"
