@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello_text"
-        android:textSize="20sp"
+        android:fontFamily="@font/dongle_regular"
+        android:textSize="30sp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"/>
 <ImageView
@@ -29,7 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/birthday_text"
-        android:textSize="15sp"
+        android:fontFamily="@font/dongle_regular"
+        android:textSize="25sp"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"/>
 </FrameLayout>
@@ -49,7 +51,8 @@
         android:layout_height="match_parent"
         android:text="@string/deco_text"
         android:gravity="center"
-        android:textSize="14dp"
+        android:textSize="24sp"
+        android:fontFamily="@font/dongle_regular"
         android:paddingTop="5dp"
         android:paddingStart="20dp"
         android:paddingEnd="15dp"
@@ -63,7 +66,8 @@
         android:layout_height="match_parent"
         android:text="@string/my_card_text"
         android:gravity="center"
-        android:textSize="14dp"
+        android:fontFamily="@font/dongle_regular"
+        android:textSize="24sp"
         android:paddingTop="5dp"
         android:paddingStart="15dp"
         android:paddingEnd="20dp"

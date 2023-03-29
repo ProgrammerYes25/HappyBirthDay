@@ -11,13 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="23sp"
+        android:textSize="33sp"
+        android:fontFamily="@font/dongle_regular"
         android:text="@string/make_polaroid1_text"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="17sp"
+        android:textSize="27sp"
+        android:fontFamily="@font/dongle_regular"
         android:text="@string/make_polaroid2_text"/>
     <GridView
         android:layout_width="match_parent"
@@ -31,7 +33,8 @@
         android:gravity="center"
         android:layout_marginTop="13dp"
         android:textColor="@color/black_600"
-        android:textSize="17sp"
+        android:textSize="27sp"
+        android:fontFamily="@font/dongle_regular"
         android:background="@drawable/rectangle_resource_black_300"
         android:text="@string/make_polaroid3_text"/>
 </LinearLayout>

@@ -12,14 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="23sp"
-        android:text="@string/make_award1_text"/>
+        android:textSize="33sp"
+        android:text="@string/make_award1_text"
+        android:fontFamily="@font/dongle_regular"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="17sp"
-        android:text="@string/make_award2_text"/>
+        android:textSize="27sp"
+        android:text="@string/make_award2_text"
+        android:fontFamily="@font/dongle_regular"/>
     <GridView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +34,8 @@
         android:layout_marginTop="13dp"
         android:gravity="center"
         android:textColor="@color/black_600"
-        android:textSize="17sp"
+        android:textSize="27sp"
+        android:fontFamily="@font/dongle_regular"
         android:background="@drawable/rectangle_resource_black_300"
         android:text="@string/decoration_text"/>
     <TextView
@@ -41,8 +44,9 @@
         android:layout_marginTop="13dp"
         android:gravity="center"
         android:textColor="@color/black_600"
-        android:textSize="17sp"
+        android:textSize="27sp"
         android:layout_gravity="bottom"
+        android:fontFamily="@font/dongle_regular"
         android:background="@drawable/rectangle_resource_black_300"
         android:text="@string/decoration_text"/>
 </LinearLayout>

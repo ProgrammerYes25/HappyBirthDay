@@ -39,7 +39,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textColor="@color/black_600"
-                android:textSize="17sp"
+                android:textSize="27sp"
+                android:fontFamily="@font/dongle_regular"
                 android:background="@drawable/rectangle_basics_resource_black_300"
                 android:text="1"/>
             <TextView
@@ -58,10 +59,11 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/black_600"
-            android:textSize="17sp"
+            android:textSize="27sp"
             android:layout_marginTop="10dp"
             android:background="@drawable/rectangle_resource_black_300"
-            android:text="@string/decoration_text"/>
+            android:text="@string/decoration_text"
+            android:fontFamily="@font/dongle_regular"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -25,26 +25,15 @@
         android:textStyle="bold"
         android:layout_gravity="top|center"
         android:layout_marginTop="100dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="@string/title_text"
-        android:layout_marginTop="30dp"
-        android:layout_gravity="center"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/candlelight"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="15dp"/>
+
+
     <EditText
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/id_text"
-        android:textSize="12sp"
+        android:fontFamily="@font/dongle_regular"
+        android:textSize="22sp"
         android:layout_gravity="center"
         android:layout_marginBottom="14dp"/>
     <EditText
@@ -52,7 +41,8 @@
         android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/pin_text"
-        android:textSize="12sp"
+        android:textSize="22sp"
+        android:fontFamily="@font/dongle_regular"
         android:layout_gravity="center"
         android:layout_marginBottom="14dp"/>
     <Button
@@ -60,23 +50,20 @@
         android:layout_height="40dp"
         android:text="@string/login_text"
         android:background="@drawable/rectangle_rounded_corner"
-        android:textSize="12sp"
+        android:textSize="22sp"
+        android:fontFamily="@font/dongle_regular"
         android:layout_gravity="center"
         android:layout_marginBottom="14dp"/>
     <Button
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:textSize="12sp"
+        android:textSize="22sp"
         android:layout_gravity="center"
+        android:fontFamily="@font/dongle_regular"
         android:text="@string/signin_text"
         android:layout_marginBottom="12dp"/>
 
-    <!--받침대 이미지뷰-->
-   <ImageView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/pedestal"
-        android:layout_gravity="center"/>
+
 
 </LinearLayout>
