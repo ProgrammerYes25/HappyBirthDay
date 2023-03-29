@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--와이어 프레임-->
     <color name="black">#000000</color>
     <color name="black_900">#101828</color>
     <color name="black_800">#1D2939</color>
@@ -13,4 +14,30 @@
     <color name="black_50">#F9FAFB</color>
     <color name="black_25">#FCFCFD</color>
     <color name="white">#ffffff</color>
+
+    <!--색상팔레트-->
+    <color name="purple_900">#28242D</color>
+    <color name="purple_800">#585062</color>
+    <color name="purple_750">#9E97A7</color>
+    <color name="purple_700">#624D85</color>
+    <color name="purple_600">#7F6E9B</color>
+    <color name="purple_500">#ABA0BC</color>
+    <color name="purple_400">#C9C3D4</color>
+    <color name="purple_300">#A795E7</color>
+    <color name="purple_200">#B7A8EA</color>
+    <color name="purple_100">#CDC4ED</color>
+    <color name="purple_90">#DED9F1</color>
+    <color name="light_purple_100">#D3A3EF</color>
+    <color name="light_purple_90">#DAB3F0</color>
+    <color name="light_purple_80">#E3CBF1</color>
+    <color name="light_purple_70">#EBDDF4</color>
+    <color name="light_purple_10">#F1F2FF</color>
+    <color name="pink_100">#FFE3FA</color>
+    <color name="pink_90">#FDE6F9</color>
+    <color name="pink_80">#FAEBF7</color>
+    <color name="pink_70">#F8F0F7</color>
+    <color name="pink_60">#F4EFF6</color>
+    <color name="pink_50">#F4F0F6</color>
+    <color name="pink_40">#F4F1F5</color>
+    <color name="pink_30">#F5F4F6</color>
 </resources>
