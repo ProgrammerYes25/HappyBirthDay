@@ -1,6 +1,6 @@
 <resources>
     <!--로그인-->
-    <string name="app_name">HBD!</string>
+    <string name="app_name">HBD</string>
     <string name="title_text">for a special day.</string>
     <string name="id_text">아이디</string>
     <string name="pin_text">비밀번호</string>
