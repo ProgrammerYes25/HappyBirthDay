@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/dongle_regular"
         android:layout_gravity="top|center"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="110dp"/>
 
     <EditText
         android:layout_width="280dp"
@@ -35,7 +35,7 @@
         android:textSize="22sp"
         android:fontFamily="@font/dongle_regular"
         android:layout_gravity="center"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="18dp"/>
     <EditText
         android:layout_width="280dp"
         android:layout_height="40dp"
@@ -44,7 +44,7 @@
         android:fontFamily="@font/dongle_regular"
         android:textSize="22sp"
         android:layout_gravity="center"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="18dp"/>
     <EditText
         android:layout_width="280dp"
         android:layout_height="40dp"
@@ -53,7 +53,7 @@
         android:fontFamily="@font/dongle_regular"
         android:textSize="22sp"
         android:layout_gravity="center"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="18dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,10 +65,10 @@
             android:layout_height="40dp"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="25sp"
-            android:text="    2023"
+            android:text="   2023"
             android:fontFamily="@font/dongle_regular"
             android:layout_marginLeft="65dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="18dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,16 +77,16 @@
             android:textSize="22sp"
             android:fontFamily="@font/dongle_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="18dp"/>
         <EditText
             android:layout_width="52dp"
             android:layout_height="40dp"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="25sp"
-            android:text="      01"
+            android:text="    01"
             android:fontFamily="@font/dongle_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="18dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -95,16 +95,16 @@
             android:textSize="22sp"
             android:fontFamily="@font/dongle_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="18dp"/>
         <EditText
             android:layout_width="52dp"
             android:layout_height="40dp"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="25sp"
-            android:text="      01"
+            android:text="    01"
             android:fontFamily="@font/dongle_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="18dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,7 +113,7 @@
             android:textSize="22sp"
             android:fontFamily="@font/dongle_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="18dp"/>
 
     </LinearLayout>
     <Button
@@ -124,15 +124,15 @@
         android:fontFamily="@font/dongle_regular"
         android:layout_gravity="center"
         android:text="@string/signin_text"
-        android:layout_marginTop="12dp"/>
+        android:layout_marginTop="18dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/note_text"
         android:textSize="22sp"
         android:fontFamily="@font/dongle_regular"
-        android:layout_gravity="right"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_gravity="left"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>
