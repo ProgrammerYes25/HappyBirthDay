@@ -24,7 +24,7 @@
         android:fontFamily="@font/dongle_regular"
         android:textStyle="bold"
         android:layout_gravity="top|center"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="110dp"/>
 
 
     <EditText
@@ -35,7 +35,8 @@
         android:fontFamily="@font/dongle_regular"
         android:textSize="22sp"
         android:layout_gravity="center"
-        android:layout_marginBottom="14dp"/>
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="18dp"/>
     <EditText
         android:layout_width="280dp"
         android:layout_height="40dp"
@@ -44,7 +45,7 @@
         android:textSize="22sp"
         android:fontFamily="@font/dongle_regular"
         android:layout_gravity="center"
-        android:layout_marginBottom="14dp"/>
+        android:layout_marginBottom="18dp"/>
     <Button
         android:layout_width="280dp"
         android:layout_height="40dp"
@@ -53,7 +54,7 @@
         android:textSize="22sp"
         android:fontFamily="@font/dongle_regular"
         android:layout_gravity="center"
-        android:layout_marginBottom="14dp"/>
+        android:layout_marginBottom="18dp"/>
     <Button
         android:layout_width="280dp"
         android:layout_height="40dp"
@@ -62,7 +63,7 @@
         android:layout_gravity="center"
         android:fontFamily="@font/dongle_regular"
         android:text="@string/signin_text"
-        android:layout_marginBottom="12dp"/>
+        />
 
 
 
