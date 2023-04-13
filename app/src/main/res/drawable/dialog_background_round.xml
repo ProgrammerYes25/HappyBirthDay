@@ -3,15 +3,32 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <item>
-        <!-- 사각형 지정 -->
-        <shape android:shape="rectangle">
-            <!-- 각 모서리 dip 만큼 코너형식 -->
-            <corners android:radius="8dip" />
-            <!-- 배경색 -->
-            <solid android:color="#fff" />
-            <!-- 라인색 및 두께 -->
-            <stroke android:width="0dp" android:color="#ff0000"/>
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/purple_300"/>
+            <corners android:radius="7dp" />
         </shape>
     </item>
+
+    <item
+        android:bottom="5dp"
+        android:left="5dp"
+        android:right="5dp"
+        android:top="5dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#ffffff" />
+            <corners android:radius="7dp" />
+        </shape>
+    </item>
+<!--    <item>-->
+<!--        &lt;!&ndash; 사각형 지정 &ndash;&gt;-->
+<!--        <shape android:shape="rectangle">-->
+<!--            &lt;!&ndash; 각 모서리 dip 만큼 코너형식 &ndash;&gt;-->
+<!--            <corners android:radius="10dp" />-->
+<!--            &lt;!&ndash; 배경색 &ndash;&gt;-->
+<!--            <solid android:color="#fff" />-->
+<!--            &lt;!&ndash; 라인색 및 두께 &ndash;&gt;-->
+<!--            <stroke android:width="0dp" android:color="@color/purple_300"/>-->
+<!--        </shape>-->
+<!--    </item>-->
 
 </layer-list>
