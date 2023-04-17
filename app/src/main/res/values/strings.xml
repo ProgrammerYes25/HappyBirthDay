@@ -45,8 +45,8 @@
     <string name="make_award_choice_text">상장 고르기</string>
     <string name="finish_text">완성</string>
     <string name="finish_made_link_text">완성 링크 만들기</string>
-    <string name="">&lt;</string>
-    <string name="">&gt;</string>
+    <string name="lt">&lt;</string>
+    <string name="gt">&gt;</string>
     <!--main-->
     <string name="hello_text">님 안녕하세요!</string>
     <string name="birthday_text">생일</string>
