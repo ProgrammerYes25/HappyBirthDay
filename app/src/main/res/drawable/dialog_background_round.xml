@@ -4,6 +4,22 @@
     android:layout_height="wrap_content">
     <item>
         <shape android:shape="rectangle" >
+
+            <padding android:bottom="5dp" android:left="5dp" android:right="5dp" android:top="5dp"/>
+            <solid android:color="@color/purple_300"/>
+            <corners android:radius="7dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <padding android:bottom="5dp" android:left="5dp" android:right="5dp" android:top="5dp"/>
+            <solid android:color="@color/white"/>
+            <corners android:radius="7dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <stroke android:width="7dp" android:color="@color/white" android:dashWidth="5dp" android:dashGap="5dp"/>
             <solid android:color="@color/purple_300"/>
             <corners android:radius="7dp" />
         </shape>
