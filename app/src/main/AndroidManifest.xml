@@ -13,9 +13,6 @@
             android:name=".PolaroidMakePageActivity"
             android:exported="false" />
         <activity
-            android:name=".AwardMakeChooseFormActivity"
-            android:exported="false" />
-        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
@@ -27,9 +24,6 @@
         <activity
             android:name=".CakeMakeWritingPageActivity"
             android:exported="false" />
-        <activity
-            android:name=".AwardMakeWritingPageActivity"
-            android:exported="true" />
         <activity
             android:name=".AwardMakePageActivity"
             android:exported="true" />
