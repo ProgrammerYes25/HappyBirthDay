@@ -4,37 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="15dp"
     android:orientation="vertical"
     tools:context=".PolaroidMakePageActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
         android:textSize="33sp"
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_polaroid1_text"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="27sp"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textColor="@color/purple_200"
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_polaroid2_text"/>
-    <GridView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:numColumns="3">
-    </GridView>
-    <TextView
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numColumns="3">
+        </GridView>
+
+    </LinearLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:layout_marginTop="13dp"
-        android:textColor="@color/black_600"
-        android:textSize="27sp"
-        android:fontFamily="@font/dongle_regular"
-        android:background="@drawable/rectangle_resource_black_300"
-        android:text="@string/make_polaroid3_text"/>
+        android:layout_height="match_parent"
+        android:layout_weight="23"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:layout_gravity="bottom"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <TextView
+            android:id="@+id/polaroid_make_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black_600"
+            android:textSize="27sp"
+            android:fontFamily="@font/dongle_regular"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:background="@drawable/rectangle_resource_activation"
+            android:text="@string/make_polaroid3_text"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/polaroid_make_text_view"
+            android:layout_gravity="bottom">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/black_600"
+                android:textSize="27sp"
+                android:layout_marginRight="5dp"
+                android:padding="5dp"
+                android:fontFamily="@font/dongle_regular"
+                android:background="@drawable/rectangle_resource_perimeter_activation"
+                android:text="@string/make_polaroid3_text"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/black_600"
+                android:textSize="27sp"
+                android:layout_marginLeft="5dp"
+                android:padding="5dp"
+                android:fontFamily="@font/dongle_regular"
+                android:background="@drawable/rectangle_resource_perimeter_activation"
+                android:text="@string/make_polaroid3_text"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
 </LinearLayout>
