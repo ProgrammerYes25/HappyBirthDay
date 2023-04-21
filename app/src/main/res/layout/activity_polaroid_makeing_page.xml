@@ -24,6 +24,16 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:src="@drawable/test_polaroid_image" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/dongle_regular"
+            android:padding="10dp"
+            android:hint="@string/next_text"
+            android:textColor="@color/black_600"
+            android:textSize="40sp" />
     </FrameLayout>
     <HorizontalScrollView
         android:layout_width="match_parent"
