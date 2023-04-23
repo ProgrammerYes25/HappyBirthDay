@@ -57,6 +57,7 @@
     <string name="add_link_text">링크 추가하기</string>
     <string name="made_card_text">카드만들기</string>
     <string name="add_text">추가하기</string>
+    <string name="to_name">to.</string>
     <!--my페이지-->
     <string name="user_text">님</string>
     <string name="revise_member_text">회원정보수정</string>

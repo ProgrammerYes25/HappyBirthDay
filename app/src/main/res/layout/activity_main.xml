@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_background"
     android:orientation="vertical"
     tools:context=".MainActivity">
 <FrameLayout
@@ -15,13 +16,14 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_text"
         android:fontFamily="@font/dongle_regular"
-        android:textSize="30sp"
-        android:layout_marginTop="30dp"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="10dp"/>
 <ImageView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="@drawable/profile_icon"
+    android:src="@drawable/main_profile"
     android:layout_gravity="right"
     android:layout_marginRight="20dp"
     android:layout_marginTop="40dp"/>
@@ -30,15 +32,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/birthday_text"
+        android:textColor="#FFFFFF"
         android:fontFamily="@font/dongle_regular"
         android:textSize="25sp"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"/>
 </FrameLayout>
 <LinearLayout
+    android:id="@+id/toggle_ll"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/toggle_background"
     android:layout_marginStart="8dp"
     android:layout_marginTop="60dp"
     android:layout_gravity="center"
@@ -47,28 +50,28 @@
     app:layout_constraintTop_toBottomOf="@+id/method1TV"
     android:layout_marginLeft="8dp">
     <TextView
+        android:id="@+id/toggle_tv_deco"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="@string/deco_text"
         android:gravity="center"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"
         android:fontFamily="@font/dongle_regular"
-        android:paddingTop="5dp"
         android:paddingStart="20dp"
         android:paddingEnd="15dp"
         android:paddingBottom="5dp"
-        android:background="@drawable/decotext_background"
         tools:ignore="Rt|Symmetry"
         android:paddingLeft="15dp"
         android:paddingRight="10dp"/>
     <TextView
+        android:id="@+id/toggle_tv_mycard"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="@string/my_card_text"
         android:gravity="center"
         android:fontFamily="@font/dongle_regular"
-        android:textSize="24sp"
-        android:paddingTop="5dp"
+        android:textSize="30sp"
         android:paddingStart="15dp"
         android:paddingEnd="20dp"
         android:paddingBottom="5dp"
@@ -78,6 +81,45 @@
         android:paddingRight="15dp"/>
 
 </LinearLayout>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rectangle_rounded_small_corner"
+            android:backgroundTint="#B7A8EA"
+            />
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#000000"
+            android:background="@drawable/rectangle_rounded_small_corner"/>
+    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dongle_regular"
+        android:text="@string/to_name"
+        android:textSize="25sp"
+        android:layout_marginLeft="30dp"/>
+
+    <Button
+        android:id="@+id/main_btn"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_rounded_small_corner"
+        android:layout_gravity="center"
+        android:layout_marginTop="210dp"
+        android:text="@string/add_link_text"
+        android:fontFamily="@font/dongle_regular"
+        android:textSize="25sp"/>
+
 
 
 
