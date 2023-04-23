@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/dialog_background_round"
+    android:layout_gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="322dp"
+    android:layout_height="155dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:textColor="#000"
+            android:layout_margin="5dp"
+            android:text="링크 주소를 써주세요"
+            android:layout_weight="0.6"/>
+        <EditText
+            android:id="@+id/put_text"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.7"/>
+        <LinearLayout
+            android:layout_marginRight="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_gravity="right">
+            <Button
+                android:text="cancle"
+                android:textSize="10dp"
+                android:id="@+id/btnCancle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="center"/>
+            <Button
+                android:text="save"
+                android:textSize="10dp"
+                android:layout_marginLeft="4dp"
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

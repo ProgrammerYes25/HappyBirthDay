@@ -79,6 +79,17 @@
 
 </LinearLayout>
 
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_rounded_small_corner"
+        android:layout_gravity="center"
+        android:layout_marginTop="350dp"
+        android:text="@string/add_link_text"
+        android:fontFamily="@font/dongle_regular"
+        android:textSize="25sp"
+        />
+
 
 
 </LinearLayout>
