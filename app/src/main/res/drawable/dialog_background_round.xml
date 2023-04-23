@@ -4,24 +4,23 @@
     android:layout_height="wrap_content">
     <item>
         <shape android:shape="rectangle" >
-
-            <padding android:bottom="5dp" android:left="5dp" android:right="5dp" android:top="5dp"/>
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp"/>
             <solid android:color="@color/purple_300"/>
             <corners android:radius="15dp" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle" >
-            <padding android:bottom="3dp" android:left="3dp" android:right="3dp" android:top="3dp"/>
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp"/>
             <solid android:color="@color/white"/>
             <corners android:radius="15dp" />
         </shape>
     </item>
     <item>
         <shape android:shape="rectangle" >
-            <stroke android:width="7dp" android:color="@color/white" android:dashWidth="5dp" android:dashGap="5dp"/>
-            <solid android:color="@color/purple_300"/>
-            <corners android:radius="10dp" />
+            <padding android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp"/>
+            <stroke android:width="2dp" android:color="@color/purple_300" android:dashWidth="5dp" android:dashGap="5dp"/>
+            <corners android:radius="15dp" />
         </shape>
     </item>
 
@@ -35,16 +34,5 @@
             <corners android:radius="10dp" />
         </shape>
     </item>
-<!--    <item>-->
-<!--        &lt;!&ndash; 사각형 지정 &ndash;&gt;-->
-<!--        <shape android:shape="rectangle">-->
-<!--            &lt;!&ndash; 각 모서리 dip 만큼 코너형식 &ndash;&gt;-->
-<!--            <corners android:radius="10dp" />-->
-<!--            &lt;!&ndash; 배경색 &ndash;&gt;-->
-<!--            <solid android:color="#fff" />-->
-<!--            &lt;!&ndash; 라인색 및 두께 &ndash;&gt;-->
-<!--            <stroke android:width="0dp" android:color="@color/purple_300"/>-->
-<!--        </shape>-->
-<!--    </item>-->
 
 </layer-list>
