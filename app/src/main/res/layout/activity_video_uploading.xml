@@ -35,7 +35,7 @@
             android:fontFamily="@font/dongle_regular"
             android:gravity="center"
             android:padding="5dp"
-            android:text="등록"
+            android:text="@string/make_video_uplode_text"
             android:textColor="@color/black_600"
             android:textSize="27sp" />
     </RelativeLayout>
