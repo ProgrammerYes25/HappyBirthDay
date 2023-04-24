@@ -113,7 +113,7 @@
         android:id="@+id/main_btn"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:background="@drawable/rectangle_rounded_small_corner"
+        android:background="@drawable/rectangle_resource_activation"
         android:layout_gravity="center"
         android:layout_marginTop="210dp"
         android:text="@string/add_link_text"
