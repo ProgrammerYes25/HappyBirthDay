@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:orientation="vertical"
+    tools:context=".AwardMakeChooseFormActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="33sp"
+        android:fontFamily="@font/dongle_regular"
+        android:text="@string/make_award1_text"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textColor="@color/purple_200"
+        android:fontFamily="@font/dongle_regular"
+        android:text="@string/make_award2_text"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/dongle_regular"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="생일 카드를 모두 꾸며주었어요!"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:background="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/polaroid_make_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rectangle_resource_activation"
+            android:fontFamily="@font/dongle_regular"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/make_award_text"
+            android:textColor="@color/black_600"
+            android:textSize="27sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/polaroid_make_text_view"
+            android:background="@drawable/rectangle_resource_activation"
+            android:fontFamily="@font/dongle_regular"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/make_award_text"
+            android:textColor="@color/black_600"
+            android:textSize="27sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
