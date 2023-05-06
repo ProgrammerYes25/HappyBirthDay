@@ -22,7 +22,7 @@
             android:name=".VideoUploadActivity"
             android:exported="true" />
         <activity
-            android:name=".CakeMakeWritingPageActivity"
+            android:name=".CakeMakePageActivity"
             android:exported="false" />
         <activity
             android:name=".AwardMakePageActivity"
