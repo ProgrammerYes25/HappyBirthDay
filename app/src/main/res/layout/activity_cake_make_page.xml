@@ -23,130 +23,150 @@
         android:textColor="@color/purple_200"
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_award2_text"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginTop="30dp"
-        android:paddingTop="10dp"
+        android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/img_candle_flame"/>
+            android:src="@drawable/img_candle_flame" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="90px"
             android:text="19"
-            />
+            android:textSize="90px"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="190dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/purple_300"
-            android:padding="5dp"
-            android:orientation="horizontal">
+            android:background="@drawable/rectangle_cake1"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="280dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/purple_300"
-            android:padding="5dp"
-            android:orientation="horizontal">
+            android:background="@drawable/rectangle_cake1"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="355dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="5dp"
-            android:background="@color/purple_300"
-            android:orientation="horizontal">
+            android:background="@drawable/rectangle_cake1"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="355dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="5dp"
-            android:background="@color/purple_300"
-            android:orientation="horizontal">
+            android:background="@drawable/rectangle_cake2"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
         </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textSize="50px"
             android:text="1/2"
-            />
+            android:textSize="50px" />
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="160dp"
