@@ -14,7 +14,7 @@
     android:gravity="center_horizontal"
     android:textSize="33sp"
     android:fontFamily="@font/dongle_regular"
-    android:text="@string/make_award1_text"/>
+    android:text="@string/make_cake1_text"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:textSize="22sp"
         android:textColor="@color/purple_200"
         android:fontFamily="@font/dongle_regular"
-        android:text="@string/make_award2_text"/>
+        android:text="@string/make_cake2_text"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,19 +51,22 @@
             android:layout_weight="1"
             android:background="@drawable/rectangle_cake1"
             android:orientation="horizontal"
+            android:gravity="center"
             android:padding="5dp">
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
         </LinearLayout>
 
         <LinearLayout
@@ -72,25 +75,26 @@
             android:layout_weight="1"
             android:background="@drawable/rectangle_cake1"
             android:orientation="horizontal"
+            android:gravity="center"
             android:padding="5dp">
-
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
         </LinearLayout>
 
         <LinearLayout
@@ -99,31 +103,32 @@
             android:layout_weight="1"
             android:background="@drawable/rectangle_cake1"
             android:orientation="horizontal"
+            android:gravity="center"
             android:padding="5dp">
-
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
         </LinearLayout>
 
         <LinearLayout
@@ -132,31 +137,32 @@
             android:layout_weight="1"
             android:background="@drawable/rectangle_cake2"
             android:orientation="horizontal"
+            android:gravity="center"
             android:padding="5dp">
-
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:src="@drawable/img_decorative_example"/>
         </LinearLayout>
 
         <TextView
