@@ -12,21 +12,32 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="30dp"
         android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/dongle_regular"
+            android:text="@string/made_card_text"
+            android:textSize="50dp"
+            />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/dialog_background_round" />
+        </FrameLayout>
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/dialog_background_round"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="7"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
             android:background="@drawable/background_round"/>
     </LinearLayout>
     <RelativeLayout
@@ -49,8 +60,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                android:background="@drawable/rectangle_resource_perimeter_activation"
+                android:fontFamily="@font/dongle_regular"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/previous_text"
+                android:textColor="@color/black_600"
+                android:textSize="27sp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
