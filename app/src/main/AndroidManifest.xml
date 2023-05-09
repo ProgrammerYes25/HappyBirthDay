@@ -23,7 +23,7 @@
             android:exported="true" />
         <activity
             android:name=".CakeMakePageActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".AwardMakePageActivity"
             android:exported="true" />

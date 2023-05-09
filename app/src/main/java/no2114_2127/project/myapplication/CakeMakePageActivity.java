@@ -9,6 +9,6 @@ public class CakeMakePageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cake_make_writing_page);
+        setContentView(R.layout.activity_cerd_show_page);
     }
 }
