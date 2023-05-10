@@ -25,9 +25,6 @@
             android:name=".CakeMakePageActivity"
             android:exported="true" />
         <activity
-            android:name=".AwardMakePageActivity"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
