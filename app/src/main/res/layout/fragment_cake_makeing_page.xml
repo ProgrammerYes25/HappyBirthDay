@@ -3,17 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="730dp"
+    android:padding="20dp"
     android:orientation="vertical"
-    tools:context=".PolaroidMakePageActivity">
+    tools:context=".CakeMakeingPageFragment">
     <TextView
+        android:id="@+id/made_card_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:textSize="33sp"
         android:fontFamily="@font/dongle_regular"
+        android:layout_marginBottom="30dp"
         android:text="@string/made_card_text"/>
     <GridView
+        android:id="@+id/decorative_list_grid_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -27,9 +31,6 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:padding="10dp">
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -44,8 +45,9 @@
                 android:gravity="center"
                 android:padding="5dp"
                  />
-
+            <!--다음 button textView-->
             <TextView
+                android:id="@+id/next_button_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
