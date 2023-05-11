@@ -22,9 +22,12 @@
     <string name="make_cake1_text">케이크를 꾸며요!</string>
     <string name="make_cake2_text">꾸밀 재료를 선택한 후, 편지를 작성합니다</string>
     <string name="to_hint_text">to ...</string>
-    <string name="rolling_paper_hint_text">롤링페이퍼를 적어주세요</string>
+    <string name="rolling_paper_hint_text">생일 축하해</string>
     <string name="form_hint_text">from .</string>
-    <string name="decoration_text">장식 달기</string>
+    <string name="decoration_text">장식을 선택해주세요</string>
+    <string name="decoration2_text">장식 달기</string>
+    <string name="writing_text">메시지를 남겨주세요</string>
+    <string name="close_text">닫기</string>
     <!--폴라로이드꾸미기-->
     <string name="make_polaroid1_text">폴라로이드 사진을 만들어요!</string>
     <string name="make_polaroid2_text">폴라로이드의 색상, 사진을 선택한 후 제목을 붙여봐요.</string>
