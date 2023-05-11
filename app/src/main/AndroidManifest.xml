@@ -19,12 +19,6 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".VideoUploadActivity"
-            android:exported="true" />
-        <activity
-            android:name=".CakeMakePageFragment"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

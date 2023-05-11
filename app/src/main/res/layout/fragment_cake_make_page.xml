@@ -209,6 +209,7 @@
             android:layout_gravity="bottom"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
+            <!--장식 달기 버튼-->
             <TextView
                 android:id="@+id/decoration_button_text_view"
                 android:layout_width="match_parent"
