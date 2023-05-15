@@ -7,7 +7,9 @@
     android:padding="30dp"
     android:orientation="vertical"
     tools:context=".AwardMakeChooseFormFragment">
+    <!--상장 만들기 설명-->
     <TextView
+        android:id="@+id/make_award_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -15,6 +17,7 @@
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_award1_text"/>
     <TextView
+        android:id="@+id/make_award_subtitle_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -22,7 +25,9 @@
         android:textColor="@color/purple_200"
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_award2_text"/>
+    <!--상장 image view-->
     <ImageView
+        android:id="@+id/make_award_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -43,8 +48,9 @@
             android:gravity="bottom"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
-
+            <!--이전 button textView-->
             <TextView
+                android:id="@+id/previous_button_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -56,8 +62,9 @@
                 android:text="@string/previous_text"
                 android:textColor="@color/black_600"
                 android:textSize="27sp" />
-
+            <!--다음 button textView-->
             <TextView
+                android:id="@+id/next_button_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
