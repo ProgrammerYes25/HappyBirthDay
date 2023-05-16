@@ -5,36 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PolaroidMakePageFragment">
+    tools:context=".PolaroidMakeingPageFragment">
 
     <FrameLayout
         android:layout_width="343dp"
         android:layout_height="500dp"
         android:layout_gravity="center"
         android:layout_weight="1">
-
+        <!--업로드 한 사진 image view-->
         <ImageView
+            android:id="@+id/polaroid_photo_image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:src="@drawable/test_polaroid_image2" />
-
+        <!--폴라로이드 프레임 image view-->
         <ImageView
+            android:id="@+id/polaroid_image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:src="@drawable/test_polaroid_image" />
+        <!--메모 적는 edit text-->
         <EditText
+            android:id="@+id/polaroid_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_gravity="bottom"
             android:fontFamily="@font/dongle_regular"
             android:padding="10dp"
-            android:hint="@string/next_text"
+            android:hint="@string/text_hint_text"
             android:textColor="@color/black_600"
             android:textSize="40sp" />
     </FrameLayout>
+    <!--폴라로이드 고르는 list-->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,8 +58,9 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:padding="10dp">
-
+        <!--다음 button textView-->
         <TextView
+            android:id="@+id/next_button_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
