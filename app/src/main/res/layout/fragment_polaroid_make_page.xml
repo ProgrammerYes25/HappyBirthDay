@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PolaroidMakePageActivity">
+    tools:context=".PolaroidMakePageFragment">
+    <!--폴라로이드 만들기 설명-->
     <TextView
+        android:id="@+id/make_polaroid_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -14,6 +16,7 @@
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_polaroid1_text"/>
     <TextView
+        android:id="@+id/make_polaroid_subtitle_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -28,6 +31,7 @@
         android:numColumns="3">
     </GridView>
     <RelativeLayout
+        android:id="@+id/make_polaroid_grid_view"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:background="@color/white"
@@ -35,7 +39,7 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:padding="10dp">
-
+        <!--폴라로이드 만들기 button Text view-->
         <TextView
             android:id="@+id/polaroid_make_text_view"
             android:layout_width="match_parent"
@@ -56,8 +60,9 @@
             android:layout_below="@+id/polaroid_make_text_view"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
-
+            <!--이전 button textView-->
             <TextView
+                android:id="@+id/previous_button_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -69,8 +74,9 @@
                 android:text="@string/previous_text"
                 android:textColor="@color/black_600"
                 android:textSize="27sp" />
-
+            <!--다음 button textView-->
             <TextView
+                android:id="@+id/next_button_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PolaroidMakePageActivity extends AppCompatActivity {
+public class PolaroidMakePageFragment extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_polaroid_make_page);
+        setContentView(R.layout.fragment_polaroid_make_page);
     }
 }

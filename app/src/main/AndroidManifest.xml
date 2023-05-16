@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HappyBirthDay">
         <activity
-            android:name=".PolaroidMakePageActivity"
+            android:name=".PolaroidMakePageFragment"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
