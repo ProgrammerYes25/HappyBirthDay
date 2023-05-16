@@ -44,7 +44,7 @@
         android:padding="10dp">
         <!--상장만들기 button Text view-->
         <TextView
-            android:id="@+id/polaroid_make_text_view"
+            android:id="@+id/award_make_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:layout_below="@+id/polaroid_make_text_view"
+            android:layout_below="@+id/award_make_text_view"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
             <!--이전 button textView-->

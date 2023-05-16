@@ -50,7 +50,8 @@
     <string name="award_name_text">본인의 이름을 적어주세요!</string>
     <string name="make_award_choice_text">상장 고르기</string>
     <string name="finish_text">완성</string>
-    <string name="finish_made_link_text">완성 링크 만들기</string>
+    <string name="new_form_make_text">내 카드 만들러 가기</string>
+    <string name="finish_made_link_text">친구 카드 공유하기</string>
     <string name="lt">&lt;</string>
     <string name="gt">&gt;</string>
     <!--main-->
