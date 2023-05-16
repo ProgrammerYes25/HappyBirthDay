@@ -6,8 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="15dp"
-    tools:context=".VideoUploadActivity">
+    tools:context=".VideoUploadFragment">
+    <!--비디오 업로드 설명-->
     <TextView
+        android:id="@+id/make_video1_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -15,6 +17,7 @@
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_video1_text"/>
     <TextView
+        android:id="@+id/make_video_subtitle_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -22,7 +25,9 @@
         android:textColor="@color/purple_200"
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_video2_text"/>
+    <!--비디오 grid view-->
     <GridView
+        android:id="@+id/vedio_grid_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -37,7 +42,7 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:padding="10dp">
-
+        <!--비디어 업로드 button Text view-->
         <TextView
             android:id="@+id/polaroid_make_text_view"
             android:layout_width="match_parent"
@@ -58,8 +63,9 @@
             android:layout_below="@+id/polaroid_make_text_view"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
-
+            <!--이전 button textView-->
             <TextView
+                android:id="@+id/previous_button_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
@@ -71,8 +77,9 @@
                 android:text="@string/previous_text"
                 android:textColor="@color/black_600"
                 android:textSize="27sp" />
-
+            <!--다음 button textView-->
             <TextView
+                android:id="@+id/next_button_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
