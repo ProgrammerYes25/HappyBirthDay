@@ -25,13 +25,13 @@
         android:fontFamily="@font/dongle_regular"
         android:text="@string/make_polaroid2_text"/>
     <GridView
+        android:id="@+id/make_polaroid_grid_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:numColumns="3">
     </GridView>
     <RelativeLayout
-        android:id="@+id/make_polaroid_grid_view"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:background="@color/white"
