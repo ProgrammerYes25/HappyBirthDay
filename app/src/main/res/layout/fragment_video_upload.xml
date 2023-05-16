@@ -9,7 +9,7 @@
     tools:context=".VideoUploadFragment">
     <!--비디오 업로드 설명-->
     <TextView
-        android:id="@+id/make_video1_title_text_view"
+        android:id="@+id/make_video_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -27,7 +27,7 @@
         android:text="@string/make_video2_text"/>
     <!--비디오 grid view-->
     <GridView
-        android:id="@+id/vedio_grid_view"
+        android:id="@+id/video_grid_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -44,7 +44,7 @@
         android:padding="10dp">
         <!--비디어 업로드 button Text view-->
         <TextView
-            android:id="@+id/polaroid_make_text_view"
+            android:id="@+id/video_make_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

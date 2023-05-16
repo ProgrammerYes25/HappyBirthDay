@@ -13,7 +13,9 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:layout_marginTop="30dp">
+        <!--업로드할 VideoView-->
         <VideoView
+            android:id="@+id/video_uplode_view"
             android:layout_width="match_parent"
             android:layout_height="150dp"/>
     </LinearLayout>
@@ -26,8 +28,9 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical"
         android:padding="10dp">
+        <!--업로드 dutton text view-->
         <TextView
-            android:id="@+id/polaroid_make_text_view"
+            android:id="@+id/video_uplode_dutton_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
