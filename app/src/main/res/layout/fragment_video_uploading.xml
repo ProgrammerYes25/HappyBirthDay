@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="15dp"
-    tools:context=".VideoUploadActivity">
+    tools:context=".VideoUploadFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
