@@ -21,8 +21,11 @@
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
             <ImageView
+                android:id="@+id/back_button_image_view"
                 android:layout_width="50dp"
-                android:layout_height="50dp"/>
+                android:layout_height="50dp"
+                android:padding="12dp"
+                android:src="@drawable/back_button"/>
             <TextView
                 android:id="@+id/cerd_make_title_text_view"
                 android:layout_width="match_parent"
