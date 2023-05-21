@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 public class CerdMakePageActivity extends AppCompatActivity {
     String CerdMakeTitle = "의 생일카드";
+
+    int cerdMakeFrameLayoutId;
     //Layout
     FrameLayout cerdMakeFrameLayout;
     //TextView
@@ -27,13 +29,16 @@ public class CerdMakePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cerd_make_page);
+        cerdMakeFrameLayoutId = R.id.cerd_make_frame_layout;
         // Layout find View by id
         cerdMakeFrameLayout = findViewById(R.id.cerd_make_frame_layout);
         // textView find View by id
         cerdMakeSubtitleTextView = findViewById(R.id.cerd_make_subtitle_text_view);
         // ImageView find View by id
         backButtonImageView = findViewById(R.id.back_button_image_view);
-        // cerdMakeSubtitleTextView.setVisibility(View.VISIBLE);
+
+        // Fragent
+        CakeMakePageFragment = new CakeMakePageFragment();
 
         // setOnClick
         // backButtonImageView setOnClick
@@ -43,5 +48,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakeingPageFragment).commitAllowingStateLoss();
     }
 }
