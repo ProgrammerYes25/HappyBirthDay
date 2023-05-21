@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:fitsSystemWindows="true"
-        android:layout_height="150dp"
+        android:layout_height="120dp"
         android:layout_width="match_parent"
         android:background="@color/purple_70"
         android:padding="10dp"
@@ -50,14 +50,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:textSize="33sp"
+                android:visibility="gone"
+                android:textSize="23dp"
                 android:fontFamily="@font/dongle_regular"
                 android:text="@string/make_award1_text"/>
         </FrameLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <!--플레그먼트 자리-->
     <FrameLayout
-        android:id="@+id/cerd_frame_layout"
+        android:id="@+id/cerd_make_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
