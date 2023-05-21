@@ -2,6 +2,7 @@ package no2114_2127.project.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class LoginActivity extends AppCompatActivity {

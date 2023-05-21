@@ -20,4 +20,9 @@
     <style name="Theme.HappyBirthDay.AppBarOverlay"
         parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.HappyBirthDay.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.HappyBirthDay.Splash">
+        <item name="android:statusBarColor">#E3B9FE</item>
+        <item name="android:windowBackground">#FFFFFF</item>
+    </style>
 </resources>
