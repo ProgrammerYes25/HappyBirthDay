@@ -5,55 +5,99 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/garland_backgroud"
     tools:context=".SignUpActivity">
 
-    <TextView
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:text="@string/app_name"
-        android:textStyle="bold"
-        android:fontFamily="@font/notosans_regular"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="110dp"/>
+        android:gravity="center|top">
+
+        <ImageView
+            android:layout_width="1080px"
+            android:layout_height="390px"
+            android:scaleType="fitXY"
+            android:layout_gravity="right"
+            android:src="@drawable/signupbackback"/>
+
+        <ImageView
+            android:layout_width="1080px"
+            android:layout_height="320px"
+            android:scaleType="fitXY"
+            android:src="@drawable/signupback" />
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:src="@drawable/mainnamehbd"
+        android:scaleType="fitXY"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_comeback"
+            android:layout_marginTop="7dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_gravity="center"
+            android:textColor="#D3A3EF"
+            android:fontFamily="@font/notosans_regular"
+            android:text="&#160;&#160;&#160;&#160;&#160;&#160;회원가입"
+
+            />
+    </FrameLayout>
+
 
     <EditText
-        android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_width="284dp"
+        android:layout_height="50dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/input_nickname_text"
+        android:textColor="#9E97A7"
         android:fontFamily="@font/notosans_regular"
-        android:textSize="22sp"
+        android:textSize="15sp"
         android:layout_gravity="center"
-        android:layout_marginTop="35dp"/>
+        android:layout_marginTop="30dp"/>
     <EditText
-        android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:textColor="#9E97A7"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/input_id_text"
-        android:textSize="22sp"
+        android:textSize="15sp"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
-        android:layout_marginTop="18dp"/>
+        android:layout_marginTop="20dp"/>
     <EditText
-        android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:textColor="#9E97A7"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/input_pin_text"
         android:fontFamily="@font/notosans_regular"
-        android:textSize="22sp"
+        android:textSize="15sp"
         android:layout_gravity="center"
-        android:layout_marginTop="18dp"/>
+        android:layout_marginTop="20dp"/>
     <EditText
-        android:layout_width="280dp"
-        android:layout_height="40dp"
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:textColor="#9E97A7"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/check_pin_text"
         android:fontFamily="@font/notosans_regular"
-        android:textSize="22sp"
+        android:textSize="15sp"
         android:layout_gravity="center"
-        android:layout_marginTop="18dp"/>
+        android:layout_marginTop="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,77 +105,84 @@
         android:orientation="horizontal">
 
         <EditText
-            android:layout_width="68dp"
-            android:layout_height="40dp"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
             android:background="@drawable/rectangle_rounded_corner"
-            android:textSize="25sp"
-            android:text="   2023"
+            android:textSize="15sp"
+            android:textColor="#9E97A7"
+            android:text="&#160;&#160;&#160;&#160;&#160;2023"
             android:fontFamily="@font/notosans_regular"
-            android:layout_marginLeft="65dp"
-            android:layout_marginTop="18dp"/>
+            android:layout_marginLeft="56dp"
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/year_text"
-            android:textSize="22sp"
+            android:textSize="15sp"
+            android:textColor="#585062"
             android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="18dp"/>
+            android:layout_marginTop="20dp"/>
         <EditText
-            android:layout_width="52dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:background="@drawable/rectangle_rounded_corner"
-            android:textSize="25sp"
-            android:text="    01"
+            android:textSize="15sp"
+            android:textColor="#9E97A7"
+            android:text="&#160;&#160;&#160;&#160;&#160;&#160;01"
             android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="18dp"/>
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/month_text"
-            android:textSize="22sp"
+            android:textColor="#585062"
+            android:textSize="15sp"
             android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="18dp"/>
+            android:layout_marginTop="20dp"/>
         <EditText
-            android:layout_width="52dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:background="@drawable/rectangle_rounded_corner"
-            android:textSize="25sp"
-            android:text="    01"
+            android:textSize="15sp"
+            android:text="&#160;&#160;&#160;&#160;&#160;&#160;01"
+            android:textColor="#9E97A7"
             android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="18dp"/>
+            android:layout_marginTop="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/day_text"
-            android:textSize="22sp"
+            android:textColor="#585062"
+            android:textSize="15sp"
             android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="18dp"/>
+            android:layout_marginTop="20dp"/>
 
     </LinearLayout>
     <Button
-        android:layout_width="280dp"
-        android:layout_height="40dp"
-        android:background="@drawable/rectangle_rounded_corner"
-        android:textSize="22sp"
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_resource_activation_radadd"
+        android:textSize="16sp"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:text="@string/signin_text"
-        android:layout_marginTop="18dp"/>
+        android:layout_marginTop="20dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/note_text"
-        android:textSize="22sp"
+        android:textSize="11sp"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="left"
+        android:textColor="#9E97A7"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="10dp"/>
 

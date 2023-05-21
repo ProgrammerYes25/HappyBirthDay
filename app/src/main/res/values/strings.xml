@@ -7,17 +7,17 @@
     <string name="login_text">로그인</string>
     <string name="signin_text">회원가입</string>
     <!--회원가입-->
-    <string name="input_nickname_text">닉네임(6자이하)</string>
-    <string name="input_id_text">아이디(영문 소문자)</string>
-    <string name="input_pin_text">비밀번호(숫자)</string>
-    <string name="check_pin_text">비밀번호 확인</string>
+    <string name="input_nickname_text">&#160;&#160;&#160;&#160;&#160;&#160;이름</string>
+    <string name="input_id_text">&#160;&#160;&#160;&#160;&#160;&#160;아이디(영문 소문자)</string>
+    <string name="input_pin_text">&#160;&#160;&#160;&#160;&#160;&#160;비밀번호(최대 8개 숫자)</string>
+    <string name="check_pin_text">&#160;&#160;&#160;&#160;&#160;&#160;비밀번호 확인</string>
     <string name="year_text">년</string>
     <string name="month_text">월</string>
     <string name="day_text">일</string>
     <string name="note_text">*생일은 정확하게 입력해주세요*</string>
     <string name="welcome_text">반갑습니다!!</string>
     <string name="back_text">취소</string>
-    <string name="go_to_login_text">로그인하러가기</string>
+    <string name="go_to_login_text">시작하기</string>
     <!--케이크꾸미기-->
     <string name="make_cake1_text">케이크를 꾸며요!</string>
     <string name="make_cake2_text">꾸밀 재료를 선택한 후, 편지를 작성합니다</string>

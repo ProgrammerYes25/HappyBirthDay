@@ -61,14 +61,14 @@
         android:layout_height="50dp"
         android:text="@string/login_text"
         android:background="@drawable/rectangle_resource_activation_radadd"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="15sp"
+        android:textSize="14sp"
         android:layout_gravity="center"
         android:textColor="#D3A3EF"
         android:fontFamily="@font/notosans_regular"
