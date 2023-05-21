@@ -14,7 +14,7 @@
         android:textSize="50sp"
         android:text="@string/app_name"
         android:textStyle="bold"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:layout_gravity="top|center"
         android:layout_marginTop="110dp"/>
 
@@ -23,7 +23,7 @@
         android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/input_nickname_text"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:textSize="22sp"
         android:layout_gravity="center"
         android:layout_marginTop="35dp"/>
@@ -33,7 +33,7 @@
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/input_id_text"
         android:textSize="22sp"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:layout_marginTop="18dp"/>
     <EditText
@@ -41,7 +41,7 @@
         android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/input_pin_text"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:textSize="22sp"
         android:layout_gravity="center"
         android:layout_marginTop="18dp"/>
@@ -50,7 +50,7 @@
         android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:text="@string/check_pin_text"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:textSize="22sp"
         android:layout_gravity="center"
         android:layout_marginTop="18dp"/>
@@ -66,7 +66,7 @@
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="25sp"
             android:text="   2023"
-            android:fontFamily="@font/dongle_regular"
+            android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="65dp"
             android:layout_marginTop="18dp"/>
 
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:text="@string/year_text"
             android:textSize="22sp"
-            android:fontFamily="@font/dongle_regular"
+            android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"/>
         <EditText
@@ -84,7 +84,7 @@
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="25sp"
             android:text="    01"
-            android:fontFamily="@font/dongle_regular"
+            android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"/>
 
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:text="@string/month_text"
             android:textSize="22sp"
-            android:fontFamily="@font/dongle_regular"
+            android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"/>
         <EditText
@@ -102,7 +102,7 @@
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="25sp"
             android:text="    01"
-            android:fontFamily="@font/dongle_regular"
+            android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"/>
 
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:text="@string/day_text"
             android:textSize="22sp"
-            android:fontFamily="@font/dongle_regular"
+            android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="18dp"/>
 
@@ -121,7 +121,7 @@
         android:layout_height="40dp"
         android:background="@drawable/rectangle_rounded_corner"
         android:textSize="22sp"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:text="@string/signin_text"
         android:layout_marginTop="18dp"/>
@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:text="@string/note_text"
         android:textSize="22sp"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:layout_gravity="left"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="10dp"/>

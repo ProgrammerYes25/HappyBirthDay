@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello_text"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:textColor="#FFFFFF"
         android:textSize="35sp"
         android:layout_marginTop="25dp"
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:text="@string/birthday_text"
         android:textColor="#FFFFFF"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:textSize="25sp"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"/>
@@ -57,7 +57,7 @@
         android:gravity="center"
         android:textSize="30sp"
         android:textColor="#FFFFFF"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:paddingStart="20dp"
         android:paddingEnd="15dp"
         android:paddingBottom="5dp"
@@ -70,7 +70,7 @@
         android:layout_height="match_parent"
         android:text="@string/my_card_text"
         android:gravity="center"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:textSize="30sp"
         android:paddingStart="15dp"
         android:paddingEnd="20dp"
@@ -104,7 +104,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:text="@string/to_name"
         android:textSize="25sp"
         android:layout_marginLeft="30dp"/>
@@ -117,7 +117,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="210dp"
         android:text="@string/add_link_text"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:textSize="25sp"/>
 
 

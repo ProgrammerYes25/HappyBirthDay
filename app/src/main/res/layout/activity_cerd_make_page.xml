@@ -34,7 +34,7 @@
                 android:textSize="35sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:fontFamily="@font/dongle_regular"
+                android:fontFamily="@font/notosans_regular"
                 android:text="OO의 생일카드"/>
         </FrameLayout>
         <FrameLayout
@@ -52,7 +52,7 @@
                 android:gravity="center_horizontal"
                 android:visibility="gone"
                 android:textSize="23dp"
-                android:fontFamily="@font/dongle_regular"
+                android:fontFamily="@font/notosans_regular"
                 android:text="@string/make_award1_text"/>
         </FrameLayout>
     </com.google.android.material.appbar.AppBarLayout>

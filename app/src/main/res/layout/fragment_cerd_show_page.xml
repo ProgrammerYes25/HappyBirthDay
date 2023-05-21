@@ -24,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:textSize="33sp"
-                    android:fontFamily="@font/dongle_regular"
+                    android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_cake1_text"/>
                 <TextView
                     android:id="@+id/cake_make_subtitle_text_view"
@@ -33,7 +33,7 @@
                     android:gravity="center_horizontal"
                     android:textSize="22sp"
                     android:textColor="@color/purple_200"
-                    android:fontFamily="@font/dongle_regular"
+                    android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_cake2_text"/>
                 <!--케이크 레이아웃-->
                 <LinearLayout
@@ -217,7 +217,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:textSize="33sp"
-                    android:fontFamily="@font/dongle_regular"
+                    android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_polaroid1_text"/>
                 <TextView
                     android:id="@+id/make_polaroid_subtitle_text_view"
@@ -226,7 +226,7 @@
                     android:gravity="center_horizontal"
                     android:textSize="22sp"
                     android:textColor="@color/purple_200"
-                    android:fontFamily="@font/dongle_regular"
+                    android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_polaroid2_text"/>
                 <GridView
                     android:id="@+id/make_polaroid_grid_view"
@@ -249,7 +249,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:textSize="33sp"
-                    android:fontFamily="@font/dongle_regular"
+                    android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_video1_text"/>
                 <TextView
                     android:id="@+id/make_video_subtitle_text_view"
@@ -258,7 +258,7 @@
                     android:gravity="center_horizontal"
                     android:textSize="22sp"
                     android:textColor="@color/purple_200"
-                    android:fontFamily="@font/dongle_regular"
+                    android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_video2_text"/>
                 <!--비디오 grid view-->
                 <GridView
@@ -283,7 +283,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:textSize="33sp"
-                    android:fontFamily="@font/dongle_regular"
+                    android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_award1_text"/>
                 <TextView
                     android:id="@+id/make_award_subtitle_text_view"
@@ -292,7 +292,7 @@
                     android:gravity="center_horizontal"
                     android:textSize="22sp"
                     android:textColor="@color/purple_200"
-                    android:fontFamily="@font/dongle_regular"
+                    android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_award2_text"/>
                 <!--상장 grid view-->
                 <GridView

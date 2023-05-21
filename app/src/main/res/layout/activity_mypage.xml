@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mypage_background"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/main_profile"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="80dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_text"
+        android:fontFamily="@font/notosans_regular"
+        android:textSize="40sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="80dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="20sp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="195dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/month_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="20sp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="195dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="20sp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="195dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/id_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="25sp"
+            android:layout_gravity="right"
+            android:layout_marginRight="130dp"
+            android:layout_marginTop="195dp"/>
+
+
+
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_info_change"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rectangle_resource_deactivation_color"
+            android:text="@string/revise_member_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="18sp"
+            android:textColor="#575062"
+            />
+        <Button
+            android:id="@+id/btn_password_change"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rectangle_rounded_small_corner_color"
+            android:text="@string/revise_pin_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="18sp"
+            android:textColor="#575062"
+            />
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rectangle_rounded_small_corner_color"
+            android:text="@string/logout_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="18sp"
+            android:textColor="#575062"
+            />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

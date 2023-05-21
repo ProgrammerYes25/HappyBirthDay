@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:textSize="33sp"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:text="@string/make_award1_text"/>
     <TextView
         android:id="@+id/make_award_subtitle_text_view"
@@ -23,7 +23,7 @@
         android:gravity="center_horizontal"
         android:textSize="22sp"
         android:textColor="@color/purple_200"
-        android:fontFamily="@font/dongle_regular"
+        android:fontFamily="@font/notosans_regular"
         android:text="@string/make_award2_text"/>
     <!--상장 image view-->
     <ImageView
@@ -56,7 +56,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectangle_resource_perimeter_activation"
-                android:fontFamily="@font/dongle_regular"
+                android:fontFamily="@font/notosans_regular"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/previous_text"
@@ -70,7 +70,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectangle_resource_perimeter_activation"
-                android:fontFamily="@font/dongle_regular"
+                android:fontFamily="@font/notosans_regular"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="@string/next_text"
