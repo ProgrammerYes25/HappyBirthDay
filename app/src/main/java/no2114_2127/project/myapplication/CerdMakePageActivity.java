@@ -28,7 +28,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cerd_make_page);
+        setContentView(R.layout.activity_cerd_makeing_page);
         cerdMakeFrameLayoutId = R.id.cerd_make_frame_layout;
         // Layout find View by id
         cerdMakeFrameLayout = findViewById(R.id.cerd_make_frame_layout);
