@@ -62,6 +62,7 @@
         android:text="@string/login_text"
         android:layout_gravity="center"
         android:gravity="center"
+        android:textColor="#FFFFFF"
         android:background="@drawable/rectangle_resource_activation_radadd"
         android:textSize="16sp"
         android:fontFamily="@font/notosans_regular"
