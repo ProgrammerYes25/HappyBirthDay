@@ -36,7 +36,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="420dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/main_cake"
             android:orientation="vertical">
             <LinearLayout
@@ -124,19 +124,17 @@
 
                 </LinearLayout>
             </LinearLayout>
-
-
-            <!--케이크 페이지 텍스트 뷰-->
-            <TextView
-                android:id="@+id/page_num_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="1/2"
-                android:textColor="@color/purple_750"
-                android:textSize="50px" />
         </LinearLayout>
+        <!--케이크 페이지 텍스트 뷰-->
+        <TextView
+            android:id="@+id/page_num_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="1/2"
+            android:textColor="@color/purple_750"
+            android:textSize="50px" />
     </LinearLayout>
     <!--장식 달기 버튼-->
     <TextView
