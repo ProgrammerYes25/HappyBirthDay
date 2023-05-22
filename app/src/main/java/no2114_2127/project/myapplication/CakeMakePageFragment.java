@@ -17,7 +17,10 @@ public class CakeMakePageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cake_make_page, container, false);
         return view;
     }
-    public static CakeMakePageFragment newInstance() {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+    public static CakeMakePageFragment cakeMakePageInstance() {
         return new CakeMakePageFragment();
     }
 }

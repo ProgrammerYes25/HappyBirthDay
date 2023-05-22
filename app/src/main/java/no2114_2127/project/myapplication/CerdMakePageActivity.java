@@ -33,7 +33,6 @@ public class CerdMakePageActivity extends AppCompatActivity {
         // Layout find View by id
         cerdMakeFrameLayout = findViewById(R.id.cerd_make_frame_layout);
         // textView find View by id
-        cerdMakeSubtitleTextView = findViewById(R.id.cerd_make_subtitle_text_view);
         // ImageView find View by id
         backButtonImageView = findViewById(R.id.back_button_image_view);
 
@@ -49,6 +48,6 @@ public class CerdMakePageActivity extends AppCompatActivity {
             }
         });
 
-        //getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakeingPageFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakePageFragment).commitAllowingStateLoss();
     }
 }
