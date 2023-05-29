@@ -21,7 +21,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
     ImageView backButtonImageView;
     Fragment CakeMakePageFragment, CakeMakeingPageFragment, CakeMakeWritingPageFragment,
             PolaroidMakePageFragment, PolaroidMakeingPageFragment,
-            VideoUploadPragment, VideoUploadingPragment,
+            VideoUploadFragment, VideoUploadingPragment,
             AwardMakePageFragment, AwardMakeChooseFragment, AwardMakeChooseFormFragment, AwardMakeWritingPageFragment,
             FromFinishPageFragment;
 
@@ -40,7 +40,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
         CakeMakePageFragment = new CakeMakePageFragment();
         PolaroidMakePageFragment = new PolaroidMakePageFragment();
         AwardMakePageFragment = new AwardMakePageFragment();
-        VideoUploadPragment = new VideoUploadFragment();
+        VideoUploadFragment = new VideoUploadFragment();
         // setOnClick
         // backButtonImageView setOnClick
         backButtonImageView.setOnClickListener(new View.OnClickListener() {
