@@ -28,7 +28,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cerd_makeing_page);
+        setContentView(R.layout.activity_cerd_make_page);
         cerdMakeFrameLayoutId = R.id.cerd_make_frame_layout;
         // Layout find View by id
         cerdMakeFrameLayout = findViewById(R.id.cerd_make_frame_layout);
@@ -38,7 +38,9 @@ public class CerdMakePageActivity extends AppCompatActivity {
 
         // Fragent
         CakeMakePageFragment = new CakeMakePageFragment();
-
+        PolaroidMakePageFragment = new PolaroidMakePageFragment();
+        AwardMakePageFragment = new AwardMakePageFragment();
+        VideoUploadPragment = new VideoUploadFragment();
         // setOnClick
         // backButtonImageView setOnClick
         backButtonImageView.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +50,6 @@ public class CerdMakePageActivity extends AppCompatActivity {
             }
         });
 
-        getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakePageFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, VideoUploadFragment).commitAllowingStateLoss();
     }
 }

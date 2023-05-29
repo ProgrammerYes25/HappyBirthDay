@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:fitsSystemWindows="true"
-        android:layout_height="110dp"
+        android:layout_height="130dp"
         android:layout_width="match_parent"
         android:background="@color/purple_70"
         android:padding="10dp"
@@ -18,7 +18,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="25dp"
             android:orientation="horizontal">
             <TextView
                 android:id="@+id/cerd_make_title_text_view"
@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:fontFamily="@font/notosans_regular"
@@ -42,19 +42,20 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:padding="5dp"
-                android:layout_gravity="center"
-                android:src="@drawable/back_button"/>
+                android:layout_gravity="center" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/cerd_make_page1"/>
+
             <ImageView
+                android:id="@+id/next_button_image_view"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:padding="5dp"
                 android:layout_gravity="center"
-                android:src="@drawable/back_button"/>
+                android:padding="5dp"
+                android:src="@drawable/next_button" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
     <!--플레그먼트 자리-->
