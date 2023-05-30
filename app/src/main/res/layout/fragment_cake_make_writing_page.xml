@@ -1,80 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:padding="15dp"
     android:orientation="vertical"
-    tools:context=".CakeMakeWritingPageFragment">
-    <!--메시지 쓰기 설명-->
-    <TextView
-        android:id="@+id/writing_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:fontFamily="@font/notosans_regular"
-        android:text="@string/writing_text"
-        android:textSize="20dp"
-        />
-    <!--메시지 입력 레이아웃-->
+    tools:context=".CakeMakePageFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7"
+        android:layout_height="630dp"
         android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="320dp"
-            android:layout_height="410dp">
-            <!--메시지 입력 editText-->
-            <EditText
-                android:id="@+id/rolling_paper_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/dialog_background_round"
-                android:fontFamily="@font/notosans_regular"
-                android:gravity="top"
-                android:hint="@string/rolling_paper_hint_text"
-                android:paddingStart="20dp"
-                android:paddingTop="35dp"
-                android:paddingEnd="20dp"
-                android:paddingBottom="20dp"
-                android:textSize="50px" />
-
-            <ImageView
-                android:id="@+id/rolling_paper_deco_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/img_decorative_example"
-                />
-        </FrameLayout>
-        <!--from 입력editText-->
-        <EditText
-            android:id="@+id/from_edit_text"
+        <!--메시지 쓰기 설명-->
+        <TextView
+            android:id="@+id/writing_text_view"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="20dp"
             android:fontFamily="@font/notosans_regular"
-            android:background="@drawable/background_round"
-            android:hint="@string/from_hint_text"
-            android:textSize="40px"/>
-    </LinearLayout>
+            android:text="@string/writing_text"
+            android:textSize="22dp"
+            />
+        <!--메시지 입력 레이아웃-->
+        <LinearLayout
+            android:layout_width="370dp"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
 
+            <FrameLayout
+                android:layout_width="370dp"
+                android:layout_height="400dp">
+                <!--메시지 입력 editText-->
+
+                <EditText
+                    android:id="@+id/rolling_paper_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/dialog_background_round"
+                    android:fontFamily="@font/notosans_regular"
+                    android:gravity="top"
+                    android:hint="@string/rolling_paper_hint_text"
+                    android:paddingStart="20dp"
+                    android:paddingTop="50dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="20dp"
+                    android:textSize="50px" />
+
+                <ImageView
+                    android:id="@+id/rolling_paper_deco_image_view"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/img_decorative_example"
+                    />
+            </FrameLayout>
+            <!--from 입력editText-->
+            <EditText
+                android:id="@+id/from_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:fontFamily="@font/notosans_regular"
+                android:background="@drawable/background_round"
+                android:hint="@string/from_hint_text"
+                android:textSize="40px"/>
+        </LinearLayout>
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
         android:focusable="true"
-        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical">
         <LinearLayout
@@ -110,4 +116,4 @@
                 android:textSize="16sp" />
         </LinearLayout>
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>
