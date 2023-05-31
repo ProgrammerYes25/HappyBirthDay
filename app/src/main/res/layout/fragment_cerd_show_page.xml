@@ -11,204 +11,155 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical" >
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:padding="20dp"
-                android:orientation="vertical" >
-                <TextView
-                    android:id="@+id/cake_make_title_text_view"
+                android:layout_height="630dp"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:textSize="33sp"
-                    android:fontFamily="@font/notosans_regular"
-                    android:text="@string/make_cake1_text"/>
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/sound_button_imate_view"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:padding="5dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/sound_button"/>
+                    <!--케이크 꾸미기 설명-->
+                    <TextView
+                        android:id="@+id/cake_make_title_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/notosans_regular"
+                        android:text="@string/make_cake1_text"/>
+                </RelativeLayout>
+
                 <TextView
                     android:id="@+id/cake_make_subtitle_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="15sp"
                     android:textColor="@color/purple_200"
                     android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_cake2_text"/>
                 <!--케이크 레이아웃-->
                 <LinearLayout
-                    android:id="@+id/cake_make_Linear_Layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:padding="15dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
+                    android:layout_width="375dp"
+                    android:layout_height="455dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/main_cake"
                     android:orientation="vertical">
-                    <!--촛불-->
-                    <ImageView
-                        android:id="@+id/candle_flame_image_view"
+                    <LinearLayout
+                        android:id="@+id/cake_make_Linear_Layout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
                         android:gravity="center_horizontal"
-                        android:src="@drawable/img_candle_flame" />
-                    <TextView
-                        android:id="@+id/candle_image_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="19"
-                        android:textSize="95px"
-                        android:textStyle="bold" />
-                    <!--케이크 4충 레이아웃-->
-                    <LinearLayout
-                        android:id="@+id/the_4th_floor_cake_linear_layout"
-                        android:layout_width="190dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rectangle_cake1"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:padding="5dp">
-                        <ImageView
-                            android:id="@+id/decorative1_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative2_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+                        <!--케이크 3충 레이아웃-->
+                        <LinearLayout
+                            android:id="@+id/the_4th_floor_cake_linear_layout"
+                            android:layout_width="90dp"
+                            android:layout_height="80dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="30dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/decorative2_image_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:src="@drawable/img_decorative_example" />
+                        </LinearLayout>
+                        <!--케이크 2충 레이아웃-->
+                        <LinearLayout
+                            android:id="@+id/the_3rd_floor_cake_linear_layout"
+                            android:layout_width="230dp"
+                            android:layout_height="90dp"
+                            android:gravity="center"
+                            android:layout_marginBottom="30dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/decorative4_image_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/img_decorative_example" />
+
+                            <ImageView
+                                android:id="@+id/decorative5_image_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/img_decorative_example" />
+                        </LinearLayout>
+                        <!--케이크 1충 레이아웃-->
+                        <LinearLayout
+                            android:id="@+id/the_second_floor_cake_linear_layout"
+                            android:layout_width="300dp"
+                            android:layout_height="90dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/decorative6_image_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/img_decorative_example" />
+
+                            <ImageView
+                                android:id="@+id/decorative7_image_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/img_decorative_example" />
+
+                            <ImageView
+                                android:id="@+id/decorative8_image_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/img_decorative_example" />
+
+                        </LinearLayout>
                     </LinearLayout>
-                    <!--케이크 3충 레이아웃-->
-                    <LinearLayout
-                        android:id="@+id/the_3rd_floor_cake_linear_layout"
-                        android:layout_width="280dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rectangle_cake1"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:padding="5dp">
-                        <ImageView
-                            android:id="@+id/decorative3_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative4_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative5_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                    </LinearLayout>
-                    <!--케이크 2충 레이아웃-->
-                    <LinearLayout
-                        android:id="@+id/the_second_floor_cake_linear_layout"
-                        android:layout_width="350dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rectangle_cake1"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:padding="5dp">
-                        <ImageView
-                            android:id="@+id/decorative6_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative7_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative8_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative9_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                    </LinearLayout>
-                    <!--케이크 1충 레이아웃-->
-                    <LinearLayout
-                        android:id="@+id/the_first_floor_cake_linear_layout"
-                        android:layout_width="350dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rectangle_cake2"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:padding="5dp">
-                        <ImageView
-                            android:id="@+id/decorative10_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative11_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative12_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                        <ImageView
-                            android:id="@+id/decorative13_image_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/img_decorative_example"/>
-                    </LinearLayout>
-                    <!--케이크 페이지 텍스트 뷰-->
-                    <TextView
-                        android:id="@+id/page_num_text_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="1/2"
-                        android:textSize="50px" />
                 </LinearLayout>
+                <!--케이크 페이지 텍스트 뷰-->
+                <TextView
+                    android:id="@+id/page_num_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="1/2"
+                    android:textColor="@color/purple_750"
+                    android:textSize="20sp" />
             </LinearLayout>
             <!--폴라로이드-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:orientation="vertical" >
                 <!--폴라로이드 만들기 설명-->
                 <TextView
@@ -216,7 +167,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textSize="33sp"
+                    android:textSize="20sp"
                     android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_polaroid1_text"/>
                 <TextView
@@ -224,7 +175,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="15sp"
                     android:textColor="@color/purple_200"
                     android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_polaroid2_text"/>
@@ -240,7 +191,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:orientation="vertical" >
                 <!--비디오 업로드 설명-->
                 <TextView
@@ -248,7 +199,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textSize="33sp"
+                    android:textSize="20sp"
                     android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_video1_text"/>
                 <TextView
@@ -256,7 +207,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="15sp"
                     android:textColor="@color/purple_200"
                     android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_video2_text"/>
@@ -274,7 +225,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:orientation="vertical" >
                 <!--상장 만들기 설명-->
                 <TextView
@@ -282,7 +233,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textSize="33sp"
+                    android:textSize="20sp"
                     android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_award1_text"/>
                 <TextView
@@ -290,7 +241,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textSize="22sp"
+                    android:textSize="15sp"
                     android:textColor="@color/purple_200"
                     android:fontFamily="@font/notosans_regular"
                     android:text="@string/make_award2_text"/>
@@ -303,6 +254,22 @@
                     android:numColumns="2">
                 </GridView>
             </LinearLayout>
+            <!--장식 달기 버튼-->
+            <TextView
+                android:id="@+id/decoration_button_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/rectangle_resource_activation"
+                android:fontFamily="@font/notosans_regular"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/decoration2_text"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
         </LinearLayout>
+
     </ScrollView>
+
 </LinearLayout>
