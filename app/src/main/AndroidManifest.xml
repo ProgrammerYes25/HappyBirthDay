@@ -11,13 +11,17 @@
         android:theme="@style/Theme.HappyBirthDay">
         <activity
             android:name=".CerdMakeingPageActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.HappyBirthDay.Splash2"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity
             android:name=".CerdMakePageActivity"
-            android:exported="true" />
-        <activity
-            android:name=".PolaroidMakePageFragment"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.HappyBirthDay.Splash2"/>
+
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
@@ -26,11 +30,7 @@
             android:name=".LoginActivity"
             android:exported="true"
             android:theme="@style/Theme.HappyBirthDay.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
