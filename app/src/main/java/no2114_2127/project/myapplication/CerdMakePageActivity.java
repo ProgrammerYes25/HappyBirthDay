@@ -50,6 +50,6 @@ public class CerdMakePageActivity extends AppCompatActivity {
             }
         });
 
-        getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, VideoUploadFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakePageFragment).commitAllowingStateLoss();
     }
 }

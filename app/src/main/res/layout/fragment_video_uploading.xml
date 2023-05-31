@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     android:orientation="vertical"
-    android:layout_margin="15dp"
-    tools:context=".VideoUploadingFragment">
+    tools:context=".VideoUploadFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="150dp"
         android:orientation="vertical"
         android:layout_marginTop="30dp">
         <!--업로드할 VideoView-->
@@ -19,27 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"/>
     </LinearLayout>
-    <RelativeLayout
+    <!--장식 달기 버튼-->
+    <TextView
+        android:id="@+id/video_button_text_view"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="50dp"
         android:layout_gravity="bottom"
-        android:background="@color/white"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical"
-        android:padding="10dp">
-        <!--업로드 dutton text view-->
-        <TextView
-            android:id="@+id/video_uplode_dutton_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/rectangle_resource_perimeter_activation"
-            android:fontFamily="@font/notosans_regular"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/make_video_uplode_text"
-            android:textColor="@color/black_600"
-            android:textSize="27sp" />
-    </RelativeLayout>
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rectangle_resource_activation"
+        android:fontFamily="@font/notosans_regular"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/make_video3_text"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+</RelativeLayout>
