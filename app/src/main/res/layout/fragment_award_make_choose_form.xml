@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
+    android:padding="10dp"
     android:orientation="vertical"
-    tools:context=".AwardMakeChooseFormFragment">
-    <!--상장 만들기 설명-->
-    <TextView
-        android:id="@+id/make_award_title_text_view"
+    tools:context=".PolaroidMakePageFragment">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textSize="33sp"
-        android:fontFamily="@font/notosans_regular"
-        android:text="@string/make_award1_text"/>
-    <TextView
-        android:id="@+id/make_award_subtitle_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textSize="22sp"
-        android:textColor="@color/purple_200"
-        android:fontFamily="@font/notosans_regular"
-        android:text="@string/make_award2_text"/>
-    <!--상장 image view-->
-    <ImageView
-        android:id="@+id/make_award_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_margin="10dp"/>
+        android:layout_height="655dp"
+        android:orientation="vertical">
+        <!--상장 image view-->
+        <ImageView
+            android:id="@+id/make_award_image_view"
+            android:layout_width="330dp"
+            android:layout_height="473dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="45dp"/>
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,7 +40,7 @@
             <TextView
                 android:id="@+id/previous_button_text_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectangle_resource_perimeter_activation"
@@ -61,12 +49,12 @@
                 android:padding="5dp"
                 android:text="@string/previous_text"
                 android:textColor="@color/black_600"
-                android:textSize="27sp" />
+                android:textSize="16sp" />
             <!--다음 button textView-->
             <TextView
                 android:id="@+id/next_button_text_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectangle_resource_perimeter_activation"
@@ -75,8 +63,7 @@
                 android:padding="5dp"
                 android:text="@string/next_text"
                 android:textColor="@color/black_600"
-                android:textSize="27sp" />
+                android:textSize="16sp" />
         </LinearLayout>
     </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>
