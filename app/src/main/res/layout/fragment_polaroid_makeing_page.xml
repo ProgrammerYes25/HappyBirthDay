@@ -1,76 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     android:orientation="vertical"
-    tools:context=".PolaroidMakeingPageFragment">
+    tools:context=".PolaroidMakePageFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="655dp"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="343dp"
-        android:layout_height="500dp"
-        android:layout_gravity="center"
-        android:layout_weight="1">
-        <!--업로드 한 사진 image view-->
-        <ImageView
-            android:id="@+id/polaroid_photo_image_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <FrameLayout
+            android:layout_width="350dp"
+            android:layout_height="520dp"
             android:layout_gravity="center"
-            android:src="@drawable/test_polaroid_image2" />
-        <!--폴라로이드 프레임 image view-->
-        <ImageView
-            android:id="@+id/polaroid_image_view"
+            android:layout_marginTop="20dp">
+            <!--업로드 한 사진 image view-->
+            <ImageView
+                android:id="@+id/polaroid_photo_image_view"
+                android:layout_width="298dp"
+                android:layout_height="392dp"
+                android:layout_marginTop="24dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/test_polaroid_image2" />
+            <!--폴라로이드 프레임 image view-->
+            <ImageView
+                android:id="@+id/polaroid_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/test_polaroid_image" />
+            <!--메모 적는 edit text-->
+            <EditText
+                android:id="@+id/polaroid_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:fontFamily="@font/notosans_regular"
+                android:padding="15dp"
+                android:hint="@string/text_hint_text"
+                android:textColor="@color/black_600"
+                android:textSize="22sp" />
+        </FrameLayout>
+        <!--폴라로이드 고르는 list-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:src="@drawable/test_polaroid_image" />
-        <!--메모 적는 edit text-->
-        <EditText
-            android:id="@+id/polaroid_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_gravity="bottom"
-            android:fontFamily="@font/notosans_regular"
-            android:padding="10dp"
-            android:hint="@string/text_hint_text"
-            android:textColor="@color/black_600"
-            android:textSize="40sp" />
-    </FrameLayout>
-    <!--폴라로이드 고르는 list-->
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2">
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/test_image2" />
-    </HorizontalScrollView>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical"
-        android:padding="10dp">
-        <!--다음 button textView-->
-        <TextView
-            android:id="@+id/next_button_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle_resource_perimeter_deactivation"
-            android:fontFamily="@font/notosans_regular"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/next_text"
-            android:textColor="@color/black_600"
-            android:textSize="27sp" />
-    </RelativeLayout>
-</LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+    <!--장식 달기 버튼-->
+    <TextView
+        android:id="@+id/polaroid_button_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rectangle_resource_perimeter_activation"
+        android:fontFamily="@font/notosans_regular"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@string/make_polaroid3_text"
+        android:textColor="@color/black_900"
+        android:textSize="16sp" />
+</RelativeLayout>
