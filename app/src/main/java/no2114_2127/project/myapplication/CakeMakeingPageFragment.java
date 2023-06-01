@@ -16,7 +16,14 @@ public class CakeMakeingPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cake_makeing_page, container, false);
+        // nextButton 세팅
         nextButtonTextView = view.findViewById(R.id.next_button_text_view);
+        nextButtonTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
+            }
+        });
         return view;
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
