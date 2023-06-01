@@ -5,18 +5,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CakeMakePageFragment extends Fragment {
-    // button
+    // textView button
     TextView decorationButtonTextView;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,9 +38,11 @@ public class CakeMakePageFragment extends Fragment {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            Intent intent = new Intent(getActivity(), CerdMakeingPageActivity.class);
             switch (v.getId()){
-                case R.id.fragment_cake_make_page:
-
+                case R.id.decoration_button_text_view:
+                    startActivity(intent);
+                break;
             }
         }
     };
