@@ -23,9 +23,12 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cerd_makeing_page);
         backButtonImageView = findViewById(R.id.back_button_image_view);
         backButtonImageView.setOnClickListener(onClickListener);
+        CakeMakeingPageFragment = new CakeMakeingPageFragment();
+
         switch (CerdMakePageActivity.stage){
             case 0:
                 //케이크
+                cakeView();
                 break;
             case 1:
                 //폴라로이드
@@ -48,4 +51,8 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void cakeView(){
+        getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakeingPageFragment).commitAllowingStateLoss();
+    }
 }

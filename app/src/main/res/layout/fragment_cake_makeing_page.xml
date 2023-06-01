@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="15dp"
     android:orientation="vertical"
-    tools:context=".CakeMakePageFragment">
+    tools:context=".CakeMakeingPageFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="600dp"
@@ -19,6 +19,7 @@
             android:gravity="center_horizontal"
             android:layout_margin="20dp"
             android:textSize="22sp"
+            android:textStyle="bold"
             android:fontFamily="@font/notosans_regular"
             android:text="@string/made_card_text"/>
         <GridView

@@ -19,7 +19,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
     //TextView
     TextView cerdMakeSubtitleTextView;
     //ImageView
-    ImageView cancelButtonImageView;
+    ImageView backButtonImageView, nextButtonImageView, stageImageView, cancelButtonImageView;
     Fragment CakeMakePageFragment, CakeMakeingPageFragment, CakeMakeWritingPageFragment,
             PolaroidMakePageFragment, PolaroidMakeingPageFragment,
             VideoUploadFragment, VideoUploadingPragment,
@@ -37,6 +37,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
         // textView find View by id
         // ImageView find View by id
         cancelButtonImageView = findViewById(R.id.cancel_button_image_view);
+        backButtonImageView = findViewById(R.id.back_button_image_view);
 
         // Fragent
         CakeMakePageFragment = new CakeMakePageFragment();
@@ -61,17 +62,18 @@ public class CerdMakePageActivity extends AppCompatActivity {
             case 1:
                 //폴라로이드
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, PolaroidMakePageFragment).commitAllowingStateLoss();
+                backButtonImageView.setVisibility(View.VISIBLE);
                 break;
-            case 3:
+            case 2:
                 //동영상
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, VideoUploadFragment).commitAllowingStateLoss();
                 break;
-            case 4:
+            case 3:
                 //상장
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, AwardMakePageFragment).commitAllowingStateLoss();
                 break;
-            case 5:
-                //상장
+            case 4:
+                //마무리
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, FromFinishPageFragment).commitAllowingStateLoss();
                 break;
         }
