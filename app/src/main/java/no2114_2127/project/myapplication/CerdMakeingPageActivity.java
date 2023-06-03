@@ -85,8 +85,10 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakeingPageFragment).commitAllowingStateLoss();
         addContentView(llayout, params);
         llayout.setVisibility(View.GONE);
-        TextView textView = llayout.findViewById(R.id.rolling_paper_next_button_text_view);
-        textView.setOnClickListener(onClickListener);
+        TextView rollingPaperNextTextView = llayout.findViewById(R.id.rolling_paper_next_button_text_view);
+        TextView rollingPaperPreviousTextView = llayout.findViewById(R.id.rolling_paper_previous_button_text_view);
+        rollingPaperNextTextView.setOnClickListener(onClickListener);
+        rollingPaperPreviousTextView.setOnClickListener(onClickListener);
     }
 
     public static void rollingPaperSheet(){

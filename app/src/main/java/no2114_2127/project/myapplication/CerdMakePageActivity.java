@@ -69,7 +69,6 @@ public class CerdMakePageActivity extends AppCompatActivity {
                 //케이크
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakePageFragment).commitAllowingStateLoss();
                 break;
-
             case 1:
                 //폴라로이드
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, PolaroidMakePageFragment).commitAllowingStateLoss();
