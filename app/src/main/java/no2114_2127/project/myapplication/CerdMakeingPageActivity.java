@@ -1,14 +1,21 @@
 package no2114_2127.project.myapplication;
 
+import static android.app.PendingIntent.getActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -23,6 +30,10 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
             AwardMakeChooseFragment, AwardMakeChooseFormFragment, AwardMakeWritingPageFragment;
 
     static BottomSheetDialog bottomSheetDialog;
+
+    static LinearLayout llayout, rollingPapaerLinearLayout;
+    static LayoutInflater inflater1;
+    static LinearLayout.LayoutParams params;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +41,10 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         backButtonImageView = findViewById(R.id.back_button_image_view);
         backButtonImageView.setOnClickListener(onClickListener);
         CakeMakeingPageFragment = new CakeMakeingPageFragment();
-        inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater1 = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        llayout = (LinearLayout) inflater1.inflate(R.layout.rolling_paper_frames_bottom_sheet, null);
+        llayout.setBackgroundColor(Color.parseColor("#99000000"));
+        params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
         switch (CerdMakePageActivity.stage){
             case 0:
                 //케이크
@@ -48,24 +62,35 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         }
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
+
         @Override
         public void onClick(View view) {
             switch (view.getId()){
+                case R.id.rolling_paper_next_button_text_view:
+                    CerdMakePageActivity.stage++;
                 case R.id.back_button_image_view:
                     finish();
+                    break;
+                case R.id.rolling_paper_previous_button_text_view:
+                    llayout.setVisibility(View.GONE);
                     break;
             }
         }
     };
 
+
+
     private void cakeView(){
         getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakeingPageFragment).commitAllowingStateLoss();
-        View view = inflater.inflate(R.layout.rolling_paper_frames_bottom_sheet, null, false);
-        bottomSheetDialog = new BottomSheetDialog(CerdMakeingPageActivity.this);
-        bottomSheetDialog.setContentView(view);
+        addContentView(llayout, params);
+        llayout.setVisibility(View.GONE);
+        TextView textView = llayout.findViewById(R.id.rolling_paper_next_button_text_view);
+        textView.setOnClickListener(onClickListener);
     }
+
     public static void rollingPaperSheet(){
-        bottomSheetDialog.show();
+        //rollingPapaerLinearLayout.setVisibility(View.VISIBLE);
+        llayout.setVisibility(View.VISIBLE);
     }
 
     public void replaceFragment(Fragment fragment) {

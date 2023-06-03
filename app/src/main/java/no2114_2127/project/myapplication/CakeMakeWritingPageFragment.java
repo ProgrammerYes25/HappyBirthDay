@@ -43,7 +43,7 @@ public class CakeMakeWritingPageFragment extends Fragment {
                     break;
                 case R.id.next_button_text_view:
                     //((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
-                    CerdMakeingPageActivity.rollingPaperSheet();
+                    ((CerdMakeingPageActivity)getActivity()).rollingPaperSheet();
                     break;
             }
         }

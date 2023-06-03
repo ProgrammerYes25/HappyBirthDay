@@ -1,11 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/rolling_paper_frame_1"
-    app:behavior_hideable="true"
-    app:behavior_peekHeight="700dp"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
-
+    android:id="@+id/rolling_paper"
+    android:gravity="bottom"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="655dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/rolling_paper_frame_1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/rolling_paper_icon"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/cake_decorative_heart"/>
+            <EditText
+                android:id="@+id/rolling_paper_from"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="#00000000"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="20dp"
+                android:textSize="20dp"
+                android:text="HBD 디자이너"
+                android:focusableInTouchMode="false"
+                android:gravity="center"/>
+            <EditText
+                android:id="@+id/rolling_paper_content"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="#00000000"
+                android:text="장식마다 롤링페이퍼 종이가 달라진다. 총 4
+종류의 롤링페이퍼 프레임이 있다.
+장식 3개가 같은 롤링페이퍼 프레임을
+사용한다.장식마다 롤링페이퍼 종이가 달라진다. 총 4
+종류의 롤링페이퍼 프레임이 있다.
+장식 3개가 같은 롤링페이퍼 프레임을
+사용한다. 길게길게 적어서 늘어나는 경우
+는 이렇게 스크롤 되게끔 하면 어떨까요?
+이건 예시 글로 길게 써보고 있어서 아무말
+이나 주르륵 써볼게요 꽤 길게 써야 밑으로
+내려가겠네요.. 이제 한두줄만 더 쓰면 될 것
+같은데 ... 디자이너 개발자 모두 화이팅!!"
+                android:focusableInTouchMode="false"
+                android:lineSpacingExtra="5dp"
+                android:textSize="20dp"
+                android:gravity="top"
+                android:padding="15dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:focusable="true"
+                android:layout_alignParentBottom="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                android:background="#00000000"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <!--이전 button textView-->
+                    <TextView
+                        android:id="@+id/rolling_paper_previous_button_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_resource_perimeter_activation"
+                        android:fontFamily="@font/notosans_regular"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/previous_text"
+                        android:textColor="@color/black_600"
+                        android:textSize="16sp" />
+                    <!--다음 button textView-->
+                    <TextView
+                        android:id="@+id/rolling_paper_next_button_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangle_resource_perimeter_activation"
+                        android:fontFamily="@font/notosans_regular"
+                        android:gravity="center"
+                        android:text="@string/next_text"
+                        android:textColor="@color/black_600"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
 </LinearLayout>
