@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:orientation="vertical"
-    tools:context=".AwardMakePageFragment">
+    tools:context=".AwardMakeingWritingPageFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="600dp"

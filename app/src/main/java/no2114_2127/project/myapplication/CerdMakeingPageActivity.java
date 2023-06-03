@@ -26,7 +26,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
     Fragment CakeMakeingPageFragment,
             PolaroidMakeingPageFragment,
             VideoUploadingFragment,
-            AwardMakeChooseFragment;
+            AwardMakeingWritingPageFragment;
 
     // rollingPaper를 보여주기 위한 셋팅
     static LinearLayout rollingPaperLayout;
@@ -41,6 +41,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         CakeMakeingPageFragment = new CakeMakeingPageFragment();
         PolaroidMakeingPageFragment = new PolaroidMakeingPageFragment();
         VideoUploadingFragment = new VideoUploadingFragment();
+        AwardMakeingWritingPageFragment = new AwardMakeingWritingPageFragment();
 
         // rollingPaper를 보여주기 위한 셋팅
         inflater1 = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -64,6 +65,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
                 break;
             case 3:
                 //상장
+                awardView();
                 break;
         }
     }
@@ -113,6 +115,10 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
 
     private void videoView() {
         getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, VideoUploadingFragment).commitAllowingStateLoss();
+    }
+    private void awardView() {
+        getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, AwardMakeingWritingPageFragment).commitAllowingStateLoss();
+
     }
 
     public void replaceFragment(Fragment fragment) {
