@@ -3,14 +3,16 @@ package no2114_2127.project.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CerdMakePageActivity extends AppCompatActivity {
-    public static int stage;
     String CerdMakeTitle = "의 생일카드";
 
     int cerdMakeFrameLayoutId;
@@ -30,7 +32,6 @@ public class CerdMakePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cerd_make_page);
-        stage = 0;
         cerdMakeFrameLayoutId = R.id.cerd_make_frame_layout;
         // Layout find View by id
         cerdMakeFrameLayout = findViewById(R.id.cerd_make_frame_layout);
@@ -53,12 +54,22 @@ public class CerdMakePageActivity extends AppCompatActivity {
                 finish();
             }
         });
+        Log.d("확인 : ", StageClass.stage+"번");
+        startFragment();
 
-        switch (stage){
+
+    }
+    public  void reStart(){
+        startFragment();
+    }
+    public void startFragment(){
+
+        switch (StageClass.stage){
             case 0:
                 //케이크
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakePageFragment).commitAllowingStateLoss();
                 break;
+
             case 1:
                 //폴라로이드
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, PolaroidMakePageFragment).commitAllowingStateLoss();
@@ -77,7 +88,5 @@ public class CerdMakePageActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, FromFinishPageFragment).commitAllowingStateLoss();
                 break;
         }
-
-
     }
 }

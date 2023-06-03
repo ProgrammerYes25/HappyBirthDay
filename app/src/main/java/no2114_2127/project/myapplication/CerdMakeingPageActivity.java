@@ -45,7 +45,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         llayout = (LinearLayout) inflater1.inflate(R.layout.rolling_paper_frames_bottom_sheet, null);
         llayout.setBackgroundColor(Color.parseColor("#99000000"));
         params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
-        switch (CerdMakePageActivity.stage){
+        switch (StageClass.stage){
             case 0:
                 //케이크
                 cakeView();
@@ -65,11 +65,13 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
+            Intent intent = new Intent(CerdMakeingPageActivity.this, CerdMakePageActivity.class);
             switch (view.getId()){
                 case R.id.rolling_paper_next_button_text_view:
-                    CerdMakePageActivity.stage++;
+                    StageClass.stage = 1;
                 case R.id.back_button_image_view:
                     finish();
+                    startActivity(intent);
                     break;
                 case R.id.rolling_paper_previous_button_text_view:
                     llayout.setVisibility(View.GONE);
@@ -77,7 +79,6 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
             }
         }
     };
-
 
 
     private void cakeView(){

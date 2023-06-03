@@ -39,8 +39,10 @@ public class CakeMakePageFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(getActivity(), CerdMakeingPageActivity.class);
+
             switch (v.getId()){
                 case R.id.decoration_button_text_view:
+                    getActivity().finish();
                     startActivity(intent);
                 break;
             }
