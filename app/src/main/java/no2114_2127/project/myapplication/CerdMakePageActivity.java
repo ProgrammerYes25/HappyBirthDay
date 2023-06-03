@@ -36,6 +36,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
         // Layout find View by id
         cerdMakeFrameLayout = findViewById(R.id.cerd_make_frame_layout);
         // textView find View by id
+
         // ImageView find View by id
         cancelButtonImageView = findViewById(R.id.cancel_button_image_view);
         backButtonImageView = findViewById(R.id.back_button_image_view);
@@ -59,9 +60,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
 
 
     }
-    public  void reStart(){
-        startFragment();
-    }
+
     public void startFragment(){
 
         switch (StageClass.stage){
