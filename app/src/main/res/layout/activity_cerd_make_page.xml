@@ -55,12 +55,12 @@
                 android:padding="5dp"
                 android:layout_gravity="center"
                 android:src="@drawable/back_button"
-                android:visibility="invisible"
+                android:visibility="visible"
                 />
             <ImageView
                 android:id="@+id/stage_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="148dp"
+                android:layout_height="20.19dp"
                 android:layout_gravity="center"
                 android:src="@drawable/cerd_make_page1"/>
 

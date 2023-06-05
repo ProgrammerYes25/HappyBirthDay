@@ -40,6 +40,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
         // ImageView find View by id
         cancelButtonImageView = findViewById(R.id.cancel_button_image_view);
         backButtonImageView = findViewById(R.id.back_button_image_view);
+        stageImageView = findViewById(R.id.stage_image_view);
 
         // Fragent
         CakeMakePageFragment = new CakeMakePageFragment();
@@ -67,23 +68,27 @@ public class CerdMakePageActivity extends AppCompatActivity {
             case 0:
                 //케이크
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakePageFragment).commitAllowingStateLoss();
+                backButtonImageView.setVisibility(View.INVISIBLE);
                 break;
             case 1:
                 //폴라로이드
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, PolaroidMakePageFragment).commitAllowingStateLoss();
-                backButtonImageView.setVisibility(View.VISIBLE);
+                stageImageView.setImageResource(R.drawable.cerd_make_page2);
                 break;
             case 2:
                 //동영상
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, VideoUploadFragment).commitAllowingStateLoss();
+                stageImageView.setImageResource(R.drawable.cerd_make_page3);
                 break;
             case 3:
                 //상장
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, AwardMakePageFragment).commitAllowingStateLoss();
+                stageImageView.setImageResource(R.drawable.cerd_make_page4);
                 break;
             case 4:
                 //마무리
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, FromFinishPageFragment).commitAllowingStateLoss();
+                stageImageView.setImageResource(R.drawable.cerd_make_page5);
                 break;
         }
     }
