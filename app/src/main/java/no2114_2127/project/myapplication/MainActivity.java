@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         TextView toggleDeco=findViewById(R.id.toggle_tv_deco);
         //Y-초기커밋~~~!!
         //C-테스트커밋!!
-        toggleDeco.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG) ;
+
 
         mAuth = FirebaseAuth.getInstance(); //FirevaseAuth 객체 정의
         FirebaseUser currentUser = mAuth.getCurrentUser();

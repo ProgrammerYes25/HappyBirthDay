@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <ImageView
+        android:layout_width="411dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_back"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/back_icon"
+            android:layout_gravity="left"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="30dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 관리"
+            android:fontFamily="@font/notosans_bold"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"/>
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/main_profile"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="20dp"/>
+
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="40dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 사진 수정"
+            android:textSize="13sp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/notosans_regular"
+            android:textColor="#D3A3EF"
+            />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/setting_pencil"/>
+   </FrameLayout>
+    <EditText
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="@string/input_nickname_text"
+        android:paddingStart="25dp"
+        android:fontFamily="@font/notosans_regular"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="50dp"
+        android:textColor="#9E97A7"/>
+    <EditText
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="아이디"
+        android:paddingStart="25dp"
+        android:fontFamily="@font/notosans_regular"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#9E97A7"/>
+    <EditText
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="@string/birthday_text"
+        android:paddingStart="25dp"
+        android:fontFamily="@font/notosans_regular"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#9E97A7"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="계정 설정"
+        android:fontFamily="@font/notosans_regular"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="알림 설정"
+        android:gravity="center_vertical"
+        android:paddingStart="25dp"
+        android:fontFamily="@font/notosans_regular"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#9E97A7"/>
+    <TextView
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="로그아웃"
+        android:gravity="center"
+        android:paddingStart="25dp"
+        android:fontFamily="@font/notosans_regular"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="25dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:layout_width="284dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rectangle_rounded_corner"
+        android:text="계정탈퇴"
+        android:gravity="center"
+        android:paddingStart="25dp"
+        android:fontFamily="@font/notosans_regular"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#FF3D31"/>
+
+
+
+</LinearLayout>

@@ -5,120 +5,136 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_background"
     android:orientation="vertical"
     tools:context=".MainActivity">
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="414dp"
+        android:layout_height="210dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_back"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_text"
-        android:fontFamily="@font/notosans_regular"
+        android:text="양지혜"
+        android:fontFamily="@font/notosans_bold"
         android:textColor="#FFFFFF"
-        android:textSize="35sp"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="10dp"/>
+        android:textSize="25sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="110dp"/>
 <ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="65dp"
+    android:layout_height="65dp"
     android:src="@drawable/main_profile"
-    android:layout_gravity="right"
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="40dp"/>
+    android:scaleType="fitXY"
+    android:layout_gravity="left"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="60dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/birthday_text"
-        android:textColor="#FFFFFF"
+        android:textColor="#FAEBF7"
         android:fontFamily="@font/notosans_regular"
-        android:textSize="25sp"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="10dp"/>
-</FrameLayout>
-<LinearLayout
-    android:id="@+id/toggle_ll"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="60dp"
-    android:layout_gravity="center"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/method1TV"
-    android:layout_marginLeft="8dp">
-    <TextView
-        android:id="@+id/toggle_tv_deco"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="@string/deco_text"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF"
-        android:fontFamily="@font/notosans_regular"
-        android:paddingStart="20dp"
-        android:paddingEnd="15dp"
-        android:paddingBottom="5dp"
-        tools:ignore="Rt|Symmetry"
-        android:paddingLeft="15dp"
-        android:paddingRight="10dp"/>
-    <TextView
-        android:id="@+id/toggle_tv_mycard"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="@string/my_card_text"
-        android:gravity="center"
-        android:fontFamily="@font/notosans_regular"
-        android:textSize="30sp"
-        android:paddingStart="15dp"
-        android:paddingEnd="20dp"
-        android:paddingBottom="5dp"
-        android:textColor="@color/white"
-        android:layout_marginLeft="35dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="15dp"/>
-
-</LinearLayout>
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/rectangle_rounded_small_corner"
-            android:backgroundTint="#B7A8EA"
-            />
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="#000000"
-            android:background="@drawable/rectangle_rounded_small_corner"/>
-    </FrameLayout>
+        android:textSize="15sp"
+        android:layout_marginTop="95dp"
+        android:layout_marginLeft="110dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/month_text"
         android:fontFamily="@font/notosans_regular"
-        android:text="@string/to_name"
-        android:textSize="25sp"
-        android:layout_marginLeft="30dp"/>
+        android:textColor="#FAEBF7"
+        android:textSize="15sp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="95dp"/>
 
-    <Button
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/day_text"
+        android:textColor="#FAEBF7"
+        android:fontFamily="@font/notosans_regular"
+        android:textSize="15sp"
+        android:layout_marginLeft="195dp"
+        android:layout_marginTop="95dp"/>
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_setting"
+        android:layout_gravity="right"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/toggle_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/method1TV"
+        android:layout_marginLeft="8dp">
+        <TextView
+            android:id="@+id/toggle_tv_deco"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/deco_text"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/rectangle_resource_activation_toggle2"
+            android:fontFamily="@font/notosans_regular"
+            android:paddingStart="20dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="5dp"
+            tools:ignore="Rt|Symmetry"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"/>
+        <TextView
+            android:id="@+id/toggle_tv_mycard"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="@string/my_card_text"
+            android:gravity="center"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="20sp"
+            android:paddingStart="15dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="40dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="15dp"/>
+<!--        android:background="@drawable/rectangle_resource_activation_toggle"
+내 카드보기에 쓸 테두리-->
+
+    </LinearLayout>
+</FrameLayout>
+
+
+
+
+    <TextView
         android:id="@+id/main_btn"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@drawable/rectangle_resource_activation"
         android:layout_gravity="center"
-        android:layout_marginTop="210dp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_marginTop="500dp"
         android:text="@string/add_link_text"
         android:fontFamily="@font/notosans_regular"
-        android:textSize="25sp"/>
+        android:textSize="20sp"/>
 
 
 
