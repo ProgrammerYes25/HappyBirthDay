@@ -32,13 +32,13 @@
         android:layout_height="162dp"
         android:src="@drawable/hbd_logo"
         android:layout_gravity="center"/>
-
-
     <EditText
+        android:id="@+id/id_edit_text"
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:text="@string/id_text"
+        android:paddingStart="20dp"
+        android:hint="@string/id_text"
         android:textColor="#9E97A7"
         android:fontFamily="@font/notosans_regular"
         android:textSize="15sp"
@@ -46,16 +46,19 @@
         android:layout_marginTop="60dp"
         android:layout_marginBottom="20dp"/>
     <EditText
+        android:id="@+id/pass_edit_text"
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:text="@string/pin_text"
+        android:paddingStart="20dp"
+        android:hint="@string/pin_text"
         android:textSize="15sp"
         android:textColor="#9E97A7"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"/>
     <TextView
+        android:id="@+id/login_button_text_view"
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:text="@string/login_text"
@@ -67,7 +70,7 @@
         android:fontFamily="@font/notosans_regular"
         android:layout_marginBottom="20dp"/>
     <TextView
-        android:id="@+id/login_signup_tv"
+        android:id="@+id/login_signup_button_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
