@@ -26,7 +26,7 @@
             android:id="@+id/decorative_list_grid_view"
             android:layout_width="370dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:numColumns="3">
         </GridView>

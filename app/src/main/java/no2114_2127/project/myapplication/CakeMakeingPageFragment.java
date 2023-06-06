@@ -1,9 +1,11 @@
 package no2114_2127.project.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -12,6 +14,13 @@ import androidx.fragment.app.Fragment;
 public class CakeMakeingPageFragment extends Fragment {
     // TextView Button
     TextView nextButtonTextView;
+
+    GridView decorativeListGridView;
+    CakeGridListAdapter adapter;
+    int cakeDecorative[] = {R.drawable.cake_decorative_strawberrie, R.drawable.cake_decorative_flower, R.drawable.cake_decorative_cherry,
+            R.drawable.cake_decorative_gift, R.drawable.cake_decorative_chocolate, R.drawable.cake_decorative_heart,
+            R.drawable.cake_decorative_rabbit, R.drawable.cake_decorative_chick, R.drawable.cake_decorative_puppy,
+            R.drawable.cake_decorative_muffin, R.drawable.cake_decorative_donut, R.drawable.cake_decorative_balloon};
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -24,6 +33,14 @@ public class CakeMakeingPageFragment extends Fragment {
                 ((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
             }
         });
+
+        //GridView 셋팅
+        decorativeListGridView = view.findViewById(R.id.decorative_list_grid_view);
+        adapter = new CakeGridListAdapter();
+        for(int id : cakeDecorative) {
+            adapter.addItme(new CakeListItem(id));
+        }
+        decorativeListGridView.setAdapter(adapter);
         return view;
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
