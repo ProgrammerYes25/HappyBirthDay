@@ -2,15 +2,15 @@
     <!--로그인-->
     <string name="app_name">HBD</string>
     <string name="title_text">for a special day.</string>
-    <string name="id_text">&#160;&#160;&#160;&#160;&#160;&#160;아이디</string>
-    <string name="pin_text">&#160;&#160;&#160;&#160;&#160;&#160;비밀번호</string>
+    <string name="id_text">아이디</string>
+    <string name="pin_text">비밀번호</string>
     <string name="login_text">로그인</string>
     <string name="signin_text">회원가입</string>
     <!--회원가입-->
-    <string name="input_nickname_text">&#160;&#160;&#160;&#160;&#160;&#160;이름</string>
-    <string name="input_id_text">&#160;&#160;&#160;&#160;&#160;&#160;아이디(영문 소문자)</string>
-    <string name="input_pin_text">&#160;&#160;&#160;&#160;&#160;&#160;비밀번호(최대 8개 숫자)</string>
-    <string name="check_pin_text">&#160;&#160;&#160;&#160;&#160;&#160;비밀번호 확인</string>
+    <string name="input_nickname_text">이름</string>
+    <string name="input_id_text">아이디(영문 소문자)</string>
+    <string name="input_pin_text">비밀번호(최대 8개 숫자)</string>
+    <string name="check_pin_text">비밀번호 확인</string>
     <string name="year_text">년</string>
     <string name="month_text">월</string>
     <string name="day_text">일</string>

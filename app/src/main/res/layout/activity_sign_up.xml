@@ -52,7 +52,8 @@
             android:layout_gravity="center"
             android:textColor="#D3A3EF"
             android:fontFamily="@font/notosans_regular"
-            android:text="&#160;&#160;&#160;&#160;&#160;&#160;회원가입"
+            android:paddingStart="20dp"
+            android:text="회원가입"
 
             />
     </FrameLayout>
@@ -61,8 +62,9 @@
     <EditText
         android:layout_width="284dp"
         android:layout_height="50dp"
+        android:paddingStart="10dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:text="@string/input_nickname_text"
+        android:hint="@string/input_nickname_text"
         android:textColor="#9E97A7"
         android:fontFamily="@font/notosans_regular"
         android:textSize="15sp"
@@ -72,8 +74,9 @@
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:textColor="#9E97A7"
+        android:paddingStart="10dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:text="@string/input_id_text"
+        android:hint="@string/input_id_text"
         android:textSize="15sp"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
@@ -82,8 +85,9 @@
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:textColor="#9E97A7"
+        android:paddingStart="10dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:text="@string/input_pin_text"
+        android:hint="@string/input_pin_text"
         android:fontFamily="@font/notosans_regular"
         android:textSize="15sp"
         android:layout_gravity="center"
@@ -92,8 +96,9 @@
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:textColor="#9E97A7"
+        android:paddingStart="10dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:text="@string/check_pin_text"
+        android:hint="@string/check_pin_text"
         android:fontFamily="@font/notosans_regular"
         android:textSize="15sp"
         android:layout_gravity="center"
@@ -109,8 +114,9 @@
             android:layout_height="50dp"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="15sp"
+            android:paddingStart="10dp"
             android:textColor="#9E97A7"
-            android:text="&#160;&#160;&#160;&#160;&#160;2023"
+            android:hint="2023"
             android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="56dp"
             android:layout_marginTop="20dp"/>
@@ -129,8 +135,9 @@
             android:layout_height="50dp"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="15sp"
+            android:paddingStart="10dp"
             android:textColor="#9E97A7"
-            android:text="&#160;&#160;&#160;&#160;&#160;&#160;01"
+            android:hint="01"
             android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"/>
@@ -149,7 +156,8 @@
             android:layout_height="50dp"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="15sp"
-            android:text="&#160;&#160;&#160;&#160;&#160;&#160;01"
+            android:paddingStart="10dp"
+            android:hint="01"
             android:textColor="#9E97A7"
             android:fontFamily="@font/notosans_regular"
             android:layout_marginLeft="10dp"
@@ -186,6 +194,7 @@
         android:layout_gravity="left"
         android:textColor="#9E97A7"
         android:layout_marginLeft="70dp"
+        android:visibility="invisible"
         android:layout_marginTop="10dp"/>
 
 </LinearLayout>

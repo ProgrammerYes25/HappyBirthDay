@@ -1,13 +1,14 @@
 
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
     compileSdk 32
 
     defaultConfig {
-        applicationId 'com.happybirthday2023.Project'
+        applicationId 'no2114_2127.project.myapplication'
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -67,4 +68,5 @@ dependencies {
     // Add the dependency for the Cloud Storage library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-storage'
+
 }

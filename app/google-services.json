@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:775686459784:android:bfb02561b73816d560ea3d",
+        "mobilesdk_app_id": "1:775686459784:android:572e7cbe7ab8ea2160ea3d",
         "android_client_info": {
-          "package_name": "com.happybirthday2023.Project"
+          "package_name": "no2114_2127.project.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "775686459784-i9vlcigt47cb9v7ktr2a2k8j8959e8up.apps.googleusercontent.com",
+          "client_id": "775686459784-h3m57mvs20d438ljog0nvc6fkhtc16so.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.happybirthday2023.Project",
+            "package_name": "no2114_2127.project.myapplication",
             "certificate_hash": "c076eb3f231686a698747bdcab3fbac1b90d136a"
           }
         },
