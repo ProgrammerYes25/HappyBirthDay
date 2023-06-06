@@ -11,8 +11,14 @@
         android:theme="@style/Theme.HappyBirthDay">
         <activity
             android:name=".SettingActivity"
-            android:exported="false"
-            android:theme="@style/Theme.HappyBirthDay.Splash3"/>
+            android:exported="true"
+            android:theme="@style/Theme.HappyBirthDay.Splash3">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MypageActivity"
             android:exported="false"
@@ -37,11 +43,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.HappyBirthDay.Splash3">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
