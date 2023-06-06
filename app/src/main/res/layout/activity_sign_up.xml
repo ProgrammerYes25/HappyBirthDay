@@ -46,6 +46,7 @@
             />
 
         <TextView
+            android:id="@+id/bake_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -65,6 +66,7 @@
         android:layout_height="50dp"
         android:paddingStart="15dp"
         android:background="@drawable/rectangle_rounded_corner"
+        android:maxLines="1"
         android:hint="@string/input_nickname_text"
         android:textColor="#9E97A7"
         android:fontFamily="@font/notosans_regular"
@@ -77,6 +79,7 @@
         android:layout_height="50dp"
         android:textColor="#9E97A7"
         android:paddingStart="15dp"
+        android:maxLines="1"
         android:inputType="textEmailSubject"
         android:background="@drawable/rectangle_rounded_corner"
         android:hint="@string/input_id_text"
@@ -122,6 +125,7 @@
             android:layout_height="50dp"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="15sp"
+            android:maxLines="1"
             android:paddingStart="17dp"
             android:textColor="#9E97A7"
             android:hint="2023"
@@ -142,6 +146,7 @@
             android:id="@+id/month_edit_text"
             android:layout_width="60dp"
             android:layout_height="50dp"
+            android:maxLines="1"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="15sp"
             android:paddingStart="20dp"
@@ -164,6 +169,7 @@
             android:id="@+id/day_edit_text"
             android:layout_width="60dp"
             android:layout_height="50dp"
+            android:maxLines="1"
             android:background="@drawable/rectangle_rounded_corner"
             android:textSize="15sp"
             android:paddingStart="20dp"
