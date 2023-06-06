@@ -26,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity {
             passEditText, passCheckEditText,
             yearEditText, monthEditText, dayEditText;
     // textView 선언
-    TextView signUpButtonTextView;
+    TextView signUpButtonTextView, bakeTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,9 @@ public class SignUpActivity extends AppCompatActivity {
         monthEditText = findViewById(R.id.month_edit_text);
         dayEditText = findViewById(R.id.day_edit_text);
         signUpButtonTextView = findViewById(R.id.sign_up_button_text_view);
+        bakeTextView = findViewById(R.id.bake_text_view);
         signUpButtonTextView.setOnClickListener(onClickListener);
+        bakeTextView.setOnClickListener(onClickListener);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -50,6 +52,9 @@ public class SignUpActivity extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.sign_up_button_text_view:
                     signUP();
+                    break;
+                case R.id.bake_text_view:
+                    finish();
                     break;
             }
         }
