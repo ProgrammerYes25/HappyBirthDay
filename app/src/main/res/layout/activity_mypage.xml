@@ -2,37 +2,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mypage_background"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".MypageActivity">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         >
+        <ImageView
+        android:layout_width="414dp"
+        android:layout_height="280dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_back"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/back_icon"
+            android:layout_gravity="left"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="30dp"
+            />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_setting"
+            android:layout_gravity="right"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="30dp"
+            />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:src="@drawable/main_profile"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="80dp"/>
+        android:layout_gravity="center|top"
+        android:layout_marginTop="60dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/user_text"
-        android:fontFamily="@font/notosans_regular"
-        android:textSize="40sp"
+        android:text="양지혜"
+        android:fontFamily="@font/notosans_bold"
+        android:textSize="30sp"
         android:textColor="@color/white"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="80dp"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/birthday_text"
+            android:textColor="#FAEBF7"
             android:fontFamily="@font/notosans_regular"
-            android:textSize="20sp"
-            android:layout_marginLeft="45dp"
+            android:textSize="15sp"
+            android:layout_marginLeft="155dp"
             android:layout_marginTop="195dp"/>
 
         <TextView
@@ -40,73 +65,114 @@
             android:layout_height="wrap_content"
             android:text="@string/month_text"
             android:fontFamily="@font/notosans_regular"
-            android:textSize="20sp"
-            android:layout_marginLeft="130dp"
+            android:textColor="#FAEBF7"
+            android:textSize="15sp"
+            android:layout_marginLeft="205dp"
             android:layout_marginTop="195dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/day_text"
+            android:textColor="#FAEBF7"
             android:fontFamily="@font/notosans_regular"
-            android:textSize="20sp"
-            android:layout_marginLeft="160dp"
+            android:textSize="15sp"
+            android:layout_marginLeft="240dp"
             android:layout_marginTop="195dp"/>
-
+        <ImageView
+            android:layout_width="230dp"
+            android:layout_height="34dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/mypage_code_copy"
+            android:layout_gravity="center"
+            android:layout_marginTop="105dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/id_text"
+            android:text="코드: "
+           android:textColor="@color/white"
             android:fontFamily="@font/notosans_regular"
-            android:textSize="25sp"
-            android:layout_gravity="right"
-            android:layout_marginRight="130dp"
-            android:layout_marginTop="195dp"/>
-
-
+            android:textSize="15sp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="230dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:textColor="#E3CBF1"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="15sp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="230dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="복사"
+            android:textColor="@color/white"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="15sp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="230dp"/>
 
     </FrameLayout>
-    <LinearLayout
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="파티 참여자"
+            android:fontFamily="@font/notosans_bold"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="#585062"/>
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:src="@drawable/joiner_plus_eclipse"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="75dp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:src="@drawable/joiner_plus"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="10dp" />
+
+</FrameLayout>
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btn_info_change"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/rectangle_resource_deactivation_color"
-            android:text="@string/revise_member_text"
-            android:fontFamily="@font/notosans_regular"
-            android:textSize="18sp"
-            android:textColor="#575062"
-            />
-        <Button
-            android:id="@+id/btn_password_change"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/rectangle_rounded_small_corner_color"
-            android:text="@string/revise_pin_text"
-            android:fontFamily="@font/notosans_regular"
-            android:textSize="18sp"
-            android:textColor="#575062"
-            />
-        <Button
-            android:id="@+id/btn_logout"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/rectangle_rounded_small_corner_color"
-            android:text="@string/logout_text"
-            android:fontFamily="@font/notosans_regular"
-            android:textSize="18sp"
-            android:textColor="#575062"
-            />
-    </LinearLayout>
+        android:text="Birthday!!"
+        android:textSize="13sp"
+        android:fontFamily="@font/notosans_regular"
+        android:textColor="#D3A3EF"
+        android:layout_marginLeft="25dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEW!!"
+        android:textSize="13sp"
+        android:fontFamily="@font/notosans_regular"
+        android:textColor="#D3A3EF"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="50dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기존 친구들"
+        android:textSize="13sp"
+        android:fontFamily="@font/notosans_regular"
+        android:textColor="#D3A3EF"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="50dp"/>
+
 
 
 
