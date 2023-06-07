@@ -40,7 +40,7 @@ public class CakeGridListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         context = parent.getContext();
-        Log.d("확인 ", itmes.get(position)+"" );
+        Log.d("확인 !", convertView+"" );
         CakeListItem cakeListItem = itmes.get(position);
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

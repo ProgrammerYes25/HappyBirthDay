@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class CakeMakeingPageFragment extends Fragment {
 
     GridView decorativeListGridView;
     CakeGridListAdapter adapter;
+
     int cakeDecorative[] = {R.drawable.cake_decorative_strawberrie, R.drawable.cake_decorative_flower, R.drawable.cake_decorative_cherry,
             R.drawable.cake_decorative_gift, R.drawable.cake_decorative_chocolate, R.drawable.cake_decorative_heart,
             R.drawable.cake_decorative_rabbit, R.drawable.cake_decorative_chick, R.drawable.cake_decorative_puppy,
@@ -37,11 +39,15 @@ public class CakeMakeingPageFragment extends Fragment {
         //GridView 셋팅
         decorativeListGridView = view.findViewById(R.id.decorative_list_grid_view);
         adapter = new CakeGridListAdapter();
+        setAdapter();
+        //decorativeListGridView.setOnItemClickListener();
+        return view;
+    }
+    public void setAdapter(){
         for(int id : cakeDecorative) {
             adapter.addItme(new CakeListItem(id));
         }
         decorativeListGridView.setAdapter(adapter);
-        return view;
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -49,4 +55,10 @@ public class CakeMakeingPageFragment extends Fragment {
     public static CakeMakeingPageFragment CakeMakeingPageInstance() {
         return new CakeMakeingPageFragment();
     }
+//    AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+//        @Override
+//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//        }
+//    };
 }
