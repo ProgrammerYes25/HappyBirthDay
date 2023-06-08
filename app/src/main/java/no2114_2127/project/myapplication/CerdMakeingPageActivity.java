@@ -2,6 +2,8 @@ package no2114_2127.project.myapplication;
 
 import static android.app.PendingIntent.getActivity;
 
+import static no2114_2127.project.myapplication.CerdClass.cakeClass;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -11,6 +13,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,7 +34,10 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
     // rollingPaper를 보여주기 위한 셋팅
     static LinearLayout rollingPaperLayout;
     static LayoutInflater inflater1;
+    static EditText rollingPaperContent, rollingPaperFrom;
     static LinearLayout.LayoutParams params;
+    static ImageView rollingPaperIcon;
+    static TextView rollingPaperNextTextView, rollingPaperPreviousTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,10 +101,16 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         // rollingPaper를 보여주기 위한 셋팅
         addContentView(rollingPaperLayout, params);
         rollingPaperLayout.setVisibility(View.GONE);   //처음에는 없애둔다
+        // rollingPaperIcon EditText 설정
+        rollingPaperIcon = rollingPaperLayout.findViewById(R.id.rolling_paper_icon);
+        // rollingPaperLayout EditText 설정
+        rollingPaperContent = rollingPaperLayout.findViewById(R.id.rolling_paper_content);
+        rollingPaperFrom = rollingPaperContent.findViewById(R.id.rolling_paper_from);
+        rollingPaperContent.setText(cakeClass.getRollingPaper());
 
         // rollingPaperLayout textView 설정
-        TextView rollingPaperNextTextView = rollingPaperLayout.findViewById(R.id.rolling_paper_next_button_text_view);
-        TextView rollingPaperPreviousTextView = rollingPaperLayout.findViewById(R.id.rolling_paper_previous_button_text_view);
+        rollingPaperNextTextView = rollingPaperLayout.findViewById(R.id.rolling_paper_next_button_text_view);
+        rollingPaperPreviousTextView = rollingPaperLayout.findViewById(R.id.rolling_paper_previous_button_text_view);
         rollingPaperNextTextView.setOnClickListener(onClickListener);
         rollingPaperPreviousTextView.setOnClickListener(onClickListener);
     }

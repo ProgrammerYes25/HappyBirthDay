@@ -69,6 +69,9 @@ public class CakeMakeWritingPageFragment extends Fragment {
                     //((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
                     cakeClass.setRollingPaper(rollingPaperEditText.getText().toString());
                     cakeClass.setFrom(fromEditText.getText().toString());
+                    CerdMakeingPageActivity.rollingPaperContent.setText(cakeClass.getRollingPaper());
+                    //CerdMakeingPageActivity.rollingPaperFrom.setText(cakeClass.getFrom());
+                    CerdMakeingPageActivity.rollingPaperIcon.setImageResource(cakeClass.getDecoImage());
                     ((CerdMakeingPageActivity)getActivity()).rollingPaperSheet();
                     break;
             }
