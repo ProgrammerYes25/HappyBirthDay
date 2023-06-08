@@ -50,22 +50,28 @@
                     android:paddingEnd="20dp"
                     android:paddingBottom="20dp"
                     android:textSize="50px" />
+                <FrameLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal">
+                    <ImageView
+                        android:id="@+id/rolling_paper_deco_image_view"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/img_decorative_example"
+                        />
+                    <ImageView
+                        android:id="@+id/deco_image_view"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:padding="5dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/cake_decorative_balloon"
+                        />
+                </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/rolling_paper_deco_image_view"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/img_decorative_example"
-                    />
-                <ImageView
-                    android:id="@+id/deco_image_view"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:padding="5dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/cake_decorative_balloon"
-                    />
             </FrameLayout>
             <!--from 입력editText-->
             <EditText

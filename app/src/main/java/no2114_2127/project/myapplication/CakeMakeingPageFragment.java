@@ -39,6 +39,7 @@ public class CakeMakeingPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
+                CerdClass.cakeClass.setDecoImage(cakeDecorative[choice]);// 아이콘 저장
             }
         });
 
@@ -59,7 +60,7 @@ public class CakeMakeingPageFragment extends Fragment {
             if(position == choice){
                 circle[choice] = R.drawable.img_decorative_icon_circle_border;
                 choice = -1;
-            }else if(choice !=-1 ){
+            }else if(choice != -1 ){
                 circle[choice] = R.drawable.img_decorative_icon_circle_border;
                 choice = position;
             }else {

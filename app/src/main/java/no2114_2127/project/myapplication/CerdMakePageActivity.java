@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
+import android.content.ContentProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -55,6 +56,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
        cancelButtonImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StageClass.stage = 0;
                 finish();
             }
         });
@@ -69,21 +71,25 @@ public class CerdMakePageActivity extends AppCompatActivity {
         switch (StageClass.stage){
             case 0:
                 //케이크
+                CerdClass.cakeClass = new CakeClass();
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, CakeMakePageFragment).commitAllowingStateLoss();
                 backButtonImageView.setVisibility(View.INVISIBLE);
                 break;
             case 1:
                 //폴라로이드
+                CerdClass.polaroidClass = new PolaroidClass();
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, PolaroidMakePageFragment).commitAllowingStateLoss();
                 stageImageView.setImageResource(R.drawable.cerd_make_page2);
                 break;
             case 2:
                 //동영상
+                CerdClass.videoClass = new VideoClass();
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, VideoUploadFragment).commitAllowingStateLoss();
                 stageImageView.setImageResource(R.drawable.cerd_make_page3);
                 break;
             case 3:
                 //상장
+                CerdClass.awardClass = new AwardClass();
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, AwardMakePageFragment).commitAllowingStateLoss();
                 stageImageView.setImageResource(R.drawable.cerd_make_page4);
                 break;
