@@ -14,7 +14,8 @@ import android.widget.TextView;
 
 public class CerdMakePageActivity extends AppCompatActivity {
     String CerdMakeTitle = "의 생일카드";
-
+    // 카드에 대한 정보
+    CakeClass cakeClass;
     int cerdMakeFrameLayoutId;
     //Layout
     FrameLayout cerdMakeFrameLayout;
@@ -41,6 +42,8 @@ public class CerdMakePageActivity extends AppCompatActivity {
         cancelButtonImageView = findViewById(R.id.cancel_button_image_view);
         backButtonImageView = findViewById(R.id.back_button_image_view);
         stageImageView = findViewById(R.id.stage_image_view);
+
+        // CakeClass정의
 
         // Fragent
         CakeMakePageFragment = new CakeMakePageFragment();
