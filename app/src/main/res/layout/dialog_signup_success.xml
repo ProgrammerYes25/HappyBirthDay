@@ -4,7 +4,7 @@
     android:layout_gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="340dp"
-    android:layout_height="220dp">
+    android:layout_height="170dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,29 +15,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#575062"
-            android:text="이름 변경하기"
+            android:textColor="#28242D"
+            android:text="반갑습니다!!"
             android:textSize="17sp"
             android:fontFamily="@font/notosans_regular"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"/>
-        <EditText
-            android:id="@+id/put_text"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="이름을 입력해주세요"
-            android:textSize="15sp"
-            android:fontFamily="@font/notosans_regular"
-            android:textColor="#797381"
-            android:paddingStart="15dp"
-            android:background="@drawable/rectangle_rounded_corner_dialog"
-            android:layout_margin="20dp"/>
+
         <LinearLayout
             android:layout_marginRight="12dp"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginTop="30dp">
             <TextView
                 android:text="취소"
                 android:textSize="17dp"
@@ -51,7 +42,7 @@
                 android:gravity="center"
                 />
             <TextView
-                android:text="변경하기"
+                android:text="시작하기"
                 android:textSize="17dp"
                 android:id="@+id/btnSave"
                 android:layout_marginLeft="20dp"
