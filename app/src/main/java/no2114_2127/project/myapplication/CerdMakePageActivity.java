@@ -28,6 +28,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
             AwardMakePageFragment, AwardMakeChooseFragment, AwardMakeChooseFormFragment, AwardMakeWritingPageFragment,
             FromFinishPageFragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
         cancelButtonImageView = findViewById(R.id.cancel_button_image_view);
         backButtonImageView = findViewById(R.id.back_button_image_view);
         stageImageView = findViewById(R.id.stage_image_view);
+
 
         // Fragent
         CakeMakePageFragment = new CakeMakePageFragment();

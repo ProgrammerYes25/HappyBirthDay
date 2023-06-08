@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -23,6 +24,11 @@ public class CakeMakeingPageFragment extends Fragment {
             R.drawable.cake_decorative_gift, R.drawable.cake_decorative_chocolate, R.drawable.cake_decorative_heart,
             R.drawable.cake_decorative_rabbit, R.drawable.cake_decorative_chick, R.drawable.cake_decorative_puppy,
             R.drawable.cake_decorative_muffin, R.drawable.cake_decorative_donut, R.drawable.cake_decorative_balloon};
+    int circle[] = {R.drawable.img_decorative_icon_circle_border,R.drawable.img_decorative_icon_circle_border,R.drawable.img_decorative_icon_circle_border,
+            R.drawable.img_decorative_icon_circle_border,R.drawable.img_decorative_icon_circle_border,R.drawable.img_decorative_icon_circle_border,
+            R.drawable.img_decorative_icon_circle_border,R.drawable.img_decorative_icon_circle_border,R.drawable.img_decorative_icon_circle_border,
+            R.drawable.img_decorative_icon_circle_border, R.drawable.img_decorative_icon_circle_border,R.drawable.img_decorative_icon_circle_border};
+    int choice = -1;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,12 +46,42 @@ public class CakeMakeingPageFragment extends Fragment {
         decorativeListGridView = view.findViewById(R.id.decorative_list_grid_view);
         adapter = new CakeGridListAdapter();
         setAdapter();
-        //decorativeListGridView.setOnItemClickListener();
+        decorativeListGridView.setOnItemClickListener(onItemClickListener);
         return view;
     }
+
+    AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            CakeListItem item = (CakeListItem) adapter.getItem(position);
+            Log.d("선택 :",position+" ");
+            circle[position] = R.drawable.img_decorative_icon_circle;
+            if(position == choice){
+                circle[choice] = R.drawable.img_decorative_icon_circle_border;
+                choice = -1;
+            }else if(choice !=-1 ){
+                circle[choice] = R.drawable.img_decorative_icon_circle_border;
+                choice = position;
+            }else {
+                choice = position;
+            }
+            for(int i =0; i<cakeDecorative.length; i++) {
+                Log.d("Circle확인 : ", circle[i]+"");
+            }
+            resetAdapter();
+        }
+    };
+
     public void setAdapter(){
-        for(int id : cakeDecorative) {
-            adapter.addItme(new CakeListItem(id));
+        for(int i =0; i<cakeDecorative.length; i++) {
+            adapter.addItme(new CakeListItem(cakeDecorative[i], circle[i]));
+        }
+        decorativeListGridView.setAdapter(adapter);
+    }
+    public void resetAdapter(){
+        for(int i =0; i<cakeDecorative.length; i++) {
+            adapter.itmes.add(i, new CakeListItem(cakeDecorative[i], circle[i]));
+            adapter.itmes.remove(i+1);
         }
         decorativeListGridView.setAdapter(adapter);
     }

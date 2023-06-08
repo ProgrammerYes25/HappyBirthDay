@@ -1,10 +1,10 @@
 package no2114_2127.project.myapplication;
 
 public class CerdClass {
-    private CakeClass cakeClass;
-    private PolaroidClass polaroidClass;
-    private VideoClass videoClass;
-    private AwardClass awardClass;
+    private static CakeClass cakeClass;
+    private static PolaroidClass polaroidClass;
+    private static VideoClass videoClass;
+    private static AwardClass awardClass;
 
     public CerdClass() {
         // 기본 생성자

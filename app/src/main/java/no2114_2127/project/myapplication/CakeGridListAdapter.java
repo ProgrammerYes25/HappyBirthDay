@@ -21,7 +21,12 @@ public class CakeGridListAdapter extends BaseAdapter {
         }
         Log.d("끝", "-----------------------------------------------");
     }
-
+    public void arrayRemove(){
+        int size= itmes.size();
+        for(int i =0; i<size; i++){
+            itmes.remove(i);
+        }
+    }
     @Override
     public int getCount() {
         return itmes.size();
@@ -48,9 +53,11 @@ public class CakeGridListAdapter extends BaseAdapter {
         }
 
         ImageView cakeIcon = convertView.findViewById(R.id.cake_icon);
+        ImageView iconCircle = convertView.findViewById(R.id.icon_circle);
         Log.d("확인 ", cakeListItem.getIcon()+"" );
         Log.d("확인 ","-----------------------------------------------");
         cakeIcon.setImageResource(cakeListItem.getIcon());
+        iconCircle.setImageResource(cakeListItem.getCircle());
         return convertView;
     }
 }

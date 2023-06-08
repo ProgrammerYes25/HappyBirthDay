@@ -6,6 +6,10 @@ public class CakeListItem {
         this.icons = icon;
    //     this.circle = circle;
     }
+    public CakeListItem(int icon, int circle){
+        this.icons = icon;
+        this.circle = circle;
+    }
     public int getCircle(){return circle;}
     public void setCircle(int circle){
         this.circle = circle;
