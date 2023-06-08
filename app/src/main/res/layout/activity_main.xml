@@ -11,10 +11,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:layout_width="414dp"
+        android:layout_width="416dp"
         android:layout_height="210dp"
         android:scaleType="fitXY"
-        android:src="@drawable/main_back"/>
+        android:src="@drawable/rectangle_resource_activation2"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

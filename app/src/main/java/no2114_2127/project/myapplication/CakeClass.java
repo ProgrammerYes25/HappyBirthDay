@@ -16,7 +16,8 @@ public class CakeClass {
         this.decoImage = decoImage;
         this.letterPaper = letterPaper;
     }
-    
+
+
     public String getRollingPaper() {
         return rollingPaper;
     }

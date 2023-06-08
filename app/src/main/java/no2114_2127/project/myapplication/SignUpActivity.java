@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG  = "signUpActivity";
@@ -66,8 +67,12 @@ public class SignUpActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
         String passwordCheck = passCheckEditText.getText().toString();
+        String year = yearEditText.getText().toString();
+        String month = monthEditText.getText().toString();
+        String day = dayEditText.getText().toString();
         if(email.length()>0 && password.length()>0){//비밀번호와 이메일 비어있는 지 확인
             if(password.equals(passwordCheck)){//비밀번호와 비밀번호확인이 일치하는지 확인
+
                 //회원 가입
                 // FirevaseAuth에 있는 createUserWithEmailAndPassword는 파이어 베이스에서 회원 가입 할때 사용
                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -80,6 +85,9 @@ public class SignUpActivity extends AppCompatActivity {
                                     Log.d(TAG, "createUserWithEmail:success");
                                     showToast("회원가입에 성공하였습니다.");
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+                                    MemberClass memberClass = new MemberClass(name, email, password, year+"/"+month+"/"+day+"/");
+                                    firebaseFirestore.collection("users").document(user.getUid()).set(memberClass);
                                     startLoginActivity();
                                 } else {
                                     // 로그인 실패시
@@ -88,6 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
             }
             else{
                 showToast("비밀번호가 일치하지 않습니다.\n   다시 확인해주세요.");

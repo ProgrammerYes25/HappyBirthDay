@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView toggleDeco=findViewById(R.id.toggle_tv_deco);
-        //Y-초기커밋~~~!!
+        //Y-초기커밋~~~!!ㅣㅐㅣㅡ
         //C-테스트커밋!!
 
 

@@ -1,21 +1,27 @@
 package no2114_2127.project.myapplication;
 
 public class CerdClass {
-    private CakeClass cakeClass;
-    private PolaroidClass polaroidClass;
-    private VideoClass videoClass;
-    private AwardClass awardClass;
+    public static CakeClass cakeClass;
+    public static PolaroidClass polaroidClass;
+    public static VideoClass videoClass;
+    public static AwardClass awardClass;
 
-    public CerdClass() {
-        // 기본 생성자
-    }
 
-    public CerdClass(CakeClass cakeClass, PolaroidClass polaroidClass, VideoClass videoClass, AwardClass awardClass) {
-        this.cakeClass = cakeClass;
-        this.polaroidClass = polaroidClass;
-        this.videoClass = videoClass;
-        this.awardClass = awardClass;
-    }
+
+//    public CerdClass(CakeClass cakeClass, PolaroidClass polaroidClass, VideoClass videoClass, AwardClass awardClass) {
+//        this.cakeClass = cakeClass;
+//        this.polaroidClass = polaroidClass;
+//        this.videoClass = videoClass;
+//        this.awardClass = awardClass;
+//    }
+//
+//    public CerdClass() {
+//        this.cakeClass = new CakeClass();
+//        this.polaroidClass = new PolaroidClass();
+//        this.videoClass = new VideoClass();
+//        this.awardClass = new AwardClass();
+//    }
+
 
     public CakeClass getCakeClass() {
         return cakeClass;
