@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/dialog_background_round"
+    android:layout_gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="340dp"
+    android:layout_height="220dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#575062"
+            android:text="카드 이름을 적어주세요"
+            android:textSize="17sp"
+            android:fontFamily="@font/notosans_regular"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+        <EditText
+            android:id="@+id/put_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="최대 6글자"
+            android:textSize="15sp"
+            android:fontFamily="@font/notosans_regular"
+            android:textColor="#797381"
+            android:paddingStart="15dp"
+            android:background="@drawable/rectangle_rounded_corner_dialog"
+            android:layout_margin="20dp"/>
+        <LinearLayout
+            android:layout_marginRight="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <TextView
+                android:text="취소"
+                android:textSize="17dp"
+                android:id="@+id/btnCancle"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="11dp"
+                android:fontFamily="@font/notosans_regular"
+                android:textColor="#9E97A7"
+                android:background="@drawable/rectangle_rounded_corner_dialog_button"
+                android:gravity="center"
+                />
+            <TextView
+                android:text="생성하기"
+                android:textSize="17dp"
+                android:id="@+id/btnSave"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/notosans_regular"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textColor="#F1F2FF"
+                android:background="@drawable/rectangle_resource_activation_radadd"
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
