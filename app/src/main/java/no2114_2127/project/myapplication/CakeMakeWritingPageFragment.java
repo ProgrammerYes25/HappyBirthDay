@@ -5,6 +5,7 @@ package no2114_2127.project.myapplication;
 import static no2114_2127.project.myapplication.CerdClass.*;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,8 +70,9 @@ public class CakeMakeWritingPageFragment extends Fragment {
                     //((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
                     cakeClass.setRollingPaper(rollingPaperEditText.getText().toString());
                     cakeClass.setFrom(fromEditText.getText().toString());
+                    Log.d("from 확인", cakeClass.getFrom());
                     CerdMakeingPageActivity.rollingPaperContent.setText(cakeClass.getRollingPaper());
-                    //CerdMakeingPageActivity.rollingPaperFrom.setText(cakeClass.getFrom());
+                    CerdMakeingPageActivity.rollingPaperFrom.setText(cakeClass.getFrom());
                     CerdMakeingPageActivity.rollingPaperIcon.setImageResource(cakeClass.getDecoImage());
                     ((CerdMakeingPageActivity)getActivity()).rollingPaperSheet();
                     break;

@@ -101,23 +101,23 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         // rollingPaper를 보여주기 위한 셋팅
         addContentView(rollingPaperLayout, params);
         rollingPaperLayout.setVisibility(View.GONE);   //처음에는 없애둔다
-        // rollingPaperIcon EditText 설정
-        rollingPaperIcon = rollingPaperLayout.findViewById(R.id.rolling_paper_icon);
-        // rollingPaperLayout EditText 설정
-        rollingPaperContent = rollingPaperLayout.findViewById(R.id.rolling_paper_content);
-        rollingPaperFrom = rollingPaperContent.findViewById(R.id.rolling_paper_from);
-        rollingPaperContent.setText(cakeClass.getRollingPaper());
-
         // rollingPaperLayout textView 설정
         rollingPaperNextTextView = rollingPaperLayout.findViewById(R.id.rolling_paper_next_button_text_view);
         rollingPaperPreviousTextView = rollingPaperLayout.findViewById(R.id.rolling_paper_previous_button_text_view);
         rollingPaperNextTextView.setOnClickListener(onClickListener);
         rollingPaperPreviousTextView.setOnClickListener(onClickListener);
+        // rollingPaperIcon EditText 설정
+        rollingPaperIcon = rollingPaperLayout.findViewById(R.id.rolling_paper_icon);
+        // rollingPaperLayout EditText 설정
+        rollingPaperContent = (EditText) rollingPaperLayout.findViewById(R.id.rolling_paper_content);
+        rollingPaperFrom = (EditText) rollingPaperContent.findViewById(R.id.rolling_paper_from);
     }
 
     public static void rollingPaperSheet(){
         //rollingPapaerLinearLayout.setVisibility(View.VISIBLE);
         rollingPaperLayout.setVisibility(View.VISIBLE);//필요할때 다시 보여주는코드
+
+
     }
 
     private void polaroidView() {
