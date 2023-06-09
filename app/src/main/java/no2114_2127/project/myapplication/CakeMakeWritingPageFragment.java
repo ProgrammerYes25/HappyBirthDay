@@ -1,8 +1,6 @@
 package no2114_2127.project.myapplication;
 
-
-
-import static no2114_2127.project.myapplication.CerdClass.*;
+import static no2114_2127.project.myapplication.CerdClass.cakeClass;
 
 import android.os.Bundle;
 import android.util.Log;

@@ -110,7 +110,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         rollingPaperIcon = rollingPaperLayout.findViewById(R.id.rolling_paper_icon);
         // rollingPaperLayout EditText 설정
         rollingPaperContent = (EditText) rollingPaperLayout.findViewById(R.id.rolling_paper_content);
-        rollingPaperFrom = (EditText) rollingPaperContent.findViewById(R.id.rolling_paper_from);
+        rollingPaperFrom = (EditText) rollingPaperLayout.findViewById(R.id.rolling_paper_from);
     }
 
     public static void rollingPaperSheet(){
