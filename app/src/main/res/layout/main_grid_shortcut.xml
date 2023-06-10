@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/rectangle_rounded_corner_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="170dp"
+    android:layout_height="220dp"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="8dp"
+        android:src="@drawable/main_menu"
+        android:layout_gravity="right|top"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"/>
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="150dp"
+        android:src="@drawable/main_cake"
+        android:layout_gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#575062"
+        android:text="to.지혜이무니다"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/notosans_regular"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="#9E97A7"
+    android:text="양지혜 10월 12일"
+    android:textSize="13sp"
+    android:gravity="center_horizontal"
+    android:fontFamily="@font/notosans_regular"/>
+
+
+
+
+</LinearLayout>
