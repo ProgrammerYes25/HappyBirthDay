@@ -11,30 +11,81 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="655dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_centerVertical="true">
+        <FrameLayout
+            android:layout_width="350dp"
+            android:layout_height="500dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/make_award_image_view"
+                android:layout_width="350dp"
+                android:layout_height="500dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/award_graphic" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/award_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="20sp"
+                    android:text="행복상"/>
+                <TextView
+                    android:id="@+id/award_to_name"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:gravity="end"
+                    android:textSize="20sp"
+                    android:text="이유리"/>
+                <TextView
+                    android:id="@+id/award_content"
+                    android:layout_width="200dp"
+                    android:layout_height="130dp"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="평소 웃음을 많이 주고
+주변 사람들을 행복하게
+해주었기 때문에
+이 상을 수여합니다."/>
+                <TextView
+                    android:id="@+id/award_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:text="2023.05.03"/>
+                <TextView
+                    android:id="@+id/award_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="정유진"/>
+            </LinearLayout>
+
+        </FrameLayout>
         <!--상장 image view-->
-        <ImageView
-            android:id="@+id/make_award_image_view"
-            android:layout_width="330dp"
-            android:layout_height="473dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="45dp"/>
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_height="50dp"
         android:background="@color/white"
         android:focusable="true"
+        android:layout_alignParentBottom="true"
         android:focusableInTouchMode="true"
         android:orientation="vertical">
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
-            android:layout_marginTop="20dp"
             android:orientation="horizontal">
             <!--이전 button textView-->
             <TextView
@@ -57,12 +108,11 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/rectangle_resource_perimeter_activation"
+                android:background="@drawable/rectangle_resource_perimeter_deactivation"
                 android:fontFamily="@font/notosans_regular"
                 android:gravity="center"
-                android:padding="5dp"
                 android:text="@string/next_text"
-                android:textColor="@color/black_600"
+                android:textColor="@color/black_400"
                 android:textSize="16sp" />
         </LinearLayout>
     </RelativeLayout>
