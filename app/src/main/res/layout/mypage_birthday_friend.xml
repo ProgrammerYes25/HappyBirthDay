@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/mypage_friend"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp">
+
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:text="양지혜"
+            android:paddingStart="80dp"
+            android:textColor="#585062"
+            android:textSize="16sp"
+            android:fontFamily="@font/notosans_bold"
+            android:background="@drawable/rectangle_rounded_corner_20"
+            android:gravity="left"
+            />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/main_profile"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/year_text"
+            android:textColor="#9E97A7"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="14sp"
+            android:layout_marginTop="27dp"
+            android:layout_marginLeft="133dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/month_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textColor="#9E97A7"
+            android:textSize="14sp"
+            android:layout_marginTop="27dp"
+            android:layout_marginLeft="163dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day_text"
+            android:textColor="#9E97A7"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="14sp"
+            android:layout_marginTop="27dp"
+            android:layout_marginLeft="193dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mypage_delete_button"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="40dp" />
+    </FrameLayout>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:src="@drawable/cone_hat"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="left|top"
+            />
+    </FrameLayout>
+
+
+
+</LinearLayout>
