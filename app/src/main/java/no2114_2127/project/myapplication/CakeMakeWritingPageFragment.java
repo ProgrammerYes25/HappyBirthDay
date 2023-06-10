@@ -125,14 +125,30 @@ public class CakeMakeWritingPageFragment extends Fragment {
                     ((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeingPageFragment.CakeMakeingPageInstance());
                     break;
                 case R.id.next_button_text_view:
-                    //((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
-                    cakeClass.setRollingPaper(rollingPaperEditText.getText().toString());
-                    cakeClass.setFrom(fromEditText.getText().toString());
-                    Log.d("from 확인", cakeClass.getFrom());
-                    CerdMakeingPageActivity.rollingPaperContent.setText(cakeClass.getRollingPaper());
-                    CerdMakeingPageActivity.rollingPaperFrom.setText(cakeClass.getFrom());
-                    CerdMakeingPageActivity.rollingPaperIcon.setImageResource(cakeClass.getDecoImage());
-                    ((CerdMakeingPageActivity)getActivity()).rollingPaperSheet();
+                    if(fromEditText.getText().toString().length() > 0 && fromEditText.getText().toString().length()<=6 && rollingPaperEditText.getText().toString().length() > 0) {
+                        //((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
+                        cakeClass.setRollingPaper(rollingPaperEditText.getText().toString());
+                        cakeClass.setFrom(fromEditText.getText().toString());
+                        Log.d("from 확인", cakeClass.getFrom());
+                        CerdMakeingPageActivity.rollingPaperContent.setText(cakeClass.getRollingPaper());
+                        CerdMakeingPageActivity.rollingPaperFrom.setText(cakeClass.getFrom());
+                        CerdMakeingPageActivity.rollingPaperIcon.setImageResource(cakeClass.getDecoImage());
+                        switch (cakeClass.getDecoImage()){
+                            case R.drawable.cake_decorative_strawberrie: case  R.drawable.cake_decorative_flower: case  R.drawable.cake_decorative_cherry:
+                                CerdMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_1);
+                                break;
+                            case R.drawable.cake_decorative_gift: case R.drawable.cake_decorative_chocolate: case R.drawable.cake_decorative_heart:
+                                CerdMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_2);
+                                break;
+                            case R.drawable.cake_decorative_rabbit: case R.drawable.cake_decorative_chick: case R.drawable.cake_decorative_puppy:
+                                CerdMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_3);
+                                break;
+                            case R.drawable.cake_decorative_muffin: case  R.drawable.cake_decorative_donut: case  R.drawable.cake_decorative_balloon:
+                                CerdMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_4);
+                                break;
+                        }
+                        ((CerdMakeingPageActivity) getActivity()).rollingPaperSheet();
+                    }
                     break;
             }
         }

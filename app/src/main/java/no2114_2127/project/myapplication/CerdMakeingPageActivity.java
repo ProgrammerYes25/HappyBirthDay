@@ -37,7 +37,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
     static LayoutInflater inflater1;
     static EditText rollingPaperContent, rollingPaperFrom;
     static LinearLayout.LayoutParams params;
-    static ImageView rollingPaperIcon;
+    static ImageView rollingPaperIcon, rollingPaperFrame;
     static TextView rollingPaperNextTextView, rollingPaperPreviousTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,6 +124,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         // rollingPaperLayout EditText 설정
         rollingPaperContent = (EditText) rollingPaperLayout.findViewById(R.id.rolling_paper_content);
         rollingPaperFrom = (EditText) rollingPaperLayout.findViewById(R.id.rolling_paper_from);
+        rollingPaperFrame = rollingPaperLayout.findViewById(R.id.rolling_paper_frame);
     }
 
     public static void rollingPaperSheet(){
