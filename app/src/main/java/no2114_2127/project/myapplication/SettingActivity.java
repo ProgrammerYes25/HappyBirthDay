@@ -3,8 +3,11 @@ package no2114_2127.project.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 
 public class SettingActivity extends AppCompatActivity {
@@ -17,6 +20,15 @@ public class SettingActivity extends AppCompatActivity {
 
 //        dialog01 = new Dialog(SettingActivity.this);
 //        dialog01.setContentView(R.layout.dialog_setting);
+
+        ImageView backButton = findViewById(R.id.btn_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Switch switchButton = findViewById(R.id.setting_switch);
         switchButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

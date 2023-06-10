@@ -38,7 +38,9 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.HappyBirthDay.Splash" />
+            android:theme="@style/Theme.HappyBirthDay.Splash" >
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
