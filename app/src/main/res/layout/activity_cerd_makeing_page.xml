@@ -44,6 +44,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textSize="14sp"
+            android:textColor="@color/purple_300"
             android:text="@string/make_award1_text"/>
     </com.google.android.material.appbar.AppBarLayout>
     <!--플레그먼트 자리-->

@@ -24,7 +24,8 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
     // image View
     ImageView backButtonImageView;
     LayoutInflater inflater;
-    // Fragment
+    // TextView
+    TextView cerdMakeSubtitleTextView, cerdMakeTitleTextView;
     // Fragment
     Fragment CakeMakeingPageFragment,
             PolaroidMakeingPageFragment,
@@ -49,6 +50,10 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         VideoUploadingFragment = new VideoUploadingFragment();
         AwardMakeingWritingPageFragment = new AwardMakeingWritingPageFragment();
 
+        //textView 정의
+        cerdMakeTitleTextView = findViewById(R.id.cerd_make_title_text_view);
+        cerdMakeSubtitleTextView = findViewById(R.id.cerd_make_subtitle_text_view);
+
         // rollingPaper를 보여주기 위한 셋팅
         inflater1 = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         rollingPaperLayout = (LinearLayout) inflater1.inflate(R.layout.rolling_paper_frames_bottom_sheet, null);
@@ -59,18 +64,26 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         switch (StageClass.stage){
             case 0:
                 //케이크
+                cerdMakeTitleTextView.setText("케이크를 꾸며요!");
+                cerdMakeSubtitleTextView.setText("꾸밀 재료를 선택한 후, 편지를 작성합니다");
                 cakeView();
                 break;
             case 1:
                 //폴라로이드
+                cerdMakeTitleTextView.setText("폴라로이드 사진을 만들어요!");
+                cerdMakeSubtitleTextView.setText("폴라로이드 색상, 사진을 선택한 후 제목을 붙여요.");
                 polaroidView();
                 break;
             case 2:
                 //동영상
+                cerdMakeTitleTextView.setText("소중한 추억을 공유해요!");
+                cerdMakeSubtitleTextView.setText("친구와 함께했던 영상을 업로드 해보세요");
                 videoView();
                 break;
             case 3:
                 //상장
+                cerdMakeTitleTextView.setText("친구를 위한 상장을 만들어요!");
+                cerdMakeSubtitleTextView.setText("특별한 상장을 만들어보세요");
                 awardView();
                 break;
         }

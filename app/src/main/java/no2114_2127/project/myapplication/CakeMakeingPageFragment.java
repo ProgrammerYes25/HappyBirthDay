@@ -1,5 +1,6 @@
 package no2114_2127.project.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,8 +39,10 @@ public class CakeMakeingPageFragment extends Fragment {
         nextButtonTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
-                CerdClass.cakeClass.setDecoImage(cakeDecorative[choice]);// 아이콘 저장
+                if(choice > -1){
+                    ((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
+                    CerdClass.cakeClass.setDecoImage(cakeDecorative[choice]);// 아이콘 저장
+                }
             }
         });
 
@@ -59,12 +62,14 @@ public class CakeMakeingPageFragment extends Fragment {
             circle[position] = R.drawable.img_decorative_icon_circle;
             if(position == choice){
                 circle[choice] = R.drawable.img_decorative_icon_circle_border;
+                nextButtonDeactivation();
                 choice = -1;
             }else if(choice != -1 ){
                 circle[choice] = R.drawable.img_decorative_icon_circle_border;
                 choice = position;
             }else {
                 choice = position;
+                nextButtonActivation();
             }
             for(int i =0; i<cakeDecorative.length; i++) {
                 Log.d("Circle확인 : ", circle[i]+"");
@@ -79,6 +84,15 @@ public class CakeMakeingPageFragment extends Fragment {
         }
         decorativeListGridView.setAdapter(adapter);
     }
+
+    public void nextButtonDeactivation(){
+        nextButtonTextView.setBackgroundResource(R.drawable.rectangle_resource_perimeter_deactivation);
+        nextButtonTextView.setTextColor(Color.parseColor("#98A2B3"));
+    }
+    public void nextButtonActivation(){
+        nextButtonTextView.setBackgroundResource(R.drawable.rectangle_resource_perimeter_activation);
+        nextButtonTextView.setTextColor(Color.parseColor("#585062"));
+    }
     public void resetAdapter(){
         for(int i =0; i<cakeDecorative.length; i++) {
             adapter.itmes.add(i, new CakeListItem(cakeDecorative[i], circle[i]));
@@ -92,10 +106,5 @@ public class CakeMakeingPageFragment extends Fragment {
     public static CakeMakeingPageFragment CakeMakeingPageInstance() {
         return new CakeMakeingPageFragment();
     }
-//    AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
-//        @Override
-//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//        }
-//    };
+
 }
