@@ -21,21 +21,22 @@
             <!--업로드 한 사진 image view-->
             <ImageView
                 android:id="@+id/polaroid_photo_image_view"
-                android:layout_width="298dp"
-                android:layout_height="392dp"
-                android:layout_marginTop="24dp"
+                android:layout_width="297dp"
+                android:layout_height="400dp"
+                android:layout_marginTop="25dp"
                 android:scaleType="fitXY"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/test_polaroid_image2" />
             <!--폴라로이드 프레임 image view-->
+            <!--메모 적는 edit text-->
             <ImageView
                 android:id="@+id/polaroid_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
-                android:src="@drawable/test_polaroid_image" />
-            <!--메모 적는 edit text-->
+                android:src="@drawable/polaroid_frame_1" />
+
             <EditText
                 android:id="@+id/polaroid_edit_text"
                 android:layout_width="match_parent"
@@ -50,16 +51,87 @@
                 android:textSize="22sp" />
         </FrameLayout>
         <!--폴라로이드 고르는 list-->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="100dp"
+            android:layout_marginTop="14dp"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center">
+                <ImageView
+                    android:id="@+id/polaroid_frame_1"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_1"/>
+                <ImageView
+                    android:id="@+id/polaroid_frame_2"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_2"/>
+
+                <ImageView
+                    android:id="@+id/polaroid_frame_3"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_3" />
+
+                <ImageView
+                    android:id="@+id/polaroid_frame_4"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_4" />
+
+                <ImageView
+                    android:id="@+id/polaroid_frame_5"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_5"/>
+                <ImageView
+                    android:id="@+id/polaroid_frame_6"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_6"/>
+
+                <ImageView
+                    android:id="@+id/polaroid_frame_7"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_7" />
+
+                <ImageView
+                    android:id="@+id/polaroid_frame_8"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_8"/>
+                <ImageView
+                    android:id="@+id/polaroid_frame_9"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/polaroid_frame_item_9"/>
+            </LinearLayout>
+
+        </HorizontalScrollView>
     </LinearLayout>
     <!--장식 달기 버튼-->
     <TextView
