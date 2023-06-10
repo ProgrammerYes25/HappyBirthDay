@@ -3,7 +3,7 @@
     android:background="@drawable/rectangle_rounded_corner_main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="170dp"
-    android:layout_height="220dp"
+    android:layout_height="230dp"
     android:orientation="vertical">
     <ImageView
         android:layout_width="25dp"
@@ -25,7 +25,8 @@
         android:text="to.지혜이무니다"
         android:textSize="18sp"
         android:gravity="center_horizontal"
-        android:fontFamily="@font/notosans_regular"/>
+        android:fontFamily="@font/notosans_regular"
+        />
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -33,7 +34,8 @@
     android:text="양지혜 10월 12일"
     android:textSize="13sp"
     android:gravity="center_horizontal"
-    android:fontFamily="@font/notosans_regular"/>
+    android:fontFamily="@font/notosans_regular"
+    />
 
 
 
