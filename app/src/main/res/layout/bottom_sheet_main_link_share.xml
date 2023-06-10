@@ -1,122 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:background="@drawable/dialog_background_round"
-    android:layout_gravity="center"
+    android:background="@drawable/rectangle_resource_activation_bottom"
+    android:layout_gravity="center_horizontal|bottom"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="340dp"
-    android:layout_height="290dp">
-
+    android:layout_width="410dp"
+    android:layout_height="290dp"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp">
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:src="@drawable/back_button"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="링크 공유"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="18sp"
+            android:textColor="#575062"
+            />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="360dp"
+            android:layout_height="45dp"
+            android:text="https://yoorilink.com"
+            android:background="@drawable/rectangle_rounded_corner_dialog"
+            android:textColor="#28242D"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/notosans_regular"
+            android:paddingStart="30dp"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="복사"
+            android:layout_gravity="right"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="5dp"
             android:textColor="#575062"
-            android:text="친구 추가하기"
-            android:textSize="17sp"
             android:fontFamily="@font/notosans_regular"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"/>
-        <EditText
-            android:id="@+id/put_text"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="코드를 입력해주세요"
-            android:textSize="15sp"
-            android:fontFamily="@font/notosans_regular"
-            android:textColor="#797381"
-            android:paddingStart="15dp"
-            android:background="@drawable/rectangle_rounded_corner_dialog"
-            android:layout_margin="20dp"/>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:textSize="18sp" />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
-            <TextView
-                android:layout_width="263dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:text="양지혜"
-                android:paddingStart="60dp"
-                android:textColor="#585062"
-                android:textSize="16sp"
-                android:fontFamily="@font/notosans_bold"
-                android:gravity="left"
-                android:background="@drawable/rectangle_rounded_corner_20"/>
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/main_profile"
-                android:scaleType="fitXY"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/year_text"
-                android:textColor="#9E97A7"
-                android:fontFamily="@font/notosans_regular"
-                android:textSize="14sp"
-                android:layout_marginTop="27dp"
-                android:layout_marginLeft="113dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/month_text"
-                android:fontFamily="@font/notosans_regular"
-                android:textColor="#9E97A7"
-                android:textSize="14sp"
-                android:layout_marginTop="27dp"
-                android:layout_marginLeft="143dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/day_text"
-                android:textColor="#9E97A7"
-                android:fontFamily="@font/notosans_regular"
-                android:textSize="14sp"
-                android:layout_marginTop="27dp"
-                android:layout_marginLeft="173dp" />
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_marginRight="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-            <TextView
-                android:text="취소"
-                android:textSize="17dp"
-                android:id="@+id/btnCancle"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/notosans_regular"
-                android:textColor="#9E97A7"
-                android:background="@drawable/rectangle_rounded_corner_dialog_button"
-                android:gravity="center"
-                />
-            <TextView
-                android:text="추가하기"
-                android:textSize="17dp"
-                android:id="@+id/btnSave"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/notosans_regular"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:textColor="#F1F2FF"
-                android:background="@drawable/rectangle_resource_activation_radadd"
-        </LinearLayout>
-
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/kakao_icon"
+            android:layout_marginLeft="70dp"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/insta_icon"
+            android:layout_marginLeft="20dp"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/twit_icon"
+            android:layout_marginLeft="20dp"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/blog_icon"
+            android:layout_marginLeft="20dp"/>
     </LinearLayout>
+
+    <TextView
+        android:text="취소"
+        android:textSize="18dp"
+        android:id="@+id/tv_cancel"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/notosans_regular"
+        android:layout_width="350dp"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:textColor="#F9FAFB"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rectangle_resource_activation"/>
+
+
 
 
 </LinearLayout>
