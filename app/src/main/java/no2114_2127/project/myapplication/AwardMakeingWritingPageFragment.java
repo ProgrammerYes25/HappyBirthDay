@@ -1,5 +1,8 @@
 package no2114_2127.project.myapplication;
 
+import static no2114_2127.project.myapplication.CerdClass.awardClass;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -27,7 +30,9 @@ public class AwardMakeingWritingPageFragment extends Fragment {
         awardTitleEditText = view.findViewById(R.id.award_title_edit_text);
         awardTextEditText = view.findViewById(R.id.award_text_edit_text);
         awardNameEditText = view.findViewById(R.id.award_name_edit_text);
-        //awardTitleEditText.addTextChangedListener();
+        awardTitleEditText.addTextChangedListener(awardWatcher);
+        awardTextEditText.addTextChangedListener(awardWatcher);
+        awardNameEditText.addTextChangedListener(awardWatcher);
         nextButtonTextView.setOnClickListener(onClickListener);
         return view;
     }
@@ -42,14 +47,19 @@ public class AwardMakeingWritingPageFragment extends Fragment {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.next_button_text_view:
-                    ((CerdMakeingPageActivity)getActivity()).replaceFragment(AwardMakeingPageFragment.AwardMakeiangPageInstance());
+                    if(awardTitleEditText.getText().toString().length() > 0 &&  awardTextEditText.getText().toString().length()>0 &&  awardNameEditText.getText().toString().length() > 0) {
+                        awardClass.setAwardTitle(awardTitleEditText.getText().toString());
+                        awardClass.setAwardText(awardTextEditText.getText().toString());
+                        awardClass.setAwardText(awardNameEditText.getText().toString());
+                        ((CerdMakeingPageActivity) getActivity()).replaceFragment(AwardMakeingPageFragment.AwardMakeiangPageInstance());
+                    }
                     break;
             }
         }
     };
 
 
-    TextWatcher awardTitleTextWatcher = new TextWatcher() {
+    TextWatcher awardWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -57,22 +67,24 @@ public class AwardMakeingWritingPageFragment extends Fragment {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-//            if(s.length()>=6){
-//                awardTitleEditText.setVisibility(View.VISIBLE);
-//                nextButtonDeactivation();
-//            }else{
-//                fromEditTextCaution.setVisibility(View.INVISIBLE);
-//                if(rollingPaperEditText.getText().toString().length() > 0 && s.length() > 0){
-//                    nextButtonActivation();
-//                }else{
-//                    nextButtonDeactivation();
-//                }
-//            }
+            if(awardTitleEditText.getText().toString().length() > 0 &&  awardTextEditText.getText().toString().length()>0 &&  awardNameEditText.getText().toString().length() > 0){
+                nextButtonActivation();
+            }else{
+                nextButtonDeactivation();
+            }
         }
 
         @Override
         public void afterTextChanged(Editable s) {
+
         }
     };
-
+    public void nextButtonDeactivation(){
+        nextButtonTextView.setBackgroundResource(R.drawable.rectangle_resource_perimeter_deactivation);
+        nextButtonTextView.setTextColor(Color.parseColor("#98A2B3"));
+    }
+    public void nextButtonActivation(){
+        nextButtonTextView.setBackgroundResource(R.drawable.rectangle_resource_perimeter_activation);
+        nextButtonTextView.setTextColor(Color.parseColor("#585062"));
+    }
 }
