@@ -10,14 +10,16 @@
     tools:context=".VideoUploadFragment">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:orientation="vertical"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:background="@drawable/video_upload">
         <!--업로드할 VideoView-->
         <VideoView
             android:id="@+id/video_uplode_view"
             android:layout_width="match_parent"
-            android:layout_height="150dp"/>
+            android:layout_height="200dp"
+            android:visibility="invisible"/>
     </LinearLayout>
     <!--장식 달기 버튼-->
     <TextView
