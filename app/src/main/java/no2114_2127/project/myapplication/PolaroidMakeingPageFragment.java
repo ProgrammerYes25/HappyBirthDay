@@ -35,13 +35,14 @@ public class PolaroidMakeingPageFragment extends Fragment {
     int polaroidFrameOnItem[] = {R.drawable.polaroid_frame_on_item_1, R.drawable.polaroid_frame_on_item_2, R.drawable.polaroid_frame_on_item_3,
             R.drawable.polaroid_frame_on_item_4, R.drawable.polaroid_frame_on_item_5, R.drawable.polaroid_frame_on_item_6,
             R.drawable.polaroid_frame_on_item_7, R.drawable.polaroid_frame_on_item_8, R.drawable.polaroid_frame_on_item_9};
-    ImageView choiceImageView;
+    ImageView choiceImageView, polaroidPhotoImageView;
     int choiceindex = 0;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_polaroid_makeing_page, container, false);
         // image view find View by id
+        polaroidPhotoImageView = view.findViewById(R.id.polaroid_photo_image_view);
         polaroidFrame1 = view.findViewById(R.id.polaroid_frame_1);
         polaroidFrame2 = view.findViewById(R.id.polaroid_frame_2);
         polaroidFrame3 = view.findViewById(R.id.polaroid_frame_3);
@@ -60,6 +61,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
         polaroidEditText = view.findViewById(R.id.polaroid_edit_text);
 
         // image view setOnClick
+        polaroidPhotoImageView.setOnClickListener(onClickListener);
         polaroidFrame1.setOnClickListener(onClickListener);
         polaroidFrame2.setOnClickListener(onClickListener);
         polaroidFrame3.setOnClickListener(onClickListener);
@@ -116,6 +118,10 @@ public class PolaroidMakeingPageFragment extends Fragment {
                     break;
                 case R.id.polaroid_frame_9:
                     changePolaroidFrame(8, polaroidFrame9);
+                    break;
+                case R.id.polaroid_photo_image_view:
+                    Intent intentImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intentImage,1);
                     break;
             }
         }
