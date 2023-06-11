@@ -50,7 +50,7 @@ public class AwardMakeingWritingPageFragment extends Fragment {
                     if(awardTitleEditText.getText().toString().length() > 0 &&  awardTextEditText.getText().toString().length()>0 &&  awardNameEditText.getText().toString().length() > 0) {
                         awardClass.setAwardTitle(awardTitleEditText.getText().toString());
                         awardClass.setAwardText(awardTextEditText.getText().toString());
-                        awardClass.setAwardText(awardNameEditText.getText().toString());
+                        awardClass.setAwardFrom(awardNameEditText.getText().toString());
                         ((CerdMakeingPageActivity) getActivity()).replaceFragment(AwardMakeingPageFragment.AwardMakeiangPageInstance());
                     }
                     break;

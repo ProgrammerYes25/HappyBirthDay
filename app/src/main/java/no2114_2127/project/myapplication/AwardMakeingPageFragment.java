@@ -1,5 +1,7 @@
 package no2114_2127.project.myapplication;
 
+import static no2114_2127.project.myapplication.CerdClass.awardClass;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 public class AwardMakeingPageFragment extends Fragment {
     // text view 선언
-    TextView previousButtonTextView, nextButtonTextView;
+    TextView previousButtonTextView, nextButtonTextView, awardTitle, awardText, awardFrom;
 
     @Nullable
     @Override
@@ -22,9 +24,12 @@ public class AwardMakeingPageFragment extends Fragment {
         // TextView findViewById
         previousButtonTextView = view.findViewById(R.id.previous_button_text_view);
         nextButtonTextView = view.findViewById(R.id.next_button_text_view);
-
-        // EditText findViewById
-
+        awardTitle= view.findViewById(R.id.award_title);
+        awardText= view.findViewById(R.id.award_text);
+        awardFrom= view.findViewById(R.id.award_from);
+        awardTitle.setText(awardClass.getAwardTitle());
+        awardText.setText(awardClass.getAwardText());
+        awardFrom.setText(awardClass.getAwardFrom());
         // Text setOnClick
         previousButtonTextView.setOnClickListener(onClickListener);
         nextButtonTextView.setOnClickListener(onClickListener);

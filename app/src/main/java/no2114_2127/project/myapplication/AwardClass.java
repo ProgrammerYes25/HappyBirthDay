@@ -5,7 +5,7 @@ public class AwardClass {
     private String awardText;
     private String awardToName;
     private String awardDate;
-    private String awardFromName;
+    private String awardFrom;
 
     public AwardClass() {
         // Default constructor
@@ -16,7 +16,7 @@ public class AwardClass {
         this.awardText = awardText;
         this.awardToName = awardToName;
         this.awardDate = awardDate;
-        this.awardFromName = awardFromName;
+        this.awardFrom = awardFromName;
     }
 
     public String getAwardTitle() {
@@ -51,11 +51,11 @@ public class AwardClass {
         this.awardDate = awardDate;
     }
 
-    public String getAwardFromName() {
-        return awardFromName;
+    public String getAwardFrom() {
+        return awardFrom;
     }
 
-    public void setAwardFromName(String awardFromName) {
-        this.awardFromName = awardFromName;
+    public void setAwardFrom(String awardFrom) {
+        this.awardFrom = awardFrom;
     }
 }
