@@ -1,8 +1,11 @@
 package no2114_2127.project.myapplication;
 
-import android.app.Activity;
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -121,6 +124,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
                     break;
                 case R.id.polaroid_photo_image_view:
                     Intent intentImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    intent.setType("video/*");
                     startActivityForResult(intentImage,1);
                     break;
             }
@@ -134,6 +138,17 @@ public class PolaroidMakeingPageFragment extends Fragment {
             choiceImageView.setImageResource(polaroidFrameItem[choiceindex]);
             choiceImageView = polaroidFrameItemImageView;
             choiceindex = index;
+        }
+    }
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (resultCode == RESULT_OK) {
+            Uri uri = data.getData();
+            if (uri.toString().contains("image")) {
+                Log.d("확인 : ", "image");
+            }
         }
     }
 }
