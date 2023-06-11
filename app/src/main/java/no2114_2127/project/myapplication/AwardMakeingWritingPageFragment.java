@@ -15,7 +15,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class AwardMakeingWritingPageFragment extends Fragment {
+    String CALENDAR_FORMAT = "yyyy/MM/dd";
     // text view 선언
     TextView  nextButtonTextView;
     // EditText 선언
@@ -50,6 +54,7 @@ public class AwardMakeingWritingPageFragment extends Fragment {
                     if(awardTitleEditText.getText().toString().length() > 0 &&  awardTextEditText.getText().toString().length()>0 &&  awardNameEditText.getText().toString().length() > 0) {
                         awardClass.setAwardTitle(awardTitleEditText.getText().toString());
                         awardClass.setAwardText(awardTextEditText.getText().toString());
+                        awardClass.setAwardDate(dateFormat(CALENDAR_FORMAT));
                         awardClass.setAwardFrom(awardNameEditText.getText().toString());
                         ((CerdMakeingPageActivity) getActivity()).replaceFragment(AwardMakeingPageFragment.AwardMakeiangPageInstance());
                     }
@@ -86,5 +91,10 @@ public class AwardMakeingWritingPageFragment extends Fragment {
     public void nextButtonActivation(){
         nextButtonTextView.setBackgroundResource(R.drawable.rectangle_resource_perimeter_activation);
         nextButtonTextView.setTextColor(Color.parseColor("#585062"));
+    }
+    // dateFormat
+    public String dateFormat(String pattern) {
+        Date date = new Date();
+        return new SimpleDateFormat(pattern).format(date);
     }
 }

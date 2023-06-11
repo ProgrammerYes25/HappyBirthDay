@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 public class AwardMakeingPageFragment extends Fragment {
     // text view 선언
-    TextView previousButtonTextView, nextButtonTextView, awardTitle, awardText, awardFrom;
+    TextView previousButtonTextView, nextButtonTextView, awardTitle, awardText, awardDate,awardFrom;
 
     @Nullable
     @Override
@@ -26,10 +26,13 @@ public class AwardMakeingPageFragment extends Fragment {
         nextButtonTextView = view.findViewById(R.id.next_button_text_view);
         awardTitle= view.findViewById(R.id.award_title);
         awardText= view.findViewById(R.id.award_text);
+        awardDate = view.findViewById(R.id.award_date);
         awardFrom= view.findViewById(R.id.award_from);
         awardTitle.setText(awardClass.getAwardTitle());
         awardText.setText(awardClass.getAwardText());
+        awardDate.setText(awardClass.getAwardDate());
         awardFrom.setText(awardClass.getAwardFrom());
+
         // Text setOnClick
         previousButtonTextView.setOnClickListener(onClickListener);
         nextButtonTextView.setOnClickListener(onClickListener);
