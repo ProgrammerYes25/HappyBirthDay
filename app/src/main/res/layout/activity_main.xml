@@ -103,7 +103,7 @@
         <TextView
             android:id="@+id/toggle_tv_mycard"
             android:layout_width="150dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/my_card_text"
             android:gravity="center"
             android:fontFamily="@font/notosans_regular"

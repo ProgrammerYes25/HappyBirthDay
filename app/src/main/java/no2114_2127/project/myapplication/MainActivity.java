@@ -72,16 +72,23 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             ft = manager.beginTransaction();
+            TextView decoToggle = findViewById(R.id.toggle_tv_deco);
+            TextView mycardToggle = findViewById(R.id.toggle_tv_mycard);
 
             int id = v.getId();
             switch (id) {
                 case R.id.toggle_tv_deco:
+                    mycardToggle.setBackground(null);
+                    decoToggle.setBackground(getResources().getDrawable(R.drawable.rectangle_resource_activation_toggle2));
                     ft.replace(R.id.fragment_container, decoFragment).commitAllowingStateLoss();
                     Log.d("확인 : "," R.id.toggle_tv_deco");
                     break;
                 case R.id.toggle_tv_mycard:
+                    decoToggle.setBackground(null);
+                    mycardToggle.setBackground(getResources().getDrawable(R.drawable.rectangle_resource_activation_toggle));
                     ft.replace(R.id.fragment_container, mycardFragment).commitAllowingStateLoss();
                     Log.d("확인 : "," R.id.toggle_tv_mycard");
+
                     break;
                 case R.id.btn_setting:
                     Intent intent = new Intent(MainActivity.this, SettingActivity.class);
