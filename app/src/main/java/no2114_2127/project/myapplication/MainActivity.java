@@ -78,12 +78,16 @@ public class MainActivity extends AppCompatActivity {
             int id = v.getId();
             switch (id) {
                 case R.id.toggle_tv_deco:
+                    decoToggle.setTextColor(getResources().getColor(R.color.white));
+                    mycardToggle.setTextColor(getResources().getColor(R.color.unselected_text_color));
                     mycardToggle.setBackground(null);
                     decoToggle.setBackground(getResources().getDrawable(R.drawable.rectangle_resource_activation_toggle2));
                     ft.replace(R.id.fragment_container, decoFragment).commitAllowingStateLoss();
                     Log.d("확인 : "," R.id.toggle_tv_deco");
                     break;
                 case R.id.toggle_tv_mycard:
+                    mycardToggle.setTextColor(getResources().getColor(R.color.white));
+                    decoToggle.setTextColor(getResources().getColor(R.color.unselected_text_color));
                     decoToggle.setBackground(null);
                     mycardToggle.setBackground(getResources().getDrawable(R.drawable.rectangle_resource_activation_toggle));
                     ft.replace(R.id.fragment_container, mycardFragment).commitAllowingStateLoss();
