@@ -139,7 +139,7 @@
         android:layout_height="50dp"
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/rectangle_resource_perimeter_activation"
+        android:background="@drawable/rectangle_resource_perimeter_deactivation"
         android:fontFamily="@font/notosans_regular"
         android:gravity="center"
         android:padding="5dp"

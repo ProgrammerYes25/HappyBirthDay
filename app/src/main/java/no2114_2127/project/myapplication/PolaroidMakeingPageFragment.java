@@ -3,8 +3,11 @@ package no2114_2127.project.myapplication;
 import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +48,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
     ImageView choiceImageView, polaroidPhotoImageView;
     int choiceindex = 0;
 
-    private Uri uri;
+    private Uri uri =null;
 
     @Nullable
     @Override
@@ -69,7 +72,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
 
         // EditText find View by id
         polaroidEditText = view.findViewById(R.id.polaroid_edit_text);
-
+        polaroidEditText.addTextChangedListener(polaroidTextWatcher);
         // image view setOnClick
         polaroidPhotoImageView.setOnClickListener(onClickListener);
         polaroidFrame1.setOnClickListener(onClickListener);
@@ -135,6 +138,47 @@ public class PolaroidMakeingPageFragment extends Fragment {
                     launcher.launch(intentImage);
                     break;
             }
+
+
+        }
+    };
+    TextWatcher rollingPaperTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if(s.length()> 0 && s.length() <= 6 && uri!=null){
+                nextButtonActivation();
+            }else{
+                nextButtonDeactivation();
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+        }
+    };
+
+    TextWatcher polaroidTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if(polaroidEditText.getText().toString().length() > 0 && uri!=null){
+                nextButtonActivation();
+            }else{
+                nextButtonDeactivation();
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
         }
     };
 
@@ -148,7 +192,14 @@ public class PolaroidMakeingPageFragment extends Fragment {
         }
     }
 
-
+    public void nextButtonDeactivation(){
+        polaroidButtonTextView.setBackgroundResource(R.drawable.rectangle_resource_perimeter_deactivation);
+        polaroidButtonTextView.setTextColor(Color.parseColor("#98A2B3"));
+    }
+    public void nextButtonActivation(){
+        polaroidButtonTextView.setBackgroundResource(R.drawable.rectangle_resource_perimeter_activation);
+        polaroidButtonTextView.setTextColor(Color.parseColor("#585062"));
+    }
 
 
     private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(
@@ -160,6 +211,12 @@ public class PolaroidMakeingPageFragment extends Fragment {
                         uri = result.getData().getData();
                         Log.d("test", uri.toString());
                         polaroidPhotoImageView.setImageURI(uri);
+                    }
+                    if(uri!=null&& polaroidEditText.getText().toString().length() >0 ){
+                        nextButtonActivation();
+                    }
+                    else {
+                        nextButtonDeactivation();
                     }
                 }
             });
