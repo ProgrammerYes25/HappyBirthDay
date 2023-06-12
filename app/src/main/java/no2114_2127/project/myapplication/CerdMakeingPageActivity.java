@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class CerdMakeingPageActivity extends AppCompatActivity {
+    public Context context = this;
     // image View
     ImageView backButtonImageView;
     LayoutInflater inflater;
@@ -151,4 +152,5 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         //fragment 바꾸는 메소드
         getSupportFragmentManager().beginTransaction().replace(R.id.cerd_make_frame_layout, fragment).commitAllowingStateLoss();
     }
+
 }
