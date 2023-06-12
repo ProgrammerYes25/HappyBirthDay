@@ -65,7 +65,7 @@ public class MycardFragment extends Fragment {
 
         // 취소 버튼
         TextView noBtn = addCard.findViewById(R.id.btn_cancel);
-        TextView yesBtn = addCard.findViewById(R.id.btn_add);
+        TextView yesBtn = addCard.findViewById(R.id.btn_save);
         noBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

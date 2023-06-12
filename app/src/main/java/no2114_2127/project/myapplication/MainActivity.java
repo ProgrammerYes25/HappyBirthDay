@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -28,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager manager;
     FragmentTransaction ft;
 
-    DecoFragment DecoFragment;
-    MycardFragment MycardFragment;
+    DecoFragment decoFragment;
+    MycardFragment mycardFragment;
     private FirebaseAuth mAuth; //FirevaseAuth 객체 선언
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
         manager = getSupportFragmentManager();
         TextView decoToggle = findViewById(R.id.toggle_tv_deco);
         TextView mycardToggle = findViewById(R.id.toggle_tv_mycard);
-        DecoFragment = new DecoFragment();
-        MycardFragment=new  MycardFragment();
+        decoFragment = new DecoFragment();
+        mycardFragment=new  MycardFragment();
 
         ft = manager.beginTransaction();
-        ft.add(R.id.fragment_container, DecoFragment);
+        ft.add(R.id.fragment_container, decoFragment);
         ft.addToBackStack(null);
         ft.commit();
 
@@ -75,10 +76,12 @@ public class MainActivity extends AppCompatActivity {
             int id = v.getId();
             switch (id) {
                 case R.id.toggle_tv_deco:
-                    ft.add(R.id.fragment_container, DecoFragment).commitAllowingStateLoss();
+                    ft.replace(R.id.fragment_container, decoFragment).commitAllowingStateLoss();
+                    Log.d("확인 : "," R.id.toggle_tv_deco");
                     break;
                 case R.id.toggle_tv_mycard:
-                    ft.add(R.id.fragment_container, MycardFragment).commitAllowingStateLoss();
+                    ft.replace(R.id.fragment_container, mycardFragment).commitAllowingStateLoss();
+                    Log.d("확인 : "," R.id.toggle_tv_mycard");
                     break;
                 case R.id.btn_setting:
                     Intent intent = new Intent(MainActivity.this, SettingActivity.class);
