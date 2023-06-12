@@ -120,22 +120,18 @@
 
     </LinearLayout>
 </FrameLayout>
+    <LinearLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="vertical"/>
 
 
 
 
-    <TextView
-        android:id="@+id/main_btn"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:background="@drawable/rectangle_resource_activation"
-        android:layout_gravity="center"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:layout_marginTop="500dp"
-        android:text="@string/add_link_text"
-        android:fontFamily="@font/notosans_regular"
-        android:textSize="20sp"/>
+
+
 
 
 
