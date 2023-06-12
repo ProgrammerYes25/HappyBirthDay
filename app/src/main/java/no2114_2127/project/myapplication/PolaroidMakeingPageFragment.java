@@ -13,6 +13,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -40,6 +44,9 @@ public class PolaroidMakeingPageFragment extends Fragment {
             R.drawable.polaroid_frame_on_item_7, R.drawable.polaroid_frame_on_item_8, R.drawable.polaroid_frame_on_item_9};
     ImageView choiceImageView, polaroidPhotoImageView;
     int choiceindex = 0;
+
+    private Uri uri;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -124,8 +131,8 @@ public class PolaroidMakeingPageFragment extends Fragment {
                     break;
                 case R.id.polaroid_photo_image_view:
                     Intent intentImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    intent.setType("video/*");
-                    startActivityForResult(intentImage,1);
+                    intentImage.setType("image/*");
+                    launcher.launch(intentImage);
                     break;
             }
         }
@@ -142,13 +149,18 @@ public class PolaroidMakeingPageFragment extends Fragment {
     }
 
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (resultCode == RESULT_OK) {
-            Uri uri = data.getData();
-            if (uri.toString().contains("image")) {
-                Log.d("확인 : ", "image");
-            }
-        }
-    }
+
+    private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        uri = result.getData().getData();
+                        Log.d("test", uri.toString());
+                        polaroidPhotoImageView.setImageURI(uri);
+                    }
+                }
+            });
 }
