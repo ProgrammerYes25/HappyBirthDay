@@ -69,4 +69,6 @@
     <string name="revise_pin_text">비밀번호 변경</string>
     <string name="logout_text">로그아웃</string>
     <string name="from_edit_text_caution">*이름은 7글자 이하로만 가능합니다.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

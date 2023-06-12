@@ -41,7 +41,7 @@
             <TextView
                 android:text="취소"
                 android:textSize="17dp"
-                android:id="@+id/btnCancle"
+                android:id="@+id/btn_cancel"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="11dp"
@@ -53,7 +53,7 @@
             <TextView
                 android:text="생성하기"
                 android:textSize="17dp"
-                android:id="@+id/btnSave"
+                android:id="@+id/btn_save"
                 android:layout_marginLeft="20dp"
                 android:fontFamily="@font/notosans_regular"
                 android:layout_width="130dp"

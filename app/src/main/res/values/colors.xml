@@ -34,6 +34,7 @@
     <color name="light_purple_85">#E9DDF2</color>
     <color name="light_purple_70">#EBDDF4</color>
     <color name="light_purple_10">#F1F2FF</color>
+    <color name="unselected_text_color">#E0C8FF</color>
     <color name="pink_100">#FFE3FA</color>
     <color name="pink_90">#FDE6F9</color>
     <color name="pink_80">#FAEBF7</color>
