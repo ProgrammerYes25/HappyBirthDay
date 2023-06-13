@@ -22,6 +22,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class VideoUploadingFragment extends Fragment {
     TextView videoButtonTextView;
 
@@ -31,6 +33,8 @@ public class VideoUploadingFragment extends Fragment {
     //Linear Layout 선언
     LinearLayout videoUplodeLayout;
     private Uri uri;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +48,7 @@ public class VideoUploadingFragment extends Fragment {
         // Textview findViewById
         videoButtonTextView = view.findViewById(R.id.video_button_text_view);
         videoButtonTextView.setOnClickListener(onClickListener);
+
         return view;
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
