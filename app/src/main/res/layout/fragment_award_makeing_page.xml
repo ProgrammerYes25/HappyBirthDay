@@ -108,7 +108,7 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/rectangle_resource_perimeter_activation"
+                android:background="@drawable/rectangle_resource_perimeter_deactivation"
                 android:fontFamily="@font/notosans_regular"
                 android:gravity="center"
                 android:text="@string/next_text"

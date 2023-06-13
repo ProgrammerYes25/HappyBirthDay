@@ -85,6 +85,7 @@ public class VideoUploadingFragment extends Fragment {
                             uri = result.getData().getData();
                             Log.d("test", uri.toString());
                             videoUplodeView.setVideoURI(uri);
+                            MediaClass.videoMedioClass.setVideoUri(uri);
                         }
                     }
                 });

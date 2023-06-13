@@ -2,6 +2,7 @@ package no2114_2127.project.myapplication;
 
 import static android.app.Activity.RESULT_OK;
 
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -142,25 +143,6 @@ public class PolaroidMakeingPageFragment extends Fragment {
 
         }
     };
-    TextWatcher rollingPaperTextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if(s.length()> 0 && s.length() <= 6 && uri!=null){
-                nextButtonActivation();
-            }else{
-                nextButtonDeactivation();
-            }
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-        }
-    };
 
     TextWatcher polaroidTextWatcher = new TextWatcher() {
         @Override
@@ -211,6 +193,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
                         uri = result.getData().getData();
                         Log.d("test", uri.toString());
                         polaroidPhotoImageView.setImageURI(uri);
+                        MediaClass.imageClass.setImageUri(uri);
                     }
                     if(uri!=null&& polaroidEditText.getText().toString().length() >0 ){
                         nextButtonActivation();
@@ -220,4 +203,6 @@ public class PolaroidMakeingPageFragment extends Fragment {
                     }
                 }
             });
+
+
 }

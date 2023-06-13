@@ -3,9 +3,6 @@ package no2114_2127.project.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.app.Activity;
-import android.content.ContentProvider;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +14,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
     String CerdMakeTitle = "의 생일카드";
     // 카드에 대한 정보
     CakeClass cakeClass;
+    ImageClass imageClass;
     int cerdMakeFrameLayoutId;
     //Layout
     FrameLayout cerdMakeFrameLayout;
@@ -45,8 +43,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
         backButtonImageView = findViewById(R.id.back_button_image_view);
         stageImageView = findViewById(R.id.stage_image_view);
 
-        // CakeClass정의
-
+        // CerdClass정의
 
         // Fragent
         CakeMakePageFragment = new CakeMakePageFragment();
@@ -80,12 +77,14 @@ public class CerdMakePageActivity extends AppCompatActivity {
                 break;
             case 1:
                 //폴라로이드
+                MediaClass.imageClass = new ImageClass();
                 CerdClass.polaroidClass = new PolaroidClass();
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, PolaroidMakePageFragment).commitAllowingStateLoss();
                 stageImageView.setImageResource(R.drawable.cerd_make_page2);
                 break;
             case 2:
                 //동영상
+                MediaClass.videoMedioClass = new VideoMedioClass();
                 CerdClass.videoClass = new VideoClass();
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, VideoUploadFragment).commitAllowingStateLoss();
                 stageImageView.setImageResource(R.drawable.cerd_make_page3);
@@ -98,6 +97,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
                 break;
             case 4:
                 //마무리
+                Log.d("class확인", CerdClass.awardClass.getAwardFrom());
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, FromFinishPageFragment).commitAllowingStateLoss();
                 stageImageView.setImageResource(R.drawable.cerd_make_page5);
                 break;
