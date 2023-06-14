@@ -11,24 +11,30 @@
         android:orientation="vertical"
         android:layout_gravity="bottom">
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
     <GridView
         android:id="@+id/main_deco_grid"
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
-        android:layout_height="390dp"
+        android:layout_height="650dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
         android:numColumns="2"/>
     <TextView
         android:id="@+id/link_add_btn"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:background="@drawable/rectangle_resource_activation"
-        android:layout_gravity="center"
+        android:layout_gravity="center|bottom"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="@string/add_link_text"
         android:fontFamily="@font/notosans_regular"
         android:textSize="20sp" />
+        </FrameLayout>
     </LinearLayout>
 
 </FrameLayout>

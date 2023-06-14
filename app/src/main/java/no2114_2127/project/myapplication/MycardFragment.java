@@ -46,8 +46,8 @@ public class MycardFragment extends Fragment {
 
         return view;
     }
-    private List<String> getData() {
-        List<String> data = new ArrayList<>();
+    private List<MainDecoListItem> getData() {
+        List<MainDecoListItem> data = new ArrayList<>();
 
         return data;
     }

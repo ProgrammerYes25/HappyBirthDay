@@ -1,6 +1,7 @@
 package no2114_2127.project.myapplication;
 
 import android.app.Dialog;
+import android.content.ClipData;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -24,32 +26,42 @@ import java.util.Objects;
 public class DecoFragment extends Fragment {
     private GridView DecoGridView;
     Dialog addLink;
+//    TextView noBtn;
+//    TextView yesBtn;
+    EditText inputLink;
+    TextView cardName;
+    TextView nameBirth;
+
+    private CustomAdapter MainDecoGridAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_deco, container, false);
-        DecoGridView = view.findViewById(R.id.main_deco_grid);
-
+        View view2 = inflater.inflate(R.layout.dialog_input_link, container, false);
+        View view3 = inflater.inflate(R.layout.main_grid_shortcut, container, false);
+        DecoGridView=view.findViewById(R.id.main_deco_grid);
+        cardName=view3.findViewById(R.id.tv_nickname);
+        nameBirth=view3.findViewById(R.id.tv_name_birthday);
         addLink = new Dialog(getActivity());       // Dialog 초기화
         addLink.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         addLink.setContentView(R.layout.dialog_input_link);             // xml 레이아웃 파일과 연결
-
-        CustomAdapter MainDecoGridAdapter = new CustomAdapter(requireContext(), getData());
-
+        MainDecoGridAdapter = new CustomAdapter(requireContext(), getData());
+        inputLink=view2.findViewById(R.id.put_text);
         view.findViewById(R.id.link_add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showAddLink(); // 아래 showDialog01() 함수 호출
             }
         });
+        MainDecoGridAdapter = new CustomAdapter(requireContext(),getData());
 
         // 어댑터를 GridView에 설정
         DecoGridView.setAdapter(MainDecoGridAdapter);
 
         return view;
     }
-    private List<String> getData() {
-        List<String> data = new ArrayList<>();
+    private List<MainDecoListItem> getData() {
+        List<MainDecoListItem> data = new ArrayList<>();
 
         return data;
     }
@@ -80,9 +92,18 @@ public class DecoFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // 원하는 기능 구현
+                    // GridView에 추가할 아이템 생성
+//                String inputText = inputLink.getText().toString();
+//                if (!inputText.isEmpty()) {
+                    // 생성한 레이아웃 아이템을 그리드뷰에 추가
+                        MainDecoGridAdapter.addItem(new MainDecoListItem(cardName,nameBirth));
+                        MainDecoGridAdapter.notifyDataSetChanged();
+                        addLink.dismiss();
+                    //}
+                }
 
-            }
-        });
+
+    });
     }
 
 }

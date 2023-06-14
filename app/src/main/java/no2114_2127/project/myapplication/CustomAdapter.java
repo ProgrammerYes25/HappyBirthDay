@@ -1,40 +1,60 @@
 package no2114_2127.project.myapplication;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.BaseAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CustomAdapter extends ArrayAdapter<String> {
-    private Context context;
-    private List<String> data;
+public class CustomAdapter extends BaseAdapter {
 
-    public CustomAdapter(Context context, List<String> data) {
-        super(context, R.layout.main_grid_shortcut, data);
-        this.context = context;
-        this.data = data;
+    Context mContext;
+    List<MainDecoListItem> items = new ArrayList<MainDecoListItem>();
+    public CustomAdapter() {
+
+    }
+    public CustomAdapter(Context context, List<MainDecoListItem> layoutList) {
+        mContext = context;
+        items = layoutList;
+    }
+
+    @Override
+    public int getCount() {
+        return items.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return items.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.main_grid_shortcut, parent, false);
+            LayoutInflater inflater = LayoutInflater.from(mContext);
+            convertView = inflater.inflate(R.layout.main_grid_shortcut, parent, false);
         }
 
-//        ImageView imageView = convertView.findViewById(R.id.imageView);
-//        TextView textView = convertView.findViewById(R.id.textView);
-
-        // 데이터 설정
-        String item = data.get(position);
-//        textView.setText(item);
-
-        // 이미지 설정 등 추가적인 작업 수행 가능
+        // 아이템에 대한 처리 로직 구현
 
         return convertView;
+    }
+
+    public void addItem(MainDecoListItem item) {
+        items.add(item);
+//        for(int i =0; i< items.size(); i++) {
+//            Log.d("확인", items.get(i) + "!");
+//        }
+//        Log.d("끝", "-----------------------------------------------");
     }
 }
