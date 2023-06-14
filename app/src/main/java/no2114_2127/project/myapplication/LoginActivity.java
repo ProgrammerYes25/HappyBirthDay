@@ -3,11 +3,15 @@ package no2114_2127.project.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView loginButtonTextView, loginSignupButtonTextView;
 
     private FirebaseAuth mAuth; //FirevaseAuth 객체 선언
+    LinearLayout loginLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,14 @@ public class LoginActivity extends AppCompatActivity {
         loginButtonTextView.setOnClickListener(onClickListener);
         loginSignupButtonTextView.setOnClickListener(onClickListener);
 
+        loginLayout = findViewById(R.id.login_layout);
+        loginLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard();
+                return false;
+            }
+        });
         mAuth = FirebaseAuth.getInstance(); //FirevaseAuth 객체 정의
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -91,5 +104,11 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void showToast(String msg) {    //토스트 보여주는 메소드
         Toast.makeText(this, msg,Toast.LENGTH_SHORT).show();
+    }
+
+    void hideKeyboard()
+    {
+        InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }

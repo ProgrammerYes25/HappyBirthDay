@@ -4,15 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Notification;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +37,7 @@ public class SignUpActivity extends AppCompatActivity {
     // textView 선언
     TextView signUpButtonTextView, bakeTextView;
     ImageView passwordCheckIcon;
+    LinearLayout signUpLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +56,14 @@ public class SignUpActivity extends AppCompatActivity {
         bakeTextView.setOnClickListener(onClickListener);
         passCheckEditText.addTextChangedListener(passCheckWatcher);
         passwordCheckIcon = findViewById(R.id.password_check_icon);
+        signUpLayout = findViewById(R.id.sign_up_layout);
+        signUpLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard();
+                return false;
+            }
+        });
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -141,5 +154,10 @@ public class SignUpActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+    void hideKeyboard()
+    {
+        InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }

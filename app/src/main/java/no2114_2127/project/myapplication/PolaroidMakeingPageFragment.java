@@ -3,6 +3,7 @@ package no2114_2127.project.myapplication;
 import static android.app.Activity.RESULT_OK;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -11,10 +12,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -35,6 +40,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
     // editText
     EditText polaroidEditText;
 
+    RelativeLayout polaroidMakeingLayout;
     // polaroid frame item 배열
     int polaroidFrame[] = {R.drawable.polaroid_frame_1, R.drawable.polaroid_frame_2, R.drawable.polaroid_frame_3,
             R.drawable.polaroid_frame_4, R.drawable.polaroid_frame_5,R.drawable.polaroid_frame_6,
@@ -85,6 +91,16 @@ public class PolaroidMakeingPageFragment extends Fragment {
         polaroidFrame7.setOnClickListener(onClickListener);
         polaroidFrame8.setOnClickListener(onClickListener);
         polaroidFrame9.setOnClickListener(onClickListener);
+
+        polaroidMakeingLayout = view.findViewById(R.id.polaroid_makeing_layout);
+        polaroidMakeingLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard();
+                return false;
+            }
+        });
+
         choiceImageView = polaroidFrame1;
         return view;
     }
@@ -204,5 +220,13 @@ public class PolaroidMakeingPageFragment extends Fragment {
                 }
             });
 
-
+    private void hideKeyboard()
+    {
+        if (getActivity() != null && getActivity().getCurrentFocus() != null)
+        {
+            // 프래그먼트기 때문에 getActivity() 사용
+            InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
 }

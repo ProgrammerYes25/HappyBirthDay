@@ -2,14 +2,19 @@ package no2114_2127.project.myapplication;
 
 import static no2114_2127.project.myapplication.CerdClass.awardClass;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -24,6 +29,8 @@ public class AwardMakeingWritingPageFragment extends Fragment {
     TextView  nextButtonTextView;
     // EditText 선언
     EditText awardTitleEditText, awardTextEditText, awardNameEditText;
+
+    RelativeLayout awardMakeingLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +45,15 @@ public class AwardMakeingWritingPageFragment extends Fragment {
         awardTextEditText.addTextChangedListener(awardWatcher);
         awardNameEditText.addTextChangedListener(awardWatcher);
         nextButtonTextView.setOnClickListener(onClickListener);
+        awardMakeingLayout = view.findViewById(R.id.award_makeing_layout);
+        awardMakeingLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard();
+                return false;
+            }
+        });
+
         return view;
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -96,5 +112,14 @@ public class AwardMakeingWritingPageFragment extends Fragment {
     public String dateFormat(String pattern) {
         Date date = new Date();
         return new SimpleDateFormat(pattern).format(date);
+    }
+    private void hideKeyboard()
+    {
+        if (getActivity() != null && getActivity().getCurrentFocus() != null)
+        {
+            // 프래그먼트기 때문에 getActivity() 사용
+            InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 }

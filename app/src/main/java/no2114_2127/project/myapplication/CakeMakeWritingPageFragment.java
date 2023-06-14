@@ -2,16 +2,21 @@ package no2114_2127.project.myapplication;
 
 import static no2114_2127.project.myapplication.CerdClass.cakeClass;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -28,6 +33,7 @@ public class CakeMakeWritingPageFragment extends Fragment {
 
     // Image view 선언
     ImageView decoImageView;
+    RelativeLayout cakeMakeingLayout;
 
     @Nullable
     @Override
@@ -46,6 +52,15 @@ public class CakeMakeWritingPageFragment extends Fragment {
 
         // Image view find View by id
         decoImageView = view.findViewById(R.id.deco_image_view);
+
+        cakeMakeingLayout = view.findViewById(R.id.cake_makeing_layout);
+        cakeMakeingLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard();
+                return false;
+            }
+        });
 
 
         // textView setOnClick
@@ -153,4 +168,14 @@ public class CakeMakeWritingPageFragment extends Fragment {
             }
         }
     };
+
+    private void hideKeyboard()
+    {
+        if (getActivity() != null && getActivity().getCurrentFocus() != null)
+        {
+            // 프래그먼트기 때문에 getActivity() 사용
+            InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
 }
