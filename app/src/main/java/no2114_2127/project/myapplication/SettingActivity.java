@@ -9,10 +9,14 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SettingActivity extends AppCompatActivity {
     int nChecked = 0;
     Dialog dialog01;
+    TextView logoutButtonTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +24,9 @@ public class SettingActivity extends AppCompatActivity {
 
 //        dialog01 = new Dialog(SettingActivity.this);
 //        dialog01.setContentView(R.layout.dialog_setting);
+
+        logoutButtonTextView = findViewById(R.id.logout_button_text_view);
+        logoutButtonTextView.setOnClickListener(onClickListener);
 
         ImageView backButton = findViewById(R.id.btn_back);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -43,5 +50,21 @@ public class SettingActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.logout_button_text_view:
+                    FirebaseAuth.getInstance().signOut();
+                    startActivityM(LoginActivity.class);
+                    break;
+            }
+        }
+    };
+
+    private void startActivityM(Class activityClass){ //activity전환 메소드
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 }

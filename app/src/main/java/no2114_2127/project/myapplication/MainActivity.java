@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance(); //FirevaseAuth 객체 정의
         FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if(currentUser == null){    //로그인이 되어있지 않은면 SignUpActivity를 실행 시킴
-//            startActivityM(LoginActivity.class);
-//        }
+        if(currentUser == null){    //로그인이 되어있지 않은면 SignUpActivity를 실행 시킴
+            startActivityM(LoginActivity.class);
+        }
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override

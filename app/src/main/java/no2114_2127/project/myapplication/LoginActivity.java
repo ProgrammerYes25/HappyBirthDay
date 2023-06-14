@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         loginSignupButtonTextView = findViewById(R.id.login_signup_button_text_view);
         loginButtonTextView.setOnClickListener(onClickListener);
         loginSignupButtonTextView.setOnClickListener(onClickListener);
+
         mAuth = FirebaseAuth.getInstance(); //FirevaseAuth 객체 정의
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {

@@ -153,6 +153,7 @@
 
 
     <TextView
+        android:id="@+id/logout_button_text_view"
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangle_rounded_corner"

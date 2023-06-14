@@ -3,12 +3,16 @@ package no2114_2127.project.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
             yearEditText, monthEditText, dayEditText;
     // textView 선언
     TextView signUpButtonTextView, bakeTextView;
+    ImageView passwordCheckIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +49,30 @@ public class SignUpActivity extends AppCompatActivity {
         bakeTextView = findViewById(R.id.bake_text_view);
         signUpButtonTextView.setOnClickListener(onClickListener);
         bakeTextView.setOnClickListener(onClickListener);
+        passCheckEditText.addTextChangedListener(passCheckWatcher);
+        passwordCheckIcon = findViewById(R.id.password_check_icon);
         mAuth = FirebaseAuth.getInstance();
     }
+
+    TextWatcher passCheckWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if(s.toString().equals(passEditText.getText().toString())){
+                passwordCheckIcon.setImageResource(R.drawable.password_check_icon);
+            }
+        }
+    };
+
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
