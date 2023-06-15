@@ -1,5 +1,6 @@
 package no2114_2127.project.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -7,16 +8,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.net.DatagramPacket;
+import java.util.Map;
 
 public class SettingActivity extends AppCompatActivity {
     int nChecked = 0;
     Dialog dialog01;
     TextView logoutButtonTextView;
+
+    //EeitText 선언
+    EditText userNameEditText, userIdEditText, userDateEditText;
+    FirebaseUser user;
+    FirebaseFirestore firebaseFirestore;
+    String userUid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +43,31 @@ public class SettingActivity extends AppCompatActivity {
 
         logoutButtonTextView = findViewById(R.id.logout_button_text_view);
         logoutButtonTextView.setOnClickListener(onClickListener);
+
+        //EeitText findViewById
+        userNameEditText = findViewById(R.id.user_name_edit_text);
+        userIdEditText = findViewById(R.id.user_id_edit_text);
+        userDateEditText = findViewById(R.id.user_date_edit_text);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        userUid = user.getUid();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+
+        firebaseFirestore.collection("users")
+                .document(userUid)
+                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        Map<String, Object> data =  task.getResult().getData();
+                        String name = (String) data.get("name");
+                        String date = (String) data.get("birthDay");
+                        String email = (String) data.get("email");
+                        userNameEditText.setText(name);
+                        userIdEditText.setText(email);
+                        userDateEditText.setText(date);
+                    }
+                });
 
         ImageView backButton = findViewById(R.id.btn_back);
         backButton.setOnClickListener(new View.OnClickListener() {
