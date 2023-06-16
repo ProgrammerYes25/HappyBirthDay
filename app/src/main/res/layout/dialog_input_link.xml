@@ -60,7 +60,7 @@
                 android:layout_height="40dp"
                 android:gravity="center"
                 android:textColor="#F1F2FF"
-                android:background="@drawable/rectangle_resource_activation_radadd"/>
+                android:background="@drawable/rectangle_resource_activation_radadd_enabled"/>
         </LinearLayout>
 
     </LinearLayout>
