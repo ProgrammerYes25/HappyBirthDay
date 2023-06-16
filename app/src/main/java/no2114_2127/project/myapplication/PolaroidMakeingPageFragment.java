@@ -3,11 +3,14 @@ package no2114_2127.project.myapplication;
 import static android.app.Activity.RESULT_OK;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -56,6 +59,10 @@ public class PolaroidMakeingPageFragment extends Fragment {
     int choiceindex = 0;
 
     private Uri uri =null;
+
+    Context mContext = getActivity();
+    private static final int REQUEST_IMAGE_CODE = 101;
+    Bitmap bitmap;
 
     @Nullable
     @Override
@@ -150,9 +157,11 @@ public class PolaroidMakeingPageFragment extends Fragment {
                     changePolaroidFrame(8, polaroidFrame9);
                     break;
                 case R.id.polaroid_photo_image_view:
-                    Intent intentImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    intentImage.setType("image/*");
-                    launcher.launch(intentImage);
+                    takePicture();
+//                    polaroidPhotoImageView.setImageBitmap(getBitmap());
+//                    Intent intentImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//                    intentImage.setType("image/*");
+//                    launcher.launch(intentImage);
                     break;
             }
 
@@ -229,4 +238,24 @@ public class PolaroidMakeingPageFragment extends Fragment {
             inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
+
+    public void takePicture() {
+        Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (imageTakeIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
+            startActivityForResult(imageTakeIntent, REQUEST_IMAGE_CODE);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("확인 ", "");
+        if (requestCode == REQUEST_IMAGE_CODE && resultCode == Activity.RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            Log.d("확인 ", imageBitmap + "");
+            polaroidPhotoImageView.setImageBitmap(imageBitmap);
+        }
+    }
+
 }

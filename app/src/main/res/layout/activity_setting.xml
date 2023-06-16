@@ -68,37 +68,43 @@
             android:src="@drawable/setting_pencil"/>
    </FrameLayout>
     <EditText
+        android:id="@+id/user_name_edit_text"
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:hint="@string/input_nickname_text"
+        android:text="@string/input_nickname_text"
         android:paddingStart="25dp"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:textSize="15sp"
         android:layout_marginTop="50dp"
+        android:focusable="false"
         android:textColor="#9E97A7"/>
     <EditText
+        android:id="@+id/user_id_edit_text"
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:hint="아이디"
+        android:text="아이디"
         android:paddingStart="25dp"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:textSize="15sp"
         android:layout_marginTop="10dp"
+        android:focusable="false"
         android:textColor="#9E97A7"/>
     <EditText
+        android:id="@+id/user_date_edit_text"
         android:layout_width="284dp"
         android:layout_height="50dp"
         android:background="@drawable/rectangle_rounded_corner"
-        android:hint="@string/birthday_text"
+        android:text="@string/birthday_text"
         android:paddingStart="25dp"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:textSize="15sp"
         android:layout_marginTop="10dp"
+        android:focusable="false"
         android:textColor="#9E97A7"/>
 
 
@@ -140,7 +146,7 @@
 <!--        switch 커스텀을 했을 때 스위치가 뜨지 않아서 주석처리-->
     <Switch
         android:id="@+id/setting_switch"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="31dp"
         android:checked="true"
         android:layout_gravity="right|center_vertical"
@@ -162,6 +168,7 @@
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
         android:textSize="15sp"
+
         android:layout_marginTop="25dp"
         android:textColor="#000000"/>
     <TextView

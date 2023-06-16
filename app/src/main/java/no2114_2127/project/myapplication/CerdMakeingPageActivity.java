@@ -4,13 +4,18 @@ import static android.app.PendingIntent.getActivity;
 
 import static no2114_2127.project.myapplication.CerdClass.cakeClass;
 
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -40,6 +45,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
     static LinearLayout.LayoutParams params;
     static ImageView rollingPaperIcon, rollingPaperFrame;
     static TextView rollingPaperNextTextView, rollingPaperPreviousTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,5 +158,6 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         //fragment 바꾸는 메소드
         getSupportFragmentManager().beginTransaction().replace(R.id.cerd_make_frame_layout, fragment).commitAllowingStateLoss();
     }
+
 
 }

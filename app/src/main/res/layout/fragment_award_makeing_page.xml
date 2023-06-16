@@ -108,11 +108,11 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/rectangle_resource_perimeter_deactivation"
+                android:background="@drawable/rectangle_resource_perimeter_activation"
                 android:fontFamily="@font/notosans_regular"
                 android:gravity="center"
                 android:text="@string/next_text"
-                android:textColor="@color/black_400"
+                android:textColor="@color/black_600"
                 android:textSize="16sp" />
         </LinearLayout>
     </RelativeLayout>
