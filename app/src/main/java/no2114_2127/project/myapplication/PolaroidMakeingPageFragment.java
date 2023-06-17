@@ -21,7 +21,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,6 +30,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import java.io.ByteArrayOutputStream;
 
 public class PolaroidMakeingPageFragment extends Fragment {
     //text View 선언
@@ -62,7 +63,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
 
     Context mContext = getActivity();
     private static final int REQUEST_IMAGE_CODE = 101;
-    Bitmap bitmap;
+    Bitmap imageBitmap;
 
     @Nullable
     @Override
@@ -125,9 +126,11 @@ public class PolaroidMakeingPageFragment extends Fragment {
 
             switch (v.getId()){
                 case R.id.polaroid_button_text_view:
-                    getActivity().finish();
-                    StageClass.stage =2;
-                    startActivity(intent);
+                    if(polaroidEditText.getText().toString().length() > 0 && imageBitmap!=null){
+                        getActivity().finish();
+                        VariableClass.stage =2;
+                        startActivity(intent);
+                    }
                     break;
                 case R.id.polaroid_frame_1:
                     changePolaroidFrame(0, polaroidFrame1);
@@ -177,7 +180,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if(polaroidEditText.getText().toString().length() > 0 && uri!=null){
+            if(polaroidEditText.getText().toString().length() > 0 && imageBitmap!=null){
                 nextButtonActivation();
             }else{
                 nextButtonDeactivation();
@@ -209,26 +212,6 @@ public class PolaroidMakeingPageFragment extends Fragment {
     }
 
 
-    private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if(result.getResultCode() == RESULT_OK && result.getData() != null) {
-                        uri = result.getData().getData();
-                        Log.d("test", uri.toString());
-                        polaroidPhotoImageView.setImageURI(uri);
-                        MediaClass.imageClass.setImageUri(uri);
-                    }
-                    if(uri!=null&& polaroidEditText.getText().toString().length() >0 ){
-                        nextButtonActivation();
-                    }
-                    else {
-                        nextButtonDeactivation();
-                    }
-                }
-            });
-
     private void hideKeyboard()
     {
         if (getActivity() != null && getActivity().getCurrentFocus() != null)
@@ -252,9 +235,12 @@ public class PolaroidMakeingPageFragment extends Fragment {
         Log.d("확인 ", "");
         if (requestCode == REQUEST_IMAGE_CODE && resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageBitmap = (Bitmap) extras.get("data");
             Log.d("확인 ", imageBitmap + "");
             polaroidPhotoImageView.setImageBitmap(imageBitmap);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            MediaClass.setImageClass(baos.toByteArray());
         }
     }
 

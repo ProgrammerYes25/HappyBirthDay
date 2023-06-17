@@ -15,13 +15,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
     DecoFragment decoFragment;
     MycardFragment mycardFragment;
+
+    // textview 선언
+    TextView userNameTextView;
     private FirebaseAuth mAuth; //FirevaseAuth 객체 선언
+    FirebaseFirestore firebaseFirestore;
+    String userUid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
         decoToggle.setOnClickListener(onClickListener);
         mycardToggle.setOnClickListener(onClickListener);
 
-
-
+        // textview findViewById
+        userNameTextView = findViewById(R.id.user_name_text_view);
 
         //Y-초기커밋~~~!!ㅣㅐㅣㅡ
         //C-테스트커밋!!
@@ -67,6 +78,21 @@ public class MainActivity extends AppCompatActivity {
         if(currentUser == null){    //로그인이 되어있지 않은면 SignUpActivity를 실행 시킴
             startActivityM(LoginActivity.class);
         }
+
+        // firebase 정보 빼오기
+        userUid = currentUser.getUid();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+
+        firebaseFirestore.collection("users")
+                .document(userUid)
+                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        Map<String, Object> data =  task.getResult().getData();
+                        String name = (String) data.get("name");
+                        userNameTextView.setText(name);
+                    }
+                });
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override

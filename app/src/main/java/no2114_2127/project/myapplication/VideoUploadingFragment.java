@@ -1,7 +1,6 @@
 package no2114_2127.project.myapplication;
 
 import static android.app.Activity.RESULT_OK;
-import static android.content.Context.CONTEXT_IGNORE_SECURITY;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -21,8 +20,6 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 public class VideoUploadingFragment extends Fragment {
     TextView videoButtonTextView;
@@ -66,7 +63,7 @@ public class VideoUploadingFragment extends Fragment {
             switch (v.getId()){
                 case R.id.video_button_text_view:
                     getActivity().finish();
-                    StageClass.stage = 3;
+                    VariableClass.stage = 3;
                     startActivity(intent);
                     break;
                 case R.id.video_uplode_layout:
@@ -87,8 +84,9 @@ public class VideoUploadingFragment extends Fragment {
                         if(result.getResultCode() == RESULT_OK && result.getData() != null) {
                             MediaController mc = new MediaController(getContext()); // 비디오 컨트롤 가능하게(일시정지, 재시작 등)
                             videoUplodeView.setMediaController(mc);
+                            uri = null;
                             uri = result.getData().getData();
-                            Log.d("test", uri.toString());
+                            Log.d("test확인", uri.toString());
                             videoUplodeView.setVideoURI(uri);
                             MediaClass.videoMedioClass.setVideoUri(uri);
                         }

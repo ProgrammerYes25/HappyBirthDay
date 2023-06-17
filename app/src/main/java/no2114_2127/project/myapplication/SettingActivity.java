@@ -49,8 +49,8 @@ public class SettingActivity extends AppCompatActivity {
         userIdEditText = findViewById(R.id.user_id_edit_text);
         userDateEditText = findViewById(R.id.user_date_edit_text);
 
+        // firebase 정보 빼오기
         user = FirebaseAuth.getInstance().getCurrentUser();
-
         userUid = user.getUid();
         firebaseFirestore = FirebaseFirestore.getInstance();
 

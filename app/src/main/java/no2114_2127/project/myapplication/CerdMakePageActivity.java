@@ -56,11 +56,11 @@ public class CerdMakePageActivity extends AppCompatActivity {
        cancelButtonImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StageClass.stage = 0;
+                VariableClass.stage = 0;
                 finish();
             }
         });
-        Log.d("확인 : ", StageClass.stage+"번");
+        Log.d("확인 : ", VariableClass.stage+"번");
         startFragment();
 
 
@@ -68,7 +68,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
 
     public void startFragment(){
 
-        switch (StageClass.stage){
+        switch (VariableClass.stage){
             case 0:
                 //케이크
                 CerdClass.cakeClass = new CakeClass();
@@ -77,7 +77,6 @@ public class CerdMakePageActivity extends AppCompatActivity {
                 break;
             case 1:
                 //폴라로이드
-                MediaClass.imageClass = new ImageClass();
                 CerdClass.polaroidClass = new PolaroidClass();
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, PolaroidMakePageFragment).commitAllowingStateLoss();
                 stageImageView.setImageResource(R.drawable.cerd_make_page2);

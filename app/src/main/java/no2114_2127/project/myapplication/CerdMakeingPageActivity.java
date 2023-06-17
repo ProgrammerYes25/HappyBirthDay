@@ -2,28 +2,19 @@ package no2114_2127.project.myapplication;
 
 import static android.app.PendingIntent.getActivity;
 
-import static no2114_2127.project.myapplication.CerdClass.cakeClass;
-
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class CerdMakeingPageActivity extends AppCompatActivity {
     public Context context = this;
@@ -68,7 +59,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
         params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
 
         //fragment 교체를 위한 switch문
-        switch (StageClass.stage){
+        switch (VariableClass.stage){
             case 0:
                 //케이크
                 cerdMakeTitleTextView.setText("케이크를 꾸며요!");
@@ -103,7 +94,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
             Intent intent = new Intent(CerdMakeingPageActivity.this, CerdMakePageActivity.class);
             switch (view.getId()){
                 case R.id.rolling_paper_next_button_text_view:
-                    StageClass.stage = 1;   //완료시 폴라로이드 페이지 넘어가기 위한 코드
+                    VariableClass.stage = 1;   //완료시 폴라로이드 페이지 넘어가기 위한 코드
                 case R.id.back_button_image_view:
                     finish();
                     startActivity(intent);
