@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,15 +32,15 @@ public class DecoFragment extends Fragment {
     Dialog addLink;
 //    TextView noBtn;
 //    TextView yesBtn;
-    EditText inputLink;
+//    EditText inputLink;
     TextView cardName;
     TextView nameBirth;
-    String inputText;
+//    String inputText;
 
 
     private CustomAdapter MainDecoGridAdapter;
-    TextView noBtn;
-    TextView yesBtn;
+//    TextView noBtn;
+//    TextView yesBtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_deco, container, false);
@@ -51,14 +53,16 @@ public class DecoFragment extends Fragment {
         addLink.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         addLink.setContentView(R.layout.dialog_input_link);             // xml 레이아웃 파일과 연결
         MainDecoGridAdapter = new CustomAdapter(requireContext(), getData());
-        inputLink=view2.findViewById(R.id.put_text);
-        noBtn = addLink.findViewById(R.id.btn_cancel);
-        yesBtn = addLink.findViewById(R.id.btn_add);
-        inputText = inputLink.getText().toString();
+//        inputLink=view2.findViewById(R.id.put_text);
+//        noBtn = addLink.findViewById(R.id.btn_cancel);
+//        yesBtn = addLink.findViewById(R.id.btn_add);
+//
+//        inputText = inputLink.getText().toString();
         view.findViewById(R.id.link_add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showAddLink(); // 아래 showDialog01() 함수 호출
+
+                showAddLink(); // 아래 showAddLink() 함수 호출
             }
         });
         MainDecoGridAdapter = new CustomAdapter(requireContext(),getData());
@@ -79,7 +83,49 @@ public class DecoFragment extends Fragment {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             Objects.requireNonNull(addLink.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
+        EditText inputLink=addLink.findViewById(R.id.put_text);
+        TextView noBtn = addLink.findViewById(R.id.btn_cancel);
+        TextView yesBtn = addLink.findViewById(R.id.btn_add);
 
+        inputLink.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length()<=0) {
+                    Log.d("확인", "onTextChanged: ");
+                    // 추가 버튼 비활성화
+                    yesBtn.setClickable(false);
+                    yesBtn.setBackground(null);
+                    yesBtn.setBackgroundResource(R.drawable.rectangle_resource_activation_radadd_enabled);
+
+                } else {
+                    Log.d("확인2", "onTextChanged: ");
+                    yesBtn.setClickable(true);
+                    yesBtn.setBackground(null);
+                    yesBtn.setBackgroundResource(R.drawable.rectangle_resource_activation_radadd);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+//                if (inputLink.getText().toString().length()<=0) {
+//
+//                    // 추가 버튼 비활성화
+//                    yesBtn.setClickable(false);
+//                     yesBtn.setBackground(null);
+//                    yesBtn.setBackgroundResource(R.drawable.rectangle_resource_activation_radadd_enabled);
+//                } else {
+//
+//                    yesBtn.setClickable(true);
+//                    yesBtn.setBackground(null);
+//                    yesBtn.setBackgroundResource(R.drawable.rectangle_resource_activation_radadd);
+//                }
+            }
+        });
 
         /* 이 함수 안에 원하는 디자인과 기능을 구현하면 된다. */
 
@@ -102,16 +148,11 @@ public class DecoFragment extends Fragment {
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (inputText.isEmpty()) {
+                if (inputLink.getText().toString().length()>0) {
+                    Log.d("확인", "onTextChanged: ");
                     // 입력된 텍스트가 비어 있는 경우
-                    yesBtn.setEnabled(false); // 추가 버튼 비활성화
-                    // yesBtn.setBackground(null);
-                    yesBtn.setBackground(getResources().getDrawable(R.drawable.rectangle_resource_activation_radadd_enabled));
-                } else {
-                    // 입력된 텍스트가 있는 경우
-                    yesBtn.setEnabled(true); // 추가 버튼 활성화
+                    // yesBtn.setEnabled(true); // 추가 버튼 활성화
                     //yesBtn.setBackground(null);
-                    yesBtn.setBackground(getResources().getDrawable(R.drawable.rectangle_resource_activation_radadd));
                     MainDecoGridAdapter.addItem(new MainDecoListItem(cardName, nameBirth));
                     MainDecoGridAdapter.notifyDataSetChanged();
                     addLink.dismiss();

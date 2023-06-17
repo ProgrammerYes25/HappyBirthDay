@@ -59,6 +59,7 @@
                 android:layout_width="130dp"
                 android:layout_height="40dp"
                 android:gravity="center"
+                android:clickable="false"
                 android:textColor="#F1F2FF"
                 android:background="@drawable/rectangle_resource_activation_radadd_enabled"/>
         </LinearLayout>
