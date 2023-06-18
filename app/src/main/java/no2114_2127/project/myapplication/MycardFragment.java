@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,7 +24,7 @@ import java.util.Objects;
 public class MycardFragment extends Fragment {
     private GridView MycardGridView;
     Dialog addCard;
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mycard, container, false);
@@ -78,7 +80,6 @@ public class MycardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // 원하는 기능 구현
-
             }
         });
     }

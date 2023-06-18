@@ -21,9 +21,18 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -36,7 +45,9 @@ public class DecoFragment extends Fragment {
     TextView cardName;
     TextView nameBirth;
 //    String inputText;
-
+    FirebaseFirestore db;
+    FirebaseUser firebaseUser;
+    CollectionReference collectionRef;
 
     private CustomAdapter MainDecoGridAdapter;
 //    TextView noBtn;
@@ -53,6 +64,10 @@ public class DecoFragment extends Fragment {
         addLink.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         addLink.setContentView(R.layout.dialog_input_link);             // xml 레이아웃 파일과 연결
         MainDecoGridAdapter = new CustomAdapter(requireContext(), getData());
+
+        // 파이어베이스
+        db = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 //        inputLink=view2.findViewById(R.id.put_text);
 //        noBtn = addLink.findViewById(R.id.btn_cancel);
 //        yesBtn = addLink.findViewById(R.id.btn_add);
@@ -148,13 +163,35 @@ public class DecoFragment extends Fragment {
         yesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (inputLink.getText().toString().length()>0) {
+                String inputText = inputLink.getText().toString();  // 가져온 링크
+                if (inputText.length()>0) {
                     Log.d("확인", "onTextChanged: ");
                     // 입력된 텍스트가 비어 있는 경우
                     // yesBtn.setEnabled(true); // 추가 버튼 활성화
                     //yesBtn.setBackground(null);
-                    MainDecoGridAdapter.addItem(new MainDecoListItem(cardName, nameBirth));
-                    MainDecoGridAdapter.notifyDataSetChanged();
+
+                    collectionRef = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
+                    collectionRef.whereEqualTo("fieldName", inputText)
+                            .get()
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    QuerySnapshot querySnapshot = task.getResult();
+                                    if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                                        // 겹치는 값이 이미 존재하는 경우 처리 로직을 수행
+                                        Toast.makeText(getContext(), "이미 있는 링크 입니다.", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        // 겹치는 값이 없는 경우 값을 삽입
+                                        Map<String, Object> data = new HashMap<>();
+                                        data.put("fieldName", inputText);
+                                        collectionRef.document().set(data);
+                                        MainDecoGridAdapter.addItem(new MainDecoListItem(cardName, nameBirth));
+                                        MainDecoGridAdapter.notifyDataSetChanged();
+                                    }
+                                } else {
+                                    // 조회 실패 처리 로직을 수행
+                                }
+                            });
+
                     addLink.dismiss();
 
                 }
