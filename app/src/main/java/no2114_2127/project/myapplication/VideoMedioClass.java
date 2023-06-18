@@ -2,23 +2,25 @@ package no2114_2127.project.myapplication;
 
 import android.net.Uri;
 
+import java.io.File;
+
 public class VideoMedioClass {
-    private Uri videoUri;
+    private static File videoFile;
 
     public VideoMedioClass() {
         // 기본 생성자
     }
 
-    public VideoMedioClass(Uri videoUri) {
-        this.videoUri = videoUri;
+    public VideoMedioClass(File videoFile) {
+        this.videoFile = videoFile;
     }
 
-    public Uri getVideoUri() {
-        return videoUri;
+    public File getVideoUri() {
+        return videoFile;
     }
 
-    public void setVideoUri(Uri videoUri) {
-        this.videoUri = videoUri;
+    public void setVideoUri(File videoFile) {
+        this.videoFile = videoFile;
     }
 
 

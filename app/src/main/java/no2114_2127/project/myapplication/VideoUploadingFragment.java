@@ -2,9 +2,12 @@ package no2114_2127.project.myapplication;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +21,21 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+
 public class VideoUploadingFragment extends Fragment {
+    private static final int REQUEST_VIDEO_CAPTURE =1 ;
     TextView videoButtonTextView;
 
     // video view 선언
@@ -29,6 +43,8 @@ public class VideoUploadingFragment extends Fragment {
 
     //Linear Layout 선언
     LinearLayout videoUplodeLayout;
+    FirebaseStorage firebaseStorage;
+    StorageReference storageReference;
     private Uri uri;
 
 
@@ -46,6 +62,9 @@ public class VideoUploadingFragment extends Fragment {
         videoButtonTextView = view.findViewById(R.id.video_button_text_view);
         videoButtonTextView.setOnClickListener(onClickListener);
 
+        firebaseStorage = FirebaseStorage.getInstance();
+        storageReference = firebaseStorage.getReference();
+
         return view;
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -60,7 +79,7 @@ public class VideoUploadingFragment extends Fragment {
         public void onClick(View v) {
             Intent intent = new Intent(getActivity(), CerdMakePageActivity.class);
 
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.video_button_text_view:
                     getActivity().finish();
                     VariableClass.stage = 3;
@@ -69,28 +88,48 @@ public class VideoUploadingFragment extends Fragment {
                 case R.id.video_uplode_layout:
                     videoUplodeView.setVisibility(View.VISIBLE);
                 case R.id.video_uplode_view:
-                    Intent intentImage = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    intentImage.setType("video/*");
-                    launcher.launch(intentImage);
+                    TakeVideo();
+//                    Intent intentImage = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+//                    intentImage.setType("video/*");
+//                    launcher.launch(intentImage);
+
                     break;
             }
         }
-
-        private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        if(result.getResultCode() == RESULT_OK && result.getData() != null) {
-                            MediaController mc = new MediaController(getContext()); // 비디오 컨트롤 가능하게(일시정지, 재시작 등)
-                            videoUplodeView.setMediaController(mc);
-                            uri = null;
-                            uri = result.getData().getData();
-                            Log.d("test확인", uri.toString());
-                            videoUplodeView.setVideoURI(uri);
-                            MediaClass.videoMedioClass.setVideoUri(uri);
-                        }
-                    }
-                });
     };
+    private void TakeVideo() {
+        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        if (takeVideoIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
+            startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE);
+        }
+    }
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("확인 ", "");
+        if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == Activity.RESULT_OK) {
+            Uri videoUri = data.getData();
+            uri = videoUri;
+            videoUpload();
+            videoUplodeView.setVideoURI(videoUri);
+        }
+    }
+    private void videoUpload() {
+
+        UploadTask uploadTask = storageReference.child("video/"+uri.getLastPathSegment()).putFile(uri);
+        Log.d("확인 : ", uri+"");
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+                Log.d("성공 확인 : ", uri+"");
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+                Log.d("석세스 성공 확인 : ", uri+"");
+            }
+        });
+    }
 }

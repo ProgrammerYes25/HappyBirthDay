@@ -26,6 +26,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class FromFinishPageFragment extends Fragment {
@@ -46,9 +47,8 @@ public class FromFinishPageFragment extends Fragment {
         for(int i = 0; i < 5; i++){
             imageName += VariableClass.cadeID.charAt(i);
         }
-        for(int i = 0; i < 5; i++){
-            imageName += data[i];
-        }
+        imageName += String.valueOf(data);
+
         imageName += ".jpg";
         CerdClass.polaroidClass.setPolaroidText(imageName);
 
@@ -60,11 +60,10 @@ public class FromFinishPageFragment extends Fragment {
         firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("polaroidValue").add(CerdClass.polaroidClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
         firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("videoValue").add(CerdClass.videoClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
         firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("awardValue").add(CerdClass.awardClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
-        Log.d("확인 !1", MediaClass.videoMedioClass.getVideoUri()+"");
 
 
         imageUpload();
-        videoUpload();
+//        videoUpload();
         return view;
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -74,25 +73,26 @@ public class FromFinishPageFragment extends Fragment {
         return new FromFinishPageFragment();
     }
 
-    private void videoUpload() {
-
-        StorageReference storageReference = firebaseStorage.getReference("Study");
-        Log.d("확인 ", MediaClass.videoMedioClass.getVideoUri()+"");
-        Uri uri = MediaClass.videoMedioClass.getVideoUri();
-        UploadTask uploadTask = storageReference.child("vdieos").child("video/"+uri.getLastPathSegment()).putFile(uri);
-        uploadTask.addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle unsuccessful uploads
-            }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
-                // ...
-            }
-        });
-    }
+//    private void videoUpload() {
+//        Uri uri  = Uri.fromFile(MediaClass.getVideoFileClass());
+//
+//        UploadTask uploadTask = storageReference.child("video/"+uri.getLastPathSegment()).putFile(uri);
+//        Log.d("확인 : ", uri+"");
+//        uploadTask.addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception exception) {
+//                // Handle unsuccessful uploads
+//                Log.d("성공 확인 : ", uri+"");
+//            }
+//        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//            @Override
+//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+//                // ...
+//                Log.d("석세스 성공 확인 : ", uri+"");
+//            }
+//        });
+//    }
 
     private void imageUpload() {
         UploadTask uploadTask = mountainsReference.putBytes(data);

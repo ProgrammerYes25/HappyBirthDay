@@ -83,7 +83,7 @@ public class CerdMakePageActivity extends AppCompatActivity {
                 break;
             case 2:
                 //동영상
-                MediaClass.videoMedioClass = new VideoMedioClass();
+                //MediaClass.videoMedioClass = new VideoMedioClass();
                 CerdClass.videoClass = new VideoClass();
                 getSupportFragmentManager().beginTransaction().add(R.id.cerd_make_frame_layout, VideoUploadFragment).commitAllowingStateLoss();
                 stageImageView.setImageResource(R.drawable.cerd_make_page3);
