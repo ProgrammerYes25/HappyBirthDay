@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CerdMakePageActivity">
+    tools:context=".CardMakePageActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:fitsSystemWindows="true"

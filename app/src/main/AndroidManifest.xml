@@ -26,11 +26,11 @@
             android:exported="false"
             android:theme="@style/Theme.HappyBirthDay.Splash3" />
         <activity
-            android:name=".CerdMakeingPageActivity"
+            android:name=".CardMakeingPageActivity"
             android:exported="true"
             android:theme="@style/Theme.HappyBirthDay.Splash2"></activity>
         <activity
-            android:name=".CerdMakePageActivity"
+            android:name=".CardMakePageActivity"
             android:exported="true"
             android:theme="@style/Theme.HappyBirthDay.Splash2" />
         <activity

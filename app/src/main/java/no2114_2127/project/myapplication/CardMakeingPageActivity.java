@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class CerdMakeingPageActivity extends AppCompatActivity {
+public class CardMakeingPageActivity extends AppCompatActivity {
     public Context context = this;
     // image View
     ImageView backButtonImageView;
@@ -91,7 +91,7 @@ public class CerdMakeingPageActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(CerdMakeingPageActivity.this, CerdMakePageActivity.class);
+            Intent intent = new Intent(CardMakeingPageActivity.this, CardMakePageActivity.class);
             switch (view.getId()){
                 case R.id.rolling_paper_next_button_text_view:
                     VariableClass.stage = 1;   //완료시 폴라로이드 페이지 넘어가기 위한 코드

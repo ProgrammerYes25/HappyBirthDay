@@ -1,7 +1,5 @@
 package no2114_2127.project.myapplication;
 
-import static android.app.Activity.RESULT_OK;
-
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,10 +22,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -122,7 +116,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity(), CerdMakePageActivity.class);
+            Intent intent = new Intent(getActivity(), CardMakePageActivity.class);
 
             switch (v.getId()){
                 case R.id.polaroid_button_text_view:

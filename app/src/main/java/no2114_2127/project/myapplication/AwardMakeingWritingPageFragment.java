@@ -1,6 +1,6 @@
 package no2114_2127.project.myapplication;
 
-import static no2114_2127.project.myapplication.CerdClass.awardClass;
+import static no2114_2127.project.myapplication.CardClass.awardClass;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -72,7 +71,7 @@ public class AwardMakeingWritingPageFragment extends Fragment {
                         awardClass.setAwardText(awardTextEditText.getText().toString());
                         awardClass.setAwardDate(dateFormat(CALENDAR_FORMAT));
                         awardClass.setAwardFrom(awardNameEditText.getText().toString());
-                        ((CerdMakeingPageActivity) getActivity()).replaceFragment(AwardMakeingPageFragment.AwardMakeiangPageInstance());
+                        ((CardMakeingPageActivity) getActivity()).replaceFragment(AwardMakeingPageFragment.AwardMakeiangPageInstance());
                     }
                     break;
             }

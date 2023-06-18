@@ -1,6 +1,6 @@
 package no2114_2127.project.myapplication;
 
-import static no2114_2127.project.myapplication.CerdClass.awardClass;
+import static no2114_2127.project.myapplication.CardClass.awardClass;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,12 +47,12 @@ public class AwardMakeingPageFragment extends Fragment {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity(), CerdMakePageActivity.class);
+            Intent intent = new Intent(getActivity(), CardMakePageActivity.class);
 
 
             switch (v.getId()) {
                 case R.id.previous_button_text_view:
-                    ((CerdMakeingPageActivity) getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
+                    ((CardMakeingPageActivity) getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
                     break;
                 case R.id.next_button_text_view:
                     //((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());

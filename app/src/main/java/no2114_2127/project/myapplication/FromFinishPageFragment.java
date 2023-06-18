@@ -1,33 +1,22 @@
 package no2114_2127.project.myapplication;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 public class FromFinishPageFragment extends Fragment {
     private FirebaseStorage firebaseStorage; //FirevaseAuth 객체 선언
@@ -50,16 +39,16 @@ public class FromFinishPageFragment extends Fragment {
         imageName += String.valueOf(data);
 
         imageName += ".jpg";
-        CerdClass.polaroidClass.setPolaroidText(imageName);
+        CardClass.polaroidClass.setPolaroidText(imageName);
 
-        mountainsReference = storageReference.child(imageName);
+        mountainsReference = storageReference.child("images/"+imageName);
 //        FirebaseUser user = firebaseAuth.getCurrentUser();
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection("cards").document();
-        firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("cakeValue").add(CerdClass.cakeClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
-        firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("polaroidValue").add(CerdClass.polaroidClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
-        firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("videoValue").add(CerdClass.videoClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
-        firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("awardValue").add(CerdClass.awardClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
+        firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("cakeValue").add(CardClass.cakeClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
+        firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("polaroidValue").add(CardClass.polaroidClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
+        firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("videoValue").add(CardClass.videoClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
+        firebaseFirestore.collection("cards").document(VariableClass.cadeID).collection("awardValue").add(CardClass.awardClass).addOnSuccessListener(onSuccessListener).addOnFailureListener(onFailureListener);
 
 
         imageUpload();

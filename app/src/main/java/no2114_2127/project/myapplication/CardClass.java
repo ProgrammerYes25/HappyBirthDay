@@ -1,6 +1,6 @@
 package no2114_2127.project.myapplication;
 
-public class CerdClass {
+public class CardClass {
     public static CakeClass cakeClass;
     public static PolaroidClass polaroidClass;
     public static VideoClass videoClass;

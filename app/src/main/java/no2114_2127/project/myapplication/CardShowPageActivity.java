@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class CerdShowPageActivity extends AppCompatActivity {
+public class CardShowPageActivity extends AppCompatActivity {
     String CerdMakeTitle = "의 생일카드";
 
     int cerdMakeFrameLayoutId;

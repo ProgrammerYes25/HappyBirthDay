@@ -1,21 +1,20 @@
 package no2114_2127.project.myapplication;
 
+import android.net.Uri;
+
 public class VideoClass {
-    private String video;
+    private String videoString;
 
     public VideoClass() {
         // 기본 생성자
     }
 
-    public VideoClass(String video) {
-        this.video = video;
+    public void setVideoName(String videoString) {
+        this.videoString = videoString;
     }
 
-    public String getVideo() {
-        return video;
+    public String getVideoName() {
+        return videoString;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
-    }
 }

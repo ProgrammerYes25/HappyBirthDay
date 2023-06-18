@@ -1,7 +1,6 @@
 package no2114_2127.project.myapplication;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -32,7 +31,7 @@ public class PolaroidMakePageFragment extends Fragment {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity(), CerdMakeingPageActivity.class);
+            Intent intent = new Intent(getActivity(), CardMakeingPageActivity.class);
 
             switch (v.getId()){
                 case R.id.polaroid_button_text_view:

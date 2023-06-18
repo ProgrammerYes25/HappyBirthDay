@@ -1,10 +1,7 @@
 package no2114_2127.project.myapplication;
 
-import static android.app.Activity.RESULT_OK;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -13,14 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -30,9 +22,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 
 public class VideoUploadingFragment extends Fragment {
     private static final int REQUEST_VIDEO_CAPTURE =1 ;
@@ -77,7 +66,7 @@ public class VideoUploadingFragment extends Fragment {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity(), CerdMakePageActivity.class);
+            Intent intent = new Intent(getActivity(), CardMakePageActivity.class);
 
             switch (v.getId()) {
                 case R.id.video_button_text_view:
@@ -109,13 +98,13 @@ public class VideoUploadingFragment extends Fragment {
         if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == Activity.RESULT_OK) {
             Uri videoUri = data.getData();
             uri = videoUri;
-            videoUpload();
-            videoUplodeView.setVideoURI(videoUri);
+            videoUpload();;
         }
     }
     private void videoUpload() {
 
-        UploadTask uploadTask = storageReference.child("video/"+uri.getLastPathSegment()).putFile(uri);
+        UploadTask uploadTask = storageReference.child("videos/"+uri.getLastPathSegment()).putFile(uri);
+        CardClass.videoClass.setVideoName(uri.getLastPathSegment());
         Log.d("확인 : ", uri+"");
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override

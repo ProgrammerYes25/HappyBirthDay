@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -40,8 +39,8 @@ public class CakeMakeingPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(choice > -1){
-                    ((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
-                    CerdClass.cakeClass.setDecoImage(cakeDecorative[choice]);// 아이콘 저장
+                    ((CardMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
+                    CardClass.cakeClass.setDecoImage(cakeDecorative[choice]);// 아이콘 저장
                 }
             }
         });

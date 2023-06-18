@@ -29,7 +29,7 @@ public class VideoUploadFragment extends Fragment {
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getActivity(), CerdMakeingPageActivity.class);
+            Intent intent = new Intent(getActivity(), CardMakeingPageActivity.class);
 
             switch (v.getId()){
                 case R.id.video_button_text_view:

@@ -1,6 +1,6 @@
 package no2114_2127.project.myapplication;
 
-import static no2114_2127.project.myapplication.CerdClass.cakeClass;
+import static no2114_2127.project.myapplication.CardClass.cakeClass;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -15,14 +15,11 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 public class CakeMakeWritingPageFragment extends Fragment {
     //text view 선언
@@ -137,7 +134,7 @@ public class CakeMakeWritingPageFragment extends Fragment {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.previous_button_text_view:
-                    ((CerdMakeingPageActivity)getActivity()).replaceFragment(CakeMakeingPageFragment.CakeMakeingPageInstance());
+                    ((CardMakeingPageActivity)getActivity()).replaceFragment(CakeMakeingPageFragment.CakeMakeingPageInstance());
                     break;
                 case R.id.next_button_text_view:
                     if(fromEditText.getText().toString().length() > 0 && fromEditText.getText().toString().length()<=6 && rollingPaperEditText.getText().toString().length() > 0) {
@@ -145,24 +142,24 @@ public class CakeMakeWritingPageFragment extends Fragment {
                         cakeClass.setRollingPaper(rollingPaperEditText.getText().toString());
                         cakeClass.setFrom(fromEditText.getText().toString());
                         Log.d("from 확인", cakeClass.getFrom());
-                        CerdMakeingPageActivity.rollingPaperContent.setText(cakeClass.getRollingPaper());
-                        CerdMakeingPageActivity.rollingPaperFrom.setText(cakeClass.getFrom());
-                        CerdMakeingPageActivity.rollingPaperIcon.setImageResource(cakeClass.getDecoImage());
+                        CardMakeingPageActivity.rollingPaperContent.setText(cakeClass.getRollingPaper());
+                        CardMakeingPageActivity.rollingPaperFrom.setText(cakeClass.getFrom());
+                        CardMakeingPageActivity.rollingPaperIcon.setImageResource(cakeClass.getDecoImage());
                         switch (cakeClass.getDecoImage()){
                             case R.drawable.cake_decorative_strawberrie: case  R.drawable.cake_decorative_flower: case  R.drawable.cake_decorative_cherry:
-                                CerdMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_1);
+                                CardMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_1);
                                 break;
                             case R.drawable.cake_decorative_gift: case R.drawable.cake_decorative_chocolate: case R.drawable.cake_decorative_heart:
-                                CerdMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_2);
+                                CardMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_2);
                                 break;
                             case R.drawable.cake_decorative_rabbit: case R.drawable.cake_decorative_chick: case R.drawable.cake_decorative_puppy:
-                                CerdMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_3);
+                                CardMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_3);
                                 break;
                             case R.drawable.cake_decorative_muffin: case  R.drawable.cake_decorative_donut: case  R.drawable.cake_decorative_balloon:
-                                CerdMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_4);
+                                CardMakeingPageActivity.rollingPaperFrame.setImageResource(R.drawable.rolling_paper_frame_4);
                                 break;
                         }
-                        ((CerdMakeingPageActivity) getActivity()).rollingPaperSheet();
+                        ((CardMakeingPageActivity) getActivity()).rollingPaperSheet();
                     }
                     break;
             }
