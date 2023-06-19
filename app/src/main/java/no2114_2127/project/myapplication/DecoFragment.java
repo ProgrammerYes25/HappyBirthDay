@@ -3,6 +3,7 @@ package no2114_2127.project.myapplication;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.graphics.Color;
+import android.graphics.Path;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,11 +24,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.load.engine.DecodePath;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirestoreRegistrar;
@@ -65,7 +68,7 @@ public class DecoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_deco, container, false);
         View view2 = inflater.inflate(R.layout.dialog_input_link, container, false);
         View view3 = inflater.inflate(R.layout.main_grid_shortcut, container, false);
-        DecoGridView=view.findViewById(R.id.main_deco_grid);
+        mainDecoGridView=view.findViewById(R.id.main_deco_grid);
         cardName=view3.findViewById(R.id.tv_nickname);
         nameBirth=view3.findViewById(R.id.tv_name_birthday);
         addLink = new Dialog(getActivity());       // Dialog 초기화
@@ -83,7 +86,11 @@ public class DecoFragment extends Fragment {
 
         userCardColl = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
 
-
+// 어댑터를 GridView에 설정
+        mainDecoGridView = view.findViewById(R.id.main_deco_grid);
+        cardAdapter = new CardAdapter();
+        //","
+        setAdapter();
 
         view.findViewById(R.id.link_add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,48 +100,56 @@ public class DecoFragment extends Fragment {
             }
         });
 
-        // 어댑터를 GridView에 설정
-        mainDecoGridView = view.findViewById(R.id.main_deco_grid);
-        cardAdapter = new CardAdapter();
-        setAdapter();
+
         //mainDecoGridView.setOnItemClickListener();
 
         return view;
     }
     String name;
     public void setAdapter(){
-
+        List<String> documenPath = new ArrayList<String>();
         userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d("확인", document.getId() + " => " + document.getData());
-
-                        db.collection("users").document(firebaseUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        Log.d("확인", "DocumentSnapshot data: " + document.getData());
-                                      //name = document.get("name");
-                                    } else {
-                                        Log.d("확인", "No such document");
-                                    }
-                                } else {
-                                    Log.d("확인", "get failed with ", task.getException());
-                                }
-                            }
-                        });
-                        //cardAdapter.addItme(new CardListItem(firebaseUser.get));
-
+                        Log.d("확인1", document.getId() + " => " + document.get("fieldName"));
+                        // (String) Objects.requireNonNull(document.get("fieldName"))
+                        //q47BnidbW3FygI43J09N
+                       // db.collection("cards").document(Objects.requireNonNull(document.get("fieldName")).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        documenPath.add((String)document.get("fieldName"));
                     }
                 } else {
                     Log.d("확인", "Error getting documents: ", task.getException());
                 }
+                Log.d("확인2",documenPath.get(0));
+                for (int i = 0; i< documenPath.size(); i++){
+
+                    Log.d("확인3",documenPath.get(i));
+                    String s =  documenPath.get(i).trim();;
+                    if(s.equals("q47BnidbW3FygI43J09N")){
+                        Log.d("확인5",documenPath.get(i)+"같은지 확인");
+                    }
+                    db.collection("cards")
+                            .document(documenPath.get(i).trim())
+                            .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(Task<DocumentSnapshot> task) {
+                                    Map<String, Object> data =  task.getResult().getData();
+                                    //String name = (String) data.get("cardName");
+                                    //Log.d("확인",task.getResult().get+"");
+                                    Log.d("확인4",data.get("cardName")+"");
+                                    Log.d("확인4",data.get("userName")+"");
+                                    Log.d("확인4",data.get("BDay")+"");
+                                    cardAdapter.addItme(new CardListItem("TO. "+data.get("cardName"), (String) data.get("BDay")));
+
+                                }
+
+                            });
+               }
             }
         });
+        mainDecoGridView.setAdapter(cardAdapter);
     }
 
     private List<MainDecoListItem> getData() {
