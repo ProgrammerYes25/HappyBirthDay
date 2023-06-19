@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MycardFragment">
     <LinearLayout
         android:id="@+id/mycard_ll"
@@ -10,25 +11,66 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_gravity="bottom">
+        <TextView
+            android:id="@+id/this_year_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#575062"
+            android:text="올해 생일카드"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/notosans_regular"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/this_year_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/congrate_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#575062"
+            android:text="축하 기록"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="20sp" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <GridView
-        android:id="@+id/main_mycard_grid"
-        android:layout_marginBottom="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="390dp"
-        android:numColumns="2"/>
-    <TextView
-        android:id="@+id/card_add_btn"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:background="@drawable/rectangle_resource_activation"
-        android:layout_gravity="center"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:text="@string/made_card_text"
-        android:fontFamily="@font/notosans_regular"
-        android:textSize="20sp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_congratulatory_record_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/card_add_btn"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:background="@drawable/rectangle_resource_activation"
+            android:layout_gravity="center|bottom"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/made_card_text"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="20sp" />
+        </FrameLayout>
     </LinearLayout>
 
 </FrameLayout>
