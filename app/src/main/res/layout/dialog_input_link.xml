@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#575062"
-            android:text="링크 주소를 입력해주세요"
+            android:text="카드 코드를 입력해주세요"
             android:textSize="17sp"
             android:fontFamily="@font/notosans_regular"
             android:layout_gravity="center"
