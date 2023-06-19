@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -47,19 +48,12 @@ public class CakeMakeWritingPageFragment extends Fragment {
         fromEditText = view.findViewById(R.id.from_edit_text);
         rollingPaperEditText.addTextChangedListener(rollingPaperTextWatcher);
         fromEditText.addTextChangedListener(fromTextWatcher);
+        rollingPaperEditText.setOnKeyListener(onKeyListener);
 
         // Image view find View by id
         decoImageView = view.findViewById(R.id.deco_image_view);
 
         cakeMakeingLayout = view.findViewById(R.id.cake_makeing_layout);
-        cakeMakeingLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                hideKeyboard();
-                return false;
-            }
-        });
-
 
         // textView setOnClick
         previousButtonTextView.setOnClickListener(onClickListener);
@@ -169,13 +163,20 @@ public class CakeMakeWritingPageFragment extends Fragment {
 
     private void hideKeyboard()
     {
-        if (getActivity() != null && getActivity().getCurrentFocus() != null)
-        {
-            if(getContext().getResources().getConfiguration().hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
-                // 프래그먼트기 때문에 getActivity() 사용
-                InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-            }
+        if (getActivity() != null && getActivity().getCurrentFocus() != null) {
+            // 프래그먼트기 때문에 getActivity() 사용
+            InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(rollingPaperEditText.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
+    View.OnKeyListener onKeyListener = new View.OnKeyListener() {
+        @Override
+        public boolean onKey(View v, int keyCode, KeyEvent event) {
+            if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                hideKeyboard();
+                return true;
+            }
+            return false;
+        }
+    };
 }

@@ -4,7 +4,7 @@ public class CakeListItem {
     int icons, circle;
     public CakeListItem(int icon){
         this.icons = icon;
-   //     this.circle = circle;
+        //     this.circle = circle;
     }
     public CakeListItem(int icon, int circle){
         this.icons = icon;

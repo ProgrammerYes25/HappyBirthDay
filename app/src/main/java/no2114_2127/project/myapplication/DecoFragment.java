@@ -23,11 +23,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirestoreRegistrar;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,8 +53,7 @@ public class DecoFragment extends Fragment {
 //    String inputText;
     FirebaseFirestore db;
     FirebaseUser firebaseUser;
-    CollectionReference collectionRef;
-
+    CollectionReference collectionRef, userCardColl;
     private CustomAdapter MainDecoGridAdapter;
 //    TextView noBtn;
 //    TextView yesBtn;
@@ -73,6 +78,22 @@ public class DecoFragment extends Fragment {
 //        yesBtn = addLink.findViewById(R.id.btn_add);
 //
 //        inputText = inputLink.getText().toString();
+
+        userCardColl = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
+        userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("확인", document.getId() + " => " + document.getData());
+                    }
+                } else {
+                    Log.d("확인", "Error getting documents: ", task.getException());
+                }
+            }
+        });
+
+
         view.findViewById(R.id.link_add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +110,6 @@ public class DecoFragment extends Fragment {
     }
     private List<MainDecoListItem> getData() {
         List<MainDecoListItem> data = new ArrayList<>();
-
         return data;
     }
     public void showAddLink(){

@@ -47,6 +47,9 @@
                 android:gravity="center"
                 android:fontFamily="@font/notosans_regular"
                 android:padding="15dp"
+                android:singleLine="true"
+                android:lines="1"
+                android:imeOptions="actionDone"
                 android:hint="@string/text_hint_text"
                 android:textColor="@color/black_600"
                 android:textSize="22sp" />

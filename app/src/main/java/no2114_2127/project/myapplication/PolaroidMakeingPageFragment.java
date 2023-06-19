@@ -95,14 +95,6 @@ public class PolaroidMakeingPageFragment extends Fragment {
         polaroidFrame8.setOnClickListener(onClickListener);
         polaroidFrame9.setOnClickListener(onClickListener);
 
-        polaroidMakeingLayout = view.findViewById(R.id.polaroid_makeing_layout);
-        polaroidMakeingLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                hideKeyboard();
-                return false;
-            }
-        });
 
         choiceImageView = polaroidFrame1;
         return view;
@@ -207,18 +199,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
     }
 
 
-    private void hideKeyboard()
-    {
-        if (getActivity() != null && getActivity().getCurrentFocus() != null)
-        {
-            if(getContext().getResources().getConfiguration().hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
 
-                // 프래그먼트기 때문에 getActivity() 사용
-                InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                inputManager.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-            }
-        }
-    }
 
     public void takePicture() {
         Intent imageTakeIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);

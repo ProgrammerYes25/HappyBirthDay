@@ -58,6 +58,8 @@ public class SignUpActivity extends AppCompatActivity {
         passCheckEditText.addTextChangedListener(passCheckWatcher);
         passwordCheckIcon = findViewById(R.id.password_check_icon);
         signUpLayout = findViewById(R.id.sign_up_layout);
+
+
         signUpLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {

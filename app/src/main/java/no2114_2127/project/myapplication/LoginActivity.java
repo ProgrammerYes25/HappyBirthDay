@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -44,14 +45,12 @@ public class LoginActivity extends AppCompatActivity {
         loginButtonTextView.setOnClickListener(onClickListener);
         loginSignupButtonTextView.setOnClickListener(onClickListener);
 
+
         loginLayout = findViewById(R.id.login_layout);
-        loginLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                hideKeyboard();
-                return false;
-            }
-        });
+
+//        idEditText.setOnKeyListener(onKeyListener);
+//        passEditText.setOnKeyListener(onKeyListener);
+
         mAuth = FirebaseAuth.getInstance(); //FirevaseAuth 객체 정의
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -67,6 +66,19 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     };
+
+//    View.OnKeyListener onKeyListener = new View.OnKeyListener() {
+//        @Override
+//        public boolean onKey(View v, int keyCode, KeyEvent event) {
+//            if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+//                    (keyCode == KeyEvent.KEYCODE_ENTER)) {
+//                        hideKeyboard();
+//                return true;
+//            }
+//            return false;
+//        }
+//    };
+
     private void signUP(){
         startActivityM(SignUpActivity.class);
     }
@@ -109,9 +121,9 @@ public class LoginActivity extends AppCompatActivity {
 
     void hideKeyboard()
     {
-        if(getApplicationContext().getResources().getConfiguration().hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
+        //if(getApplicationContext().getResources().getConfiguration().hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO) {
             InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             inputManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
+        //}
     }
 }

@@ -47,38 +47,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        manager = getSupportFragmentManager();
-        TextView decoToggle = findViewById(R.id.toggle_tv_deco);
-        TextView mycardToggle = findViewById(R.id.toggle_tv_mycard);
-        decoFragment = new DecoFragment();
-        mycardFragment=new  MycardFragment();
-
-        ft = manager.beginTransaction();
-        ft.add(R.id.fragment_container, decoFragment);
-        ft.addToBackStack(null);
-        ft.commit();
-
-        decoToggle.setOnClickListener(onClickListener);
-        mycardToggle.setOnClickListener(onClickListener);
-
-        // textview findViewById
-        userNameTextView = findViewById(R.id.user_name_text_view);
-
-        //Y-초기커밋~~~!!ㅣㅐㅣㅡ
-        //C-테스트커밋!!
-
-        ImageView settingButton = findViewById(R.id.btn_setting);
-        settingButton.setOnClickListener(onClickListener);
-
-
         mAuth = FirebaseAuth.getInstance(); //FirevaseAuth 객체 정의
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null){    //로그인이 되어있지 않은면 SignUpActivity를 실행 시킴
             startActivityM(LoginActivity.class);
         }else{
+            manager = getSupportFragmentManager();
+            TextView decoToggle = findViewById(R.id.toggle_tv_deco);
+            TextView mycardToggle = findViewById(R.id.toggle_tv_mycard);
+            decoFragment = new DecoFragment();
+            mycardFragment=new  MycardFragment();
 
+            ft = manager.beginTransaction();
+            ft.add(R.id.fragment_container, decoFragment);
+            ft.addToBackStack(null);
+            ft.commit();
+
+            decoToggle.setOnClickListener(onClickListener);
+            mycardToggle.setOnClickListener(onClickListener);
+
+            // textview findViewById
+            userNameTextView = findViewById(R.id.user_name_text_view);
+
+            //Y-초기커밋~~~!!ㅣㅐㅣㅡ
+            //C-테스트커밋!!
+
+            ImageView settingButton = findViewById(R.id.btn_setting);
+            settingButton.setOnClickListener(onClickListener);
             // firebase 정보 빼오기
             userUid = currentUser.getUid();
             firebaseFirestore = FirebaseFirestore.getInstance();
@@ -94,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         }
+
+
+
+
+
 
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
