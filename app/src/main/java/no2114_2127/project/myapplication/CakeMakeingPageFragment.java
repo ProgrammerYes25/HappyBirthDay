@@ -39,6 +39,7 @@ public class CakeMakeingPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(choice > -1){
+
                     ((CardMakeingPageActivity)getActivity()).replaceFragment(CakeMakeWritingPageFragment.CakeMakeWritingPageInstance());
                     CardClass.cakeClass.setDecoImage(cakeDecorative[choice]);// 아이콘 저장
                 }

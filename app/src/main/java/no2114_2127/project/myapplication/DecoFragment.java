@@ -28,6 +28,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirestoreRegistrar;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -55,6 +56,8 @@ public class DecoFragment extends Fragment {
     FirebaseUser firebaseUser;
     CollectionReference collectionRef, userCardColl;
     private CustomAdapter MainDecoGridAdapter;
+    GridView mainDecoGridView;
+    CardAdapter cardAdapter;
 //    TextView noBtn;
 //    TextView yesBtn;
     @Override
@@ -68,7 +71,6 @@ public class DecoFragment extends Fragment {
         addLink = new Dialog(getActivity());       // Dialog 초기화
         addLink.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         addLink.setContentView(R.layout.dialog_input_link);             // xml 레이아웃 파일과 연결
-        MainDecoGridAdapter = new CustomAdapter(requireContext(), getData());
 
         // 파이어베이스
         db = FirebaseFirestore.getInstance();
@@ -80,18 +82,7 @@ public class DecoFragment extends Fragment {
 //        inputText = inputLink.getText().toString();
 
         userCardColl = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
-        userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d("확인", document.getId() + " => " + document.getData());
-                    }
-                } else {
-                    Log.d("확인", "Error getting documents: ", task.getException());
-                }
-            }
-        });
+
 
 
         view.findViewById(R.id.link_add_btn).setOnClickListener(new View.OnClickListener() {
@@ -101,13 +92,51 @@ public class DecoFragment extends Fragment {
                 showAddLink(); // 아래 showAddLink() 함수 호출
             }
         });
-        MainDecoGridAdapter = new CustomAdapter(requireContext(),getData());
 
         // 어댑터를 GridView에 설정
-        DecoGridView.setAdapter(MainDecoGridAdapter);
+        mainDecoGridView = view.findViewById(R.id.main_deco_grid);
+        cardAdapter = new CardAdapter();
+        setAdapter();
+        //mainDecoGridView.setOnItemClickListener();
 
         return view;
     }
+    String name;
+    public void setAdapter(){
+
+        userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("확인", document.getId() + " => " + document.getData());
+
+                        db.collection("users").document(firebaseUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        Log.d("확인", "DocumentSnapshot data: " + document.getData());
+                                      //name = document.get("name");
+                                    } else {
+                                        Log.d("확인", "No such document");
+                                    }
+                                } else {
+                                    Log.d("확인", "get failed with ", task.getException());
+                                }
+                            }
+                        });
+                        //cardAdapter.addItme(new CardListItem(firebaseUser.get));
+
+                    }
+                } else {
+                    Log.d("확인", "Error getting documents: ", task.getException());
+                }
+            }
+        });
+    }
+
     private List<MainDecoListItem> getData() {
         List<MainDecoListItem> data = new ArrayList<>();
         return data;

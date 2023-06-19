@@ -48,8 +48,6 @@ public class LoginActivity extends AppCompatActivity {
 
         loginLayout = findViewById(R.id.login_layout);
 
-//        idEditText.setOnKeyListener(onKeyListener);
-//        passEditText.setOnKeyListener(onKeyListener);
 
         mAuth = FirebaseAuth.getInstance(); //FirevaseAuth 객체 정의
     }
