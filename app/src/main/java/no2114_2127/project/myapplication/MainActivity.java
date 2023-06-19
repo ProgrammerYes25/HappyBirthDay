@@ -77,22 +77,24 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null){    //로그인이 되어있지 않은면 SignUpActivity를 실행 시킴
             startActivityM(LoginActivity.class);
+        }else{
+
+            // firebase 정보 빼오기
+            userUid = currentUser.getUid();
+            firebaseFirestore = FirebaseFirestore.getInstance();
+
+            firebaseFirestore.collection("users")
+                    .document(userUid)
+                    .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            Map<String, Object> data =  task.getResult().getData();
+                            String name = (String) data.get("name");
+                            userNameTextView.setText(name);
+                        }
+                    });
         }
 
-        // firebase 정보 빼오기
-        userUid = currentUser.getUid();
-        firebaseFirestore = FirebaseFirestore.getInstance();
-
-        firebaseFirestore.collection("users")
-                .document(userUid)
-                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        Map<String, Object> data =  task.getResult().getData();
-                        String name = (String) data.get("name");
-                        userNameTextView.setText(name);
-                    }
-                });
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
