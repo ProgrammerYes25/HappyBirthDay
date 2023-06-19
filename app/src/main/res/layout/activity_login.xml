@@ -57,6 +57,7 @@
         android:textColor="#9E97A7"
         android:fontFamily="@font/notosans_regular"
         android:layout_gravity="center"
+        android:inputType="textPassword"
         android:layout_marginBottom="20dp"/>
     <TextView
         android:id="@+id/login_button_text_view"
