@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -37,6 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class MycardFragment extends Fragment {
@@ -59,8 +61,8 @@ public class MycardFragment extends Fragment {
     CollectionReference collectionRef, userCardColl;
     String userUid;
     CardDataClass cardDataClass;
-    RecyclerView thisYear;
-    RecyclerView congrate;
+    CardAdapter cardAdapter;
+
     //    TextView cardName;
 //    TextView nameBirth;
     @Override
@@ -73,8 +75,7 @@ public class MycardFragment extends Fragment {
         mRecyclerView = view.findViewById(R.id.this_year_recyclerView);
 //        cardName=view3.findViewById(R.id.tv_nickname);
 //        nameBirth=view3.findViewById(R.id.tv_name_birthday);
-        mRecyclerViewAdapter = new MainMycardRecyclerViewAdapter(mList);
-        mRecyclerView.addItemDecoration(new RecyclerViewDecoration(60));
+        cardAdapter = new CardAdapter();
 
         //축하 기록 recyclerView
         mRecyclerView2 = view.findViewById(R.id.my_congratulatory_record_recyclerView);
@@ -94,7 +95,7 @@ public class MycardFragment extends Fragment {
         addCard.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         addCard.setContentView(R.layout.dialog_input_card_name);             // xml 레이아웃 파일과 연결
 
-        View view2 = inflater.inflate(R.layout.dialog_input_card_name, container, false);
+        //View view2 = inflater.inflate(R.layout.dialog_input_card_name, container, false);
         View view3 = inflater.inflate(R.layout.main_grid_shortcut, container, false);
         cardName=view3.findViewById(R.id.tv_nickname);
         nameBirth=view3.findViewById(R.id.tv_name_birthday);
@@ -105,8 +106,7 @@ public class MycardFragment extends Fragment {
         userUid = firebaseUser.getUid();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         userCardColl = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
-
-
+        setAdapter();
         cardName2=view3.findViewById(R.id.tv_nickname);
         nameBirth2=view3.findViewById(R.id.tv_name_birthday);
 
@@ -132,6 +132,68 @@ public class MycardFragment extends Fragment {
 
         mList = new ArrayList<>();
         mList2 = new ArrayList<>();
+    }
+
+    public void setAdapter(){
+        List<String> documenPath = new ArrayList<String>();
+        userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("확인1", document.getId() + " => " + document.get("fieldName"));
+                        // (String) Objects.requireNonNull(document.get("fieldName"))
+                        //q47BnidbW3FygI43J09N
+                        // db.collection("cards").document(Objects.requireNonNull(document.get("fieldName")).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        documenPath.add((String)document.get("fieldName"));
+                    }
+                } else {
+                    Log.d("확인", "Error getting documents: ", task.getException());
+                }
+                Log.d("확인2",documenPath.get(0));
+                Log.d("확인2",documenPath.size()+"");
+                // 비동기 작업의 완료를 기다리기 위한 카운터 변수
+                AtomicInteger counter = new AtomicInteger(documenPath.size());
+                cardAdapter.itmes.clear();
+                for (int i = 0; i < documenPath.size(); i++) {
+                    String path = documenPath.get(i).trim();
+
+                    db.collection("cards")
+                            .document(path)
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot snapshot = task.getResult();
+                                        if (snapshot.exists()) {
+                                            Map<String, Object> data = snapshot.getData();
+                                            Log.d("확인4", data.get("cardName") + "");
+                                            Log.d("확인4", data.get("userName") + "");
+                                            Log.d("확인4", data.get("cardName") + " " + data.get("BDay")+ "");
+                                            // Log.d("확인!", cardAdapter.getItem()+ "");
+                                            cardAdapter.addItme(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("BDay")));
+                                            //cardAdapter.notifyDataSetChanged();
+                                        }
+                                    } else {
+                                        Log.d("확인", "Error getting document: ", task.getException());
+                                    }
+
+                                    // 비동기 작업이 완료되면 카운터를 감소시키고 체크
+                                    if (counter.decrementAndGet() == 0) {
+                                        Log.d("확인5", "");
+                                        // 모든 작업이 완료되었을 때 실행할 코드
+                                        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+
+                                    }
+                                }
+                            });
+                }
+//                Log.d("확인5", "");
+//                mainDecoGridView.setAdapter(cardAdapter);
+            }
+        });
+
     }
 
 
@@ -209,7 +271,7 @@ public class MycardFragment extends Fragment {
                             });
 
                     //Log.d("확인", cardDataClass.getClass()+"!!!!!!!!!!!!!!!!!!!!!!!");
-                    collectionRef = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
+                    collectionRef = db.collection("users").document(firebaseUser.getUid()).collection("userHaveCard");
                     collectionRef.whereEqualTo("fieldName", inputText)
                             .get()
                             .addOnCompleteListener(task -> {
