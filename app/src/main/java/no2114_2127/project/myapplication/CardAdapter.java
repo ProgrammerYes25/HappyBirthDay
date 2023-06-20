@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,17 +25,17 @@ public class CardAdapter extends BaseAdapter {
     }
     @Override
     public int getCount() {
-        return 0;
+        return itmes.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return null;
+    public Object getItem(int position) {
+        return itmes.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return 0;
+    public long getItemId(int position) {
+        return position;
     }
 
 
@@ -45,13 +46,18 @@ public class CardAdapter extends BaseAdapter {
         CardListItem cardListItem = itmes.get(position);
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.cake_list_item, parent, false);
+            convertView = inflater.inflate(R.layout.main_grid_shortcut, parent, false);
         }
 
-        TextView tvNickname = convertView.findViewById(R.id.tv_nickname);
-        TextView tvNameBirthday = convertView.findViewById(R.id.tv_name_birthday);
-        tvNickname.setText(cardListItem.getUserName());
-        tvNameBirthday.setText(cardListItem.getDate());
+        EditText tvNickname = convertView.findViewById(R.id.tv_nickname);
+        EditText tvNameBirthday = convertView.findViewById(R.id.tv_name_birthday);
+        Log.d("확인 ", cardListItem.getUserName()+"" );
+        Log.d("확인 ", cardListItem.getDate()+"" );
+        Log.d("확인 ","-----------------------------------------------");
+        String name =  cardListItem.getUserName();
+        String date =  cardListItem.getDate();
+        tvNickname.setText(name);
+        tvNameBirthday.setText(date);
 
 //        ImageView cakeIcon = convertView.findViewById(R.id.cake_icon);
 //        ImageView iconCircle = convertView.findViewById(R.id.icon_circle);

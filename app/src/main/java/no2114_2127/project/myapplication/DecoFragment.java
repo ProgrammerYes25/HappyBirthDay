@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -38,12 +39,14 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.units.qual.C;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class DecoFragment extends Fragment {
@@ -52,8 +55,8 @@ public class DecoFragment extends Fragment {
 //    TextView noBtn;
 //    TextView yesBtn;
 //    EditText inputLink;
-    TextView cardName;
-    TextView nameBirth;
+    EditText cardName;
+    EditText nameBirth;
 //    String inputText;
     FirebaseFirestore db;
     FirebaseUser firebaseUser;
@@ -91,6 +94,7 @@ public class DecoFragment extends Fragment {
         cardAdapter = new CardAdapter();
         //","
         setAdapter();
+        mainDecoGridView.setOnItemClickListener(onItemClickListener);
 
         view.findViewById(R.id.link_add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +109,14 @@ public class DecoFragment extends Fragment {
 
         return view;
     }
+
+    AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            CakeListItem item = (CakeListItem) cardAdapter.getItem(position);
+            Log.d("선택 :",position+" ");
+        }
+    };
     String name;
     public void setAdapter(){
         List<String> documenPath = new ArrayList<String>();
@@ -123,33 +135,45 @@ public class DecoFragment extends Fragment {
                     Log.d("확인", "Error getting documents: ", task.getException());
                 }
                 Log.d("확인2",documenPath.get(0));
-                for (int i = 0; i< documenPath.size(); i++){
+                // 비동기 작업의 완료를 기다리기 위한 카운터 변수
+                AtomicInteger counter = new AtomicInteger(documenPath.size());
 
-                    Log.d("확인3",documenPath.get(i));
-                    String s =  documenPath.get(i).trim();;
-                    if(s.equals("q47BnidbW3FygI43J09N")){
-                        Log.d("확인5",documenPath.get(i)+"같은지 확인");
-                    }
+                for (int i = 0; i < documenPath.size(); i++) {
+                    String path = documenPath.get(i).trim();
+
                     db.collection("cards")
-                            .document(documenPath.get(i).trim())
-                            .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            .document(path)
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(Task<DocumentSnapshot> task) {
-                                    Map<String, Object> data =  task.getResult().getData();
-                                    //String name = (String) data.get("cardName");
-                                    //Log.d("확인",task.getResult().get+"");
-                                    Log.d("확인4",data.get("cardName")+"");
-                                    Log.d("확인4",data.get("userName")+"");
-                                    Log.d("확인4",data.get("BDay")+"");
-                                    cardAdapter.addItme(new CardListItem("TO. "+data.get("cardName"), (String) data.get("BDay")));
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot snapshot = task.getResult();
+                                        if (snapshot.exists()) {
+                                            Map<String, Object> data = snapshot.getData();
+                                            Log.d("확인4", data.get("cardName") + "");
+                                            Log.d("확인4", data.get("userName") + "");
+                                            Log.d("확인4", data.get("cardName") + " " + data.get("BDay")+ "");
+                                            cardAdapter.addItme(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("BDay")));
+                                        }
+                                    } else {
+                                        Log.d("확인", "Error getting document: ", task.getException());
+                                    }
 
+                                    // 비동기 작업이 완료되면 카운터를 감소시키고 체크
+                                    if (counter.decrementAndGet() == 0) {
+                                        Log.d("확인5", "");
+                                        // 모든 작업이 완료되었을 때 실행할 코드
+                                        mainDecoGridView.setAdapter(cardAdapter);
+                                    }
                                 }
-
                             });
-               }
+                }
+//                Log.d("확인5", "");
+//                mainDecoGridView.setAdapter(cardAdapter);
             }
         });
-        mainDecoGridView.setAdapter(cardAdapter);
+
     }
 
     private List<MainDecoListItem> getData() {
