@@ -20,26 +20,30 @@
         android:src="@drawable/main_cake"
         android:layout_gravity="center_horizontal"
         />
-    <TextView
+    <EditText
         android:id="@+id/tv_nickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#575062"
         android:text="to.지혜이무니다"
+        android:background="@null"
+        android:focusable="false"
         android:textSize="18sp"
         android:gravity="center_horizontal"
         android:fontFamily="@font/notosans_regular"
         />
-<TextView
-    android:id="@+id/tv_name_birthday"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColor="#9E97A7"
-    android:text="양지혜 10월 12일"
-    android:textSize="13sp"
-    android:gravity="center_horizontal"
-    android:fontFamily="@font/notosans_regular"
-    />
+    <EditText
+        android:id="@+id/tv_name_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#9E97A7"
+        android:text="양지혜 10월 12일"
+        android:background="@null"
+        android:focusable="false"
+        android:textSize="13sp"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/notosans_regular"
+        />
 
 
 
