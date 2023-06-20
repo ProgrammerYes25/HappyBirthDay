@@ -56,12 +56,9 @@ public class MycardFragment extends Fragment {
 //        nameBirth=view3.findViewById(R.id.tv_name_birthday);
         mRecyclerViewAdapter = new MainMycardRecyclerViewAdapter(mList);
         mRecyclerView.addItemDecoration(new RecyclerViewDecoration(60));
-        for(int i=0;i<5;i++){
-            mRecyclerViewAdapter.addItem( new MainMycardRecyclerViewItem(nameBirth,cardName));
-        }
-        mRecyclerView.setAdapter(mRecyclerViewAdapter);
-      //  mRecyclerView2.setAdapter(mRecyclerViewAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
+
+
+
        // mRecyclerView2.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
 
 
@@ -153,12 +150,16 @@ public class MycardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // 원하는 기능 구현
-                if (inputCard.getText().toString().length()>0) {
+                String inputText = inputCard.getText().toString();  // 가져온 링크
+                if (inputText.length()>0) {
                     Log.d("확인", "onTextChanged: ");
                     // 입력된 텍스트가 비어 있는 경우
                     // yesBtn.setEnabled(true); // 추가 버튼 활성화
                     //yesBtn.setBackground(null);
-
+                    mRecyclerViewAdapter.addItem( new MainMycardRecyclerViewItem(nameBirth,cardName));
+                    mRecyclerView.setAdapter(mRecyclerViewAdapter);
+                    //  mRecyclerView2.setAdapter(mRecyclerViewAdapter);
+                    mRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
                     addCard.dismiss();
 
             }
