@@ -32,13 +32,15 @@ public class MycardFragment extends Fragment {
     Dialog addCard;
     TextView cardName;
     TextView nameBirth;
-    //private CustomAdapter MainMycardGridAdapter;
+    TextView cardName2;
+    TextView nameBirth2;
+    private CustomAdapter MainMycardGridAdapter;
     private RecyclerView mRecyclerView;
-   // private RecyclerView mRecyclerView2;
+    private RecyclerView mRecyclerView2;
     private ArrayList<MainMycardRecyclerViewItem> mList;
- //   private ArrayList<MainMycardRecyclerViewItem> mList2;
+    private ArrayList<MainMycardRecyclerViewItem> mList2;
     private MainMycardRecyclerViewAdapter mRecyclerViewAdapter;
- //   private MainMycardRecyclerViewAdapter mRecyclerViewAdapter2; //congrate
+    private MainMycardRecyclerViewAdapter mRecyclerViewAdapter2; //congrate
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     RecyclerView thisYear;
@@ -49,16 +51,26 @@ public class MycardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mycard, container, false);
         firstInit();
-        thisYear=view.findViewById(R.id.this_year_recyclerView);
-        congrate=view.findViewById(R.id.my_congratulatory_record_recyclerView);
+//        thisYear=view.findViewById(R.id.this_year_recyclerView);
+//        congrate=view.findViewById(R.id.my_congratulatory_record_recyclerView);
+
         mRecyclerView = view.findViewById(R.id.this_year_recyclerView);
 //        cardName=view3.findViewById(R.id.tv_nickname);
 //        nameBirth=view3.findViewById(R.id.tv_name_birthday);
         mRecyclerViewAdapter = new MainMycardRecyclerViewAdapter(mList);
         mRecyclerView.addItemDecoration(new RecyclerViewDecoration(60));
 
-
-
+        //축하 기록 recyclerView
+        mRecyclerView2 = view.findViewById(R.id.my_congratulatory_record_recyclerView);
+//        cardName=view3.findViewById(R.id.tv_nickname);
+//        nameBirth=view3.findViewById(R.id.tv_name_birthday);
+        mRecyclerViewAdapter2 = new MainMycardRecyclerViewAdapter(mList2);
+        mRecyclerView2.addItemDecoration(new RecyclerViewDecoration(60)); //간격 조정
+        mRecyclerViewAdapter2.addItem( new MainMycardRecyclerViewItem(nameBirth2,cardName2));
+        mRecyclerView2.setAdapter(mRecyclerViewAdapter2);
+        //  mRecyclerView2.setAdapter(mRecyclerViewAdapter);
+        mRecyclerView2.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
+        //recyclerView 가로로 생기게 설정
        // mRecyclerView2.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
 
 
@@ -71,6 +83,9 @@ public class MycardFragment extends Fragment {
         cardName=view3.findViewById(R.id.tv_nickname);
         nameBirth=view3.findViewById(R.id.tv_name_birthday);
 
+
+        cardName2=view3.findViewById(R.id.tv_nickname);
+        nameBirth2=view3.findViewById(R.id.tv_name_birthday);
 
         view.findViewById(R.id.card_add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,9 +104,11 @@ public class MycardFragment extends Fragment {
 
         return data;
     }
+
     public void firstInit(){
 
         mList = new ArrayList<>();
+        mList2 = new ArrayList<>();
     }
 
 
