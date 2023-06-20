@@ -232,7 +232,7 @@ public class DecoFragment extends Fragment {
                     Log.d("확인", "onTextChanged: ");
                     // 입력된 텍스트가 비어 있는 경우
                     // yesBtn.setEnabled(true); // 추가 버튼 활성화
-                    //yesBtn.setBackground(null);
+                    //yesBtn.setBackground(null);v
 
                     collectionRef = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
                     collectionRef.whereEqualTo("fieldName", inputText)

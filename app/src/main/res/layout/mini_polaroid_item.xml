@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/polaroid_mini_ll"
+    android:background="@drawable/rectangle_rounded_corner_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="115dp"
+    android:layout_height="180dp"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="115dp"
+        android:layout_height="180dp">
+        <!--업로드 한 사진 image view-->
+        <ImageView
+            android:id="@+id/polaroid_photo_image_view"
+            android:layout_width="110dp"
+            android:layout_height="145dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/test_polaroid_image2" />
+        <!--폴라로이드 프레임 image view-->
+        <!--메모 적는 edit text-->
+        <ImageView
+            android:id="@+id/polaroid_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/polaroid_frame_1" />
+
+        <TextView
+            android:id="@+id/polaroid_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:fontFamily="@font/notosans_regular"
+            android:text="예시텍스트"
+            android:textColor="#585062"
+            android:layout_marginBottom="10dp"
+            android:textSize="12sp" />
+    </FrameLayout>
+
+
+
+
+</LinearLayout>
