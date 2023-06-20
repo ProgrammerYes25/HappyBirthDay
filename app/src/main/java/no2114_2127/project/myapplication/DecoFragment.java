@@ -135,9 +135,10 @@ public class DecoFragment extends Fragment {
                     Log.d("확인", "Error getting documents: ", task.getException());
                 }
                 Log.d("확인2",documenPath.get(0));
+                Log.d("확인2",documenPath.size()+"");
                 // 비동기 작업의 완료를 기다리기 위한 카운터 변수
                 AtomicInteger counter = new AtomicInteger(documenPath.size());
-
+                cardAdapter.itmes.clear();
                 for (int i = 0; i < documenPath.size(); i++) {
                     String path = documenPath.get(i).trim();
 
@@ -154,7 +155,9 @@ public class DecoFragment extends Fragment {
                                             Log.d("확인4", data.get("cardName") + "");
                                             Log.d("확인4", data.get("userName") + "");
                                             Log.d("확인4", data.get("cardName") + " " + data.get("BDay")+ "");
+                                            // Log.d("확인!", cardAdapter.getItem()+ "");
                                             cardAdapter.addItme(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("BDay")));
+                                            //cardAdapter.notifyDataSetChanged();
                                         }
                                     } else {
                                         Log.d("확인", "Error getting document: ", task.getException());
@@ -165,6 +168,67 @@ public class DecoFragment extends Fragment {
                                         Log.d("확인5", "");
                                         // 모든 작업이 완료되었을 때 실행할 코드
                                         mainDecoGridView.setAdapter(cardAdapter);
+
+                                    }
+                                }
+                            });
+                }
+//                Log.d("확인5", "");
+//                mainDecoGridView.setAdapter(cardAdapter);
+            }
+        });
+
+    }
+    int i;
+    public void resetAdapter(){
+
+        List<String> documenPath = new ArrayList<String>();
+        userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("확인1", document.getId() + " => " + document.get("fieldName"));
+                        // (String) Objects.requireNonNull(document.get("fieldName"))
+                        //q47BnidbW3FygI43J09N
+                        // db.collection("cards").document(Objects.requireNonNull(document.get("fieldName")).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        documenPath.add((String)document.get("fieldName"));
+                    }
+                } else {
+                    Log.d("확인", "Error getting documents: ", task.getException());
+                }
+                Log.d("확인2",documenPath.size()+"");
+                // 비동기 작업의 완료를 기다리기 위한 카운터 변수
+                AtomicInteger counter = new AtomicInteger(documenPath.size());
+                cardAdapter.itmes.clear();
+                for (i = 0; i < documenPath.size(); i++) {
+                    String path = documenPath.get(i).trim();
+                    db.collection("cards")
+                            .document(path)
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot snapshot = task.getResult();
+                                        if (snapshot.exists()) {
+                                            Map<String, Object> data = snapshot.getData();
+                                            Log.d("확인4", data.get("cardName") + "");
+                                            Log.d("확인4", data.get("userName") + "");
+                                            Log.d("확인4", data.get("cardName") + " " + data.get("BDay")+ "");
+
+                                            cardAdapter.itmes.add(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("BDay")));
+                                            //cardAdapter.itmes.remove(i-1);
+                                        }
+                                    } else {
+                                        Log.d("확인", "Error getting document: ", task.getException());
+                                    }
+
+                                    // 비동기 작업이 완료되면 카운터를 감소시키고 체크
+                                    if (counter.decrementAndGet() == 0) {
+                                        Log.d("확인5", "");
+                                        // 모든 작업이 완료되었을 때 실행할 코드
+                                        cardAdapter.notifyDataSetChanged();
                                     }
                                 }
                             });
@@ -177,6 +241,7 @@ public class DecoFragment extends Fragment {
     }
 
     private List<MainDecoListItem> getData() {
+
         List<MainDecoListItem> data = new ArrayList<>();
         return data;
     }
@@ -272,8 +337,7 @@ public class DecoFragment extends Fragment {
                                         Map<String, Object> data = new HashMap<>();
                                         data.put("fieldName", inputText);
                                         collectionRef.document().set(data);
-                                        MainDecoGridAdapter.addItem(new MainDecoListItem(cardName, nameBirth));
-                                        MainDecoGridAdapter.notifyDataSetChanged();
+                                        resetAdapter();
                                     }
                                 } else {
                                     // 조회 실패 처리 로직을 수행
