@@ -17,13 +17,25 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -42,10 +54,14 @@ public class MycardFragment extends Fragment {
     private MainMycardRecyclerViewAdapter mRecyclerViewAdapter;
     private MainMycardRecyclerViewAdapter mRecyclerViewAdapter2; //congrate
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseFirestore db ;
+    FirebaseUser firebaseUser;
+    CollectionReference collectionRef, userCardColl;
+    String userUid;
+    CardDataClass cardDataClass;
     RecyclerView thisYear;
     RecyclerView congrate;
-//    TextView cardName;
+    //    TextView cardName;
 //    TextView nameBirth;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -71,7 +87,7 @@ public class MycardFragment extends Fragment {
         //  mRecyclerView2.setAdapter(mRecyclerViewAdapter);
         mRecyclerView2.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
         //recyclerView 가로로 생기게 설정
-       // mRecyclerView2.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
+        // mRecyclerView2.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
 
 
         addCard = new Dialog(getActivity());       // Dialog 초기화
@@ -82,6 +98,13 @@ public class MycardFragment extends Fragment {
         View view3 = inflater.inflate(R.layout.main_grid_shortcut, container, false);
         cardName=view3.findViewById(R.id.tv_nickname);
         nameBirth=view3.findViewById(R.id.tv_name_birthday);
+
+//	파이어베이스
+        db = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        userUid = firebaseUser.getUid();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        userCardColl = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
 
 
         cardName2=view3.findViewById(R.id.tv_nickname);
@@ -167,29 +190,47 @@ public class MycardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // 원하는 기능 구현
-                String inputText = inputCard.getText().toString();  // 가져온 링크
+                String inputText = inputCard.getText().toString();
+                Log.d("input 확인", inputText);// 가져온 링크
                 if (inputText.length()>0) {
                     Log.d("확인", "onTextChanged: ");
-                    // 입력된 텍스트가 비어 있는 경우
-                    // yesBtn.setEnabled(true); // 추가 버튼 활성화
-                    //yesBtn.setBackground(null);
-                    mRecyclerViewAdapter.addItem( new MainMycardRecyclerViewItem(nameBirth,cardName));
-                    mRecyclerView.setAdapter(mRecyclerViewAdapter);
-                    //  mRecyclerView2.setAdapter(mRecyclerViewAdapter);
-                    mRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
+
+
+                    db.collection("users")
+                            .document(userUid)
+                            .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    Log.d("input 확인", inputText);
+                                    Map<String, Object> data =  task.getResult().getData();
+                                    cardDataClass = new CardDataClass((String) data.get("name"), inputText, (String) data.get("birthDay"), (String) data.get("email"));
+                                    db.collection("cards").document().set(cardDataClass);
+                                }
+                            });
+
+                    //Log.d("확인", cardDataClass.getClass()+"!!!!!!!!!!!!!!!!!!!!!!!");
+                    collectionRef = db.collection("users").document(firebaseUser.getUid()).collection("userCard");
+                    collectionRef.whereEqualTo("fieldName", inputText)
+                            .get()
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    QuerySnapshot querySnapshot = task.getResult();
+
+                                    // 겹치는 값이 없는 경우 값을 삽입
+                                    Map<String, Object> data = new HashMap<>();
+                                    data.put("fieldName", inputText);
+                                    collectionRef.document().set(data);
+
+                                } else {
+                                    // 조회 실패 처리 로직을 수행
+                                }
+                            });
                     addCard.dismiss();
 
+                }
             }
-        }
-    });
+        });
 
     }
 
 }
-
-
-
-
-
-
-
