@@ -1,5 +1,6 @@
 package no2114_2127.project.myapplication;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMycardRecyclerViewAdapter.ViewHolder> {
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nameAndBirth;
         public TextView cardName;
@@ -25,10 +28,10 @@ public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMyca
         }
     }
 
-    private ArrayList<MainMycardRecyclerViewItem> mList = null;
-
-    public MainMycardRecyclerViewAdapter(ArrayList<MainMycardRecyclerViewItem> mList) {
-        this.mList = mList;
+    ArrayList<CardListItem> items = new ArrayList<CardListItem>();
+    public MainMycardRecyclerViewAdapter(){}
+    public MainMycardRecyclerViewAdapter(ArrayList<CardListItem> mList) {
+        this.items = mList;
     }
 
     // 아이템 뷰를 위한 뷰홀더 객체를 생성하여 리턴
@@ -46,16 +49,16 @@ public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMyca
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     @Override
     public void onBindViewHolder(@NonNull MainMycardRecyclerViewAdapter.ViewHolder holder, int position) {
-        MainMycardRecyclerViewItem item = mList.get(position);
+        CardListItem item = items.get(position);
 
-        if (item.getNameAndBirth() != null) {
-            holder.nameAndBirth.setText(item.getNameAndBirth().getText());
+        if (item.getUserName() != null) {
+            holder.nameAndBirth.setText(item.getDate());
         } else {
             holder.nameAndBirth.setText("");
         }
 
-        if (item.getCardName() != null) {
-            holder.cardName.setText(item.getCardName().getText());
+        if (item.getDate() != null) {
+            holder.cardName.setText(item.getUserName());
         } else {
             holder.cardName.setText("");
         }
@@ -63,14 +66,14 @@ public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMyca
 
     @Override
     public int getItemCount() {
-        return mList.size();
+        return items.size();
     }
-    public void addItem(MainMycardRecyclerViewItem item) {
-        mList.add(item);
-//        for(int i =0; i< items.size(); i++) {
-//            Log.d("확인", items.get(i) + "!");
-//        }
-//        Log.d("끝", "-----------------------------------------------");
+    public void addItem(CardListItem item) {
+        items.add(item);
+        for(int i =0;i< items.size(); i++) {
+            Log.d("확인", items.get(i) + "!");
+        }
+        Log.d("끝", "-----------------------------------------------");
     }
 
 }
