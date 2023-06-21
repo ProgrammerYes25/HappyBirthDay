@@ -13,6 +13,7 @@
             android:layout_marginTop="40dp">
 
         <ImageView
+            android:id="@+id/sheet_share_btn"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/bottom_sheet_share"
@@ -29,6 +30,7 @@
                 android:fontFamily="@font/notosans_regular"
                 android:textColor="#575062" />
         <ImageView
+            android:id="@+id/sheet_hide_btn"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/bottom_sheet_hide"
@@ -43,6 +45,7 @@
                 android:fontFamily="@font/notosans_regular"
                 android:textColor="#575062" />
         <ImageView
+            android:id="@+id/sheet_delete_btn"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/bottom_sheet_delete"

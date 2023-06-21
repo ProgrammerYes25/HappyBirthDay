@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.bumptech.glide.load.engine.DecodePath;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -64,6 +65,12 @@ public class DecoFragment extends Fragment {
     private CustomAdapter MainDecoGridAdapter;
     GridView mainDecoGridView;
     CardAdapter cardAdapter;
+    ImageView btnClick;
+    ImageView btnShare;
+    ImageView btnDelete;
+    ImageView btnHide;
+    TextView btnCancel;
+    BottomSheetDialog mainBottomSheet;
 //    TextView noBtn;
 //    TextView yesBtn;
     @Override
@@ -71,12 +78,57 @@ public class DecoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_deco, container, false);
         View view2 = inflater.inflate(R.layout.dialog_input_link, container, false);
         View view3 = inflater.inflate(R.layout.main_grid_shortcut, container, false);
+        View view4 = inflater.inflate(R.layout.bottom_sheet_main, container, false);
+
         mainDecoGridView=view.findViewById(R.id.main_deco_grid);
         cardName=view3.findViewById(R.id.tv_nickname);
         nameBirth=view3.findViewById(R.id.tv_name_birthday);
         addLink = new Dialog(getActivity());       // Dialog 초기화
         addLink.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         addLink.setContentView(R.layout.dialog_input_link);             // xml 레이아웃 파일과 연결
+
+        btnClick=view3.findViewById(R.id.main_menu);
+        btnShare=view4.findViewById(R.id.sheet_share_btn);
+        btnDelete=view4.findViewById(R.id.sheet_delete_btn);
+        btnHide=view4.findViewById(R.id.sheet_hide_btn);
+        btnCancel=view4.findViewById(R.id.tv_cancel);
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+        bottomSheetDialog.setContentView(view4);
+
+
+// 클릭 리스너를 등록하고 싶은 View에 대해 setOnClickListener() 메서드를 호출하여 클릭 리스너를 설정
+
+        btnClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.show();
+            }
+        });
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "전시중에는 공유가 불가합니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "전시중에는 삭제가 불가합니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "전시중에는 숨김이 불가합니다.", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.dismiss();
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
+            }
+        });
 
         // 파이어베이스
         db = FirebaseFirestore.getInstance();
