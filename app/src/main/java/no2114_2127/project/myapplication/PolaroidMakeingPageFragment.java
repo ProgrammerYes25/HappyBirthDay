@@ -56,6 +56,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
 
     private Uri uri =null;
 
+    int polaroidIndex =0;
     Context mContext = getActivity();
     private static final int REQUEST_IMAGE_CODE = 101;
     Bitmap imageBitmap;
@@ -117,33 +118,44 @@ public class PolaroidMakeingPageFragment extends Fragment {
                         getActivity().finish();
                         VariableClass.stage =2;
                         startActivity(intent);
+                        CardClass.polaroidClass.setPolaroidImage(polaroidIndex);
+                        CardClass.polaroidClass.setPolaroidText(polaroidEditText.getText().toString());
                     }
                     break;
                 case R.id.polaroid_frame_1:
+                    polaroidIndex = 0;
                     changePolaroidFrame(0, polaroidFrame1);
                     break;
                 case R.id.polaroid_frame_2:
+                    polaroidIndex = 1;
                     changePolaroidFrame(1, polaroidFrame2);
                     break;
                 case R.id.polaroid_frame_3:
+                    polaroidIndex =2;
                     changePolaroidFrame(2, polaroidFrame3);
                     break;
                 case R.id.polaroid_frame_4:
+                    polaroidIndex = 3;
                     changePolaroidFrame(3, polaroidFrame4);
                     break;
                 case R.id.polaroid_frame_5:
+                    polaroidIndex = 4;
                     changePolaroidFrame(4, polaroidFrame5);
                     break;
                 case R.id.polaroid_frame_6:
+                    polaroidIndex = 5;
                     changePolaroidFrame(5, polaroidFrame6);
                     break;
                 case R.id.polaroid_frame_7:
+                    polaroidIndex = 6;
                     changePolaroidFrame(6, polaroidFrame7);
                     break;
                 case R.id.polaroid_frame_8:
+                    polaroidIndex = 7;
                     changePolaroidFrame(7, polaroidFrame8);
                     break;
                 case R.id.polaroid_frame_9:
+                    polaroidIndex = 8;
                     changePolaroidFrame(8, polaroidFrame9);
                     break;
                 case R.id.polaroid_photo_image_view:

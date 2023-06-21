@@ -2,14 +2,14 @@ package no2114_2127.project.myapplication;
 
 public class PolaroidClass {
     private String photoImage;
-    private String polaroidImage;
+    private int polaroidImage;
     private String polaroidText;
 
     public PolaroidClass() {
         // 기본 생성자
     }
 
-    public PolaroidClass(String photoImage, String polaroidImage, String polaroidText) {
+    public PolaroidClass(String photoImage, int polaroidImage, String polaroidText) {
         this.photoImage = photoImage;
         this.polaroidImage = polaroidImage;
         this.polaroidText = polaroidText;
@@ -24,11 +24,11 @@ public class PolaroidClass {
         this.photoImage = photoImage;
     }
 
-    public String getPolaroidImage() {
+    public int getPolaroidImage() {
         return polaroidImage;
     }
 
-    public void setPolaroidImage(String polaroidImage) {
+    public void setPolaroidImage(int polaroidImage) {
         this.polaroidImage = polaroidImage;
     }
 
