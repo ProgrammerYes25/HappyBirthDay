@@ -230,7 +230,7 @@ public class PolaroidMakeingPageFragment extends Fragment {
             Log.d("확인 ", imageBitmap + "");
             polaroidPhotoImageView.setImageBitmap(imageBitmap);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 300, baos);
+            imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
             MediaClass.setImageClass(baos.toByteArray());
         }
     }

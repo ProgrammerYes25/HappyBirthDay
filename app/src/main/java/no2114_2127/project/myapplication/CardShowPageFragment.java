@@ -16,7 +16,11 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -36,13 +40,21 @@ public class CardShowPageFragment extends Fragment {
             decorative4ImageView, decorative5ImageView, decorative6ImageView;
 
     GridView makePolaroidGridView,videoGridView,makeAwardGridView;
-
+    FirebaseFirestore db ;
+    FirebaseUser firebaseUser;
+    CollectionReference collectionRef, userCardColl;
+    String userUid;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_cerd_show_page, container, false);
         //button find view by id
        // decorationButtonTextView = view.findViewById(R.id.decoration_button_text_view);
+
+        db = FirebaseFirestore.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        userCardColl = db.collection("users").document(firebaseUser.getUid()).collection("userHaveCard");
+        userUid = firebaseUser.getUid();
 
         //ImageView
         decorative1ImageView = view.findViewById(R.id.decorative1_image_view);
@@ -71,6 +83,9 @@ public class CardShowPageFragment extends Fragment {
 
         leftLayout.setOnClickListener(layoutOnClickListener);
         rightLayout.setOnClickListener(layoutOnClickListener);
+
+        userCardColl = db.collection("users").document(firebaseUser.getUid()).collection("userHaveCard");
+
         return view;
     }
     View.OnClickListener layoutOnClickListener = new View.OnClickListener() {

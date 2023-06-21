@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -66,11 +69,20 @@ public class MycardFragment extends Fragment {
     CardDataClass cardDataClass;
     CardListItem cardListItem;
 
+    ImageView btnClick;
+    ImageView btnShare;
+    ImageView btnDelete;
+    ImageView btnHide;
+    TextView btnCancel;
+    BottomSheetDialog bottomSheetDialog;
+
     //    TextView cardName;
 //    TextView nameBirth;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mycard, container, false);
+        View view4 = inflater.inflate(R.layout.bottom_sheet_main, container, false);
+
         firstInit();
 //        thisYear=view.findViewById(R.id.this_year_recyclerView);
 //        congrate=view.findViewById(R.id.my_congratulatory_record_recyclerView);
@@ -116,11 +128,45 @@ public class MycardFragment extends Fragment {
         nameBirth2=view3.findViewById(R.id.tv_name_birthday);
         userCardColl = db.collection("users").document(firebaseUser.getUid()).collection("userHaveCard");
 
+        btnShare=view4.findViewById(R.id.sheet_share_btn);
+        btnDelete=view4.findViewById(R.id.sheet_delete_btn);
+        btnHide=view4.findViewById(R.id.sheet_hide_btn);
+        btnCancel=view4.findViewById(R.id.tv_cancel);
+        bottomSheetDialog = new BottomSheetDialog(getActivity());
+        bottomSheetDialog.setContentView(view4);
+
         view.findViewById(R.id.card_add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 showAddCard(); // 아래 showDialog01() 함수 호출
+            }
+        });
+
+
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "전시중에는 공유가 불가합니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "전시중에는 삭제가 불가합니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "전시중에는 숨김이 불가합니다.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.dismiss();
             }
         });
 
@@ -135,7 +181,6 @@ public class MycardFragment extends Fragment {
     }
 
     public void firstInit(){
-
         mList = new ArrayList<>();
         mList2 = new ArrayList<>();
     }
@@ -245,6 +290,7 @@ public class MycardFragment extends Fragment {
     }
     public void setAdapter() {
         List<String> documenPath = new ArrayList<String>();
+        mRecyclerViewAdapter.getBottomSheetDialog(bottomSheetDialog);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
