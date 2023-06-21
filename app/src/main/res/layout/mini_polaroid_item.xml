@@ -35,6 +35,8 @@
             android:gravity="center"
             android:fontFamily="@font/notosans_regular"
             android:text="예시텍스트"
+            android:background="@null"
+            android:focusable="false"
             android:textColor="#585062"
             android:layout_marginBottom="10dp"
             android:textSize="12sp" />
