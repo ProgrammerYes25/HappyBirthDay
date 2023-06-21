@@ -22,10 +22,10 @@ public class CardMakePageActivity extends AppCompatActivity {
     TextView cerdMakeSubtitleTextView;
     //ImageView
     ImageView backButtonImageView, nextButtonImageView, stageImageView, cancelButtonImageView;
-    Fragment CakeMakePageFragment, CakeMakeingPageFragment, CakeMakeWritingPageFragment,
-            PolaroidMakePageFragment, PolaroidMakeingPageFragment,
-            VideoUploadFragment, VideoUploadingPragment,
-            AwardMakePageFragment, AwardMakeChooseFragment, AwardMakeChooseFormFragment, AwardMakeWritingPageFragment,
+    Fragment CakeMakePageFragment,
+            PolaroidMakePageFragment,
+            VideoUploadFragment,
+            AwardMakePageFragment,
             FromFinishPageFragment;
 
 
