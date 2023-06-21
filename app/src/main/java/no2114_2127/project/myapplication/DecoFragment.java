@@ -70,7 +70,7 @@ public class DecoFragment extends Fragment {
     ImageView btnDelete;
     ImageView btnHide;
     TextView btnCancel;
-    BottomSheetDialog mainBottomSheet;
+    BottomSheetDialog bottomSheetDialog;
 //    TextView noBtn;
 //    TextView yesBtn;
     @Override
@@ -92,7 +92,7 @@ public class DecoFragment extends Fragment {
         btnDelete=view4.findViewById(R.id.sheet_delete_btn);
         btnHide=view4.findViewById(R.id.sheet_hide_btn);
         btnCancel=view4.findViewById(R.id.tv_cancel);
-        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+        bottomSheetDialog = new BottomSheetDialog(getActivity());
         bottomSheetDialog.setContentView(view4);
 
 
@@ -120,7 +120,7 @@ public class DecoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "전시중에는 숨김이 불가합니다.", Toast.LENGTH_SHORT).show();
-                bottomSheetDialog.dismiss();
+
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -165,13 +165,14 @@ public class DecoFragment extends Fragment {
     AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            CakeListItem item = (CakeListItem) cardAdapter.getItem(position);
+
             Log.d("선택 :",position+" ");
         }
     };
     String name;
     public void setAdapter(){
         List<String> documenPath = new ArrayList<String>();
+        cardAdapter.getBottomSheetDialog(bottomSheetDialog);
         userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -207,9 +208,9 @@ public class DecoFragment extends Fragment {
                                                     Map<String, Object> data = snapshot.getData();
                                                     Log.d("확인4", data.get("cardName") + "");
                                                     Log.d("확인4", data.get("userName") + "");
-                                                    Log.d("확인4", data.get("cardName") + " " + data.get("BDay")+ "");
+                                                    Log.d("확인4", data.get("cardName") + " " + data.get("birthDay")+ "");
                                                     // Log.d("확인!", cardAdapter.getItem()+ "");
-                                                    cardAdapter.addItme(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("BDay")));
+                                                    cardAdapter.addItme(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("birthDay")));
                                                     //cardAdapter.notifyDataSetChanged();
                                                 }
                                             } else {
@@ -276,7 +277,7 @@ public class DecoFragment extends Fragment {
                                             Log.d("확인4", data.get("userName") + "");
                                             Log.d("확인4", data.get("cardName") + " " + data.get("BDay")+ "");
 
-                                            cardAdapter.itmes.add(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("BDay")));
+                                            cardAdapter.itmes.add(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("birthDay")));
                                             //cardAdapter.itmes.remove(i-1);
                                         }
                                     } else {

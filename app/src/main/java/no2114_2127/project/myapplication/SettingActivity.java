@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -85,9 +86,11 @@ public class SettingActivity extends AppCompatActivity {
                 if (isChecked) {
                     // switchButton이 체크된 경우
                     nChecked = 1;
+                    Toast.makeText(getApplicationContext(), "알림 설정이 켜졌습니다.", Toast.LENGTH_SHORT).show();
                 } else {
                     // switchButton이 체크되지 않은 경우
                     nChecked = 0;
+                    Toast.makeText(getApplicationContext(), "알림 설정이 꺼졌습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

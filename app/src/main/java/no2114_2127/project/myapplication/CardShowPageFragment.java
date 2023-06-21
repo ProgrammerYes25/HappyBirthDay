@@ -1,6 +1,7 @@
 package no2114_2127.project.myapplication;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,19 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CardShowPageFragment extends Fragment {
     // textView button
@@ -72,4 +86,73 @@ public class CardShowPageFragment extends Fragment {
             }
         }
     };
+
+//    public void setAdapter(){
+//        List<String> documenPath = new ArrayList<String>();
+//        userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                if (task.isSuccessful()) {
+//                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        Log.d("확인1", document.getId() + " => " + document.get("fieldName"));
+//                        // (String) Objects.requireNonNull(document.get("fieldName"))
+//                        //q47BnidbW3FygI43J09N
+//                        // db.collection("cards").document(Objects.requireNonNull(document.get("fieldName")).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                        documenPath.add((String)document.get("fieldName"));
+//                    }
+//                    if(documenPath.size()>0){
+//                        Log.d("확인2",documenPath.get(0));
+//                        Log.d("확인2",documenPath.size()+"");
+//                        // 비동기 작업의 완료를 기다리기 위한 카운터 변수
+//                        AtomicInteger counter = new AtomicInteger(documenPath.size());
+//                        cardAdapter.itmes.clear();
+//                        for (int i = 0; i < documenPath.size(); i++) {
+//                            if(documenPath.get(i)==null){
+//                                continue;
+//                            }
+//                            String path = documenPath.get(i).trim();
+//
+//                            db.collection("cards")
+//                                    .document(path)
+//                                    .get()
+//                                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                                        @Override
+//                                        public void onComplete(Task<DocumentSnapshot> task) {
+//                                            if (task.isSuccessful()) {
+//                                                DocumentSnapshot snapshot = task.getResult();
+//                                                if (snapshot.exists()) {
+//                                                    Map<String, Object> data = snapshot.getData();
+//                                                    Log.d("확인4", data.get("cardName") + "");
+//                                                    Log.d("확인4", data.get("userName") + "");
+//                                                    Log.d("확인4", data.get("cardName") + " " + data.get("BDay")+ "");
+//                                                    // Log.d("확인!", cardAdapter.getItem()+ "");
+//                                                    cardAdapter.addItme(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("BDay")));
+//                                                    //cardAdapter.notifyDataSetChanged();
+//                                                }
+//                                            } else {
+//                                                Log.d("확인", "Error getting document: ", task.getException());
+//                                            }
+//
+//                                            // 비동기 작업이 완료되면 카운터를 감소시키고 체크
+//                                            if (counter.decrementAndGet() == 0) {
+//                                                Log.d("확인5", "");
+//                                                // 모든 작업이 완료되었을 때 실행할 코드
+//                                                makePolaroidGridView.setAdapter(cardAdapter);
+//
+//                                            }
+//                                        }
+//                                    });
+//                        }
+//                    }
+//
+//                } else {
+//                    Log.d("확인", "Error getting documents: ", task.getException());
+//                }
+//
+////                Log.d("확인5", "");
+////                mainDecoGridView.setAdapter(cardAdapter);
+//            }
+//        });
+//
+//    }
 }

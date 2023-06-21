@@ -10,12 +10,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 import java.util.ArrayList;
 
 public class CardAdapter extends BaseAdapter {
     ArrayList<CardListItem> itmes = new ArrayList<CardListItem>();
     Context context;
+    BottomSheetDialog bottomSheetDialog;
 
+    public void getBottomSheetDialog(BottomSheetDialog bottomSheetDialog){
+        this.bottomSheetDialog = bottomSheetDialog;
+    }
     public void addItme(CardListItem itme){
         itmes.add(itme);
         for(int i =0;i< itmes.size(); i++) {
@@ -48,7 +54,7 @@ public class CardAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.main_grid_shortcut, parent, false);
         }
-
+        ImageView mainMenu = convertView.findViewById(R.id.main_menu);
         EditText tvNickname = convertView.findViewById(R.id.tv_nickname);
         EditText tvNameBirthday = convertView.findViewById(R.id.tv_name_birthday);
         Log.d("확인 ", cardListItem.getUserName()+"" );
@@ -58,6 +64,12 @@ public class CardAdapter extends BaseAdapter {
         String date =  cardListItem.getDate();
         tvNickname.setText(name);
         tvNameBirthday.setText(date);
+        mainMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bottomSheetDialog.show();
+            }
+        });
 
 //        ImageView cakeIcon = convertView.findViewById(R.id.cake_icon);
 //        ImageView iconCircle = convertView.findViewById(R.id.icon_circle);

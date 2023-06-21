@@ -209,7 +209,7 @@ public class MycardFragment extends Fragment {
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     Log.d("input 확인", inputText);
                                     Map<String, Object> data =  task.getResult().getData();
-                                    CardDataClass cardDataClass = new CardDataClass((String) data.get("name"), inputText, (String) data.get("date"), (String) data.get("email"));
+                                    CardDataClass cardDataClass = new CardDataClass((String) data.get("name"), inputText, (String) data.get("birthDay"), (String) data.get("email"));
                                     String feildName = db.collection("cards").document().getId();
                                     db.collection("cards").document(feildName).set(cardDataClass);
                                     DocumentClass documentClass = new DocumentClass(feildName);
@@ -279,8 +279,8 @@ public class MycardFragment extends Fragment {
                                             Map<String, Object> data = snapshot.getData();
                                             Log.d("확인4", data.get("cardName") + "");
                                             Log.d("확인4", data.get("userName") + "");
-                                            Log.d("확인4", data.get("cardName") + " " + data.get("date")+ "");
-                                            mRecyclerViewAdapter.addItem(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("date")));
+                                            Log.d("확인4", data.get("cardName") + " " + data.get("birthDay")+ "");
+                                            mRecyclerViewAdapter.addItem(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("birthDay")));
                                         }
                                     } else {
                                         Log.d("확인", "Error getting document: ", task.getException());
@@ -336,8 +336,8 @@ public class MycardFragment extends Fragment {
                                             Map<String, Object> data = snapshot.getData();
                                             Log.d("확인4", data.get("cardName") + "");
                                             Log.d("확인4", data.get("userName") + "");
-                                            Log.d("확인4", data.get("cardName") + " " + data.get("BDay")+ "");
-                                            mRecyclerViewAdapter.items.add(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("BDay")));
+                                            Log.d("확인4", data.get("cardName") + " " + data.get("birthDay")+ "");
+                                            mRecyclerViewAdapter.items.add(new CardListItem("TO. " + data.get("cardName"), data.get("cardName") + " " + data.get("birthDay")));
                                         }
                                     } else {
                                         Log.d("확인", "Error getting document: ", task.getException());
