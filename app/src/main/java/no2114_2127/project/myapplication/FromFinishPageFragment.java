@@ -39,7 +39,7 @@ public class FromFinishPageFragment extends Fragment {
         imageName += String.valueOf(data);
 
         imageName += ".jpg";
-        CardClass.polaroidClass.setPolaroidText(imageName);
+        CardClass.polaroidClass.setPhotoImage(imageName);
 
         mountainsReference = storageReference.child("images/"+imageName);
 //        FirebaseUser user = firebaseAuth.getCurrentUser();
