@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth; //FirevaseAuth 객체 선언
     FirebaseFirestore firebaseFirestore;
     String userUid;
+    TextView userBirthdayTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             // textview findViewById
             userNameTextView = findViewById(R.id.user_name_text_view);
-
+            userBirthdayTextView=findViewById(R.id.birthday_tv);
             //Y-초기커밋~~~!!ㅣㅐㅣㅡ
             //C-테스트커밋!!
 
@@ -85,7 +86,10 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             Map<String, Object> data =  task.getResult().getData();
                             String name = (String) data.get("name");
+                            String birthday = (String) data.get("birthDay");
+                            userBirthdayTextView.setText(birthday);
                             userNameTextView.setText(name);
+
                         }
                     });
         }
