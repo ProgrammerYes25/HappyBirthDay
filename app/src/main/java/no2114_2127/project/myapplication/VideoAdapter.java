@@ -51,17 +51,17 @@ public class VideoAdapter extends BaseAdapter {
         VideoClass videoClass = items.get(position);
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.mini_polaroid_item, parent, false);
+            convertView = inflater.inflate(R.layout.video_view_item, parent, false);
         }
         VideoView videoView = convertView.findViewById(R.id.make_video_grid_view);
        Log.d("확인 ", videoClass.getVideoName()+ "");
         Log.d("확인 ","-----------------------------------------------");
-
+//
 //        StorageReference storageReference = FirebaseStorage.getInstance().getReference("Study");
 //        storageReference.child("images").child("image").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
 //            @Override
 //            public void onSuccess(Uri uri) {
-//                Glide.with(context).load(uri).into;
+//                Glide.with(context).load(uri).into(videoView);
 //            }
 //        });
 
