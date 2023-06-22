@@ -2,6 +2,7 @@ package no2114_2127.project.myapplication;
 
 import android.app.Dialog;
 import android.content.ClipData;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Path;
 import android.graphics.drawable.ColorDrawable;
@@ -22,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,6 +73,7 @@ public class DecoFragment extends Fragment {
     ImageView btnHide;
     TextView btnCancel;
     BottomSheetDialog bottomSheetDialog;
+    LinearLayout shortcut;
 //    TextView noBtn;
 //    TextView yesBtn;
     @Override
@@ -94,6 +97,7 @@ public class DecoFragment extends Fragment {
         btnCancel=view4.findViewById(R.id.tv_cancel);
         bottomSheetDialog = new BottomSheetDialog(getActivity());
         bottomSheetDialog.setContentView(view4);
+        mainDecoGridView.setOnItemClickListener(onItemClickListener);
 
 
 // 클릭 리스너를 등록하고 싶은 View에 대해 setOnClickListener() 메서드를 호출하여 클릭 리스너를 설정
@@ -165,7 +169,8 @@ public class DecoFragment extends Fragment {
     AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            Intent intent=new Intent(getActivity(), CardMakePageActivity.class);
+            startActivity(intent);
             Log.d("선택 :",position+" ");
         }
     };
