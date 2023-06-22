@@ -50,6 +50,8 @@ public class CardShowPageFragment extends Fragment {
     AwardAdapter makeAwardAdapter;
     VideoAdapter makeVideoAdapter;
     String userUid;
+
+    ArrayList<CakeClass> cakeClasses = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,6 +92,7 @@ public class CardShowPageFragment extends Fragment {
         leftLayout.setOnClickListener(layoutOnClickListener);
         rightLayout.setOnClickListener(layoutOnClickListener);
 
+
         cakeCardColl = db.collection("cards").document(VariableClass.cadeID).collection("cakeValue");
         polaroidCardColl = db.collection("cards").document(VariableClass.cadeID).collection("polaroidValue");
         awardCardColl = db.collection("cards").document(VariableClass.cadeID).collection("awardValue");
@@ -118,67 +121,70 @@ public class CardShowPageFragment extends Fragment {
     public void setAdapter(){
         List<String> documenPath = new ArrayList<String>();
 
-//        cakeCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                        Log.d("확인1", document.getId()+"" );
-//                        // (String) Objects.requireNonNull(document.get("fieldName"))
-//                        //q47BnidbW3FygI43J09N
-//                        // db.collection("cards").document(Objects.requireNonNull(document.get("fieldName")).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                        documenPath.add(document.getId());
-//                    }
-//                    if(documenPath.size()>0){
-////                        String path = documenPath.get(0).trim();
-////                        Log.d("확인2",documenPath.get(0));
-////                        Log.d("확인2",documenPath.size()+"");
-//                        // 비동기 작업의 완료를 기다리기 위한 카운터 변수
-//                        AtomicInteger counter = new AtomicInteger(documenPath.size());
-//                        for (int i = 0; i < documenPath.size(); i++) {
-//                            if(documenPath.get(i)==null){
-//                                continue;
-//                            }
-//                            String path = documenPath.get(i).trim();
-//
-//                            cakeCardColl.document(path)
-//                                    .get()
-//                                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                                        @Override
-//                                        public void onComplete(Task<DocumentSnapshot> task) {
-//                                            if (task.isSuccessful()) {
-//                                                DocumentSnapshot snapshot = task.getResult();
-//                                                if (snapshot.exists()) {
-//                                                    Map<String, Object> data = snapshot.getData();
-//                                                    Log.d("확인4", data.get("photoImage") + "");
-//                                                    Log.d("확인4", data.get("polaroidImage") + "");
-//                                                    Log.d("확인4", data.get("polaroidText") + "");
-//                                                    // Log.d("확인!", cardAdapter.getItem()+ "");
+        cakeCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("확인1", document.getId()+"" );
+                        // (String) Objects.requireNonNull(document.get("fieldName"))
+                        //q47BnidbW3FygI43J09N
+                        // db.collection("cards").document(Objects.requireNonNull(document.get("fieldName")).toString()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        documenPath.add(document.getId());
+                    }
+                    if(documenPath.size()>0){
+//                        String path = documenPath.get(0).trim();
+//                        Log.d("확인2",documenPath.get(0));
+//                        Log.d("확인2",documenPath.size()+"");
+                        // 비동기 작업의 완료를 기다리기 위한 카운터 변수
+                        AtomicInteger counter = new AtomicInteger(documenPath.size());
+
+                        String path = documenPath.get(i).trim();
+                        for (int i = 0; i < documenPath.size(); i++) {
+                            if(documenPath.get(i)==null){
+                                continue;
+                            }
+                            String path = documenPath.get(i).trim();
+
+                            cakeCardColl.document(path)
+                                    .get()
+                                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(Task<DocumentSnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                DocumentSnapshot snapshot = task.getResult();
+                                                if (snapshot.exists()) {
+                                                    Map<String, Object> data = snapshot.getData();
+                                                    Log.d("확인4", data.get("decoImage") + "");
+                                                    Log.d("확인4", data.get("from") + "");
+                                                    Log.d("확인4", data.get("letterPaper") + "");
+                                                    Log.d("확인4", data.get("rollingPaper") + "");
+                                                    // Log.d("확인!", cardAdapter.getItem()+ "");
 //                                                    makePolaroidAdapter.addItem(new PolaroidClass(data.get("photoImage")+"", data.get("polaroidImage")+"", data.get("polaroidText")+""));
-//                                                    //cardAdapter.notifyDataSetChanged();
-//                                                }
-//                                            } else {
-//                                                Log.d("확인", "Error getting document: ", task.getException());
-//                                            }
-//
-//                                            // 비동기 작업이 완료되면 카운터를 감소시키고 체크
-//                                            if (counter.decrementAndGet() == 0) {
-//                                                Log.d("확인5", "");
-//                                                // 모든 작업이 완료되었을 때 실행할 코드
-//                                                makePolaroidGridView.setAdapter(makePolaroidAdapter);
-//
-//                                            }
-//                                        }
-//                                    });
-//
-//
-//                        }
-//                    }
-//
-//                } else {
-//                    Log.d("확인", "Error getting documents: ", task.getException());
-//                }
-//            }});
+                                                    //cardAdapter.notifyDataSetChanged();
+                                                    cakeClasses.add(new CakeClass(data.get("rollingPaper")+"",data.get("from") + "", data.get("decoImage")+"",data.get("rollingPaper")+""));
+
+                                                }
+                                            } else {
+                                                Log.d("확인", "Error getting document: ", task.getException());
+                                            }
+                                        }
+                                    });
+                        }
+
+                        decorative1ImageView.setImageResource(cakeClasses.get(0).getDecoImage());
+                        decorative2ImageView.setImageResource(cakeClasses.get(1).getDecoImage());
+//                        decorative3ImageView.setImageResource(cakeClasses.get(0).getDecoImage());
+//                        decorative4ImageView.setImageResource(cakeClasses.get(0).getDecoImage());
+//                        decorative5ImageView.setImageResource(cakeClasses.get(0).getDecoImage());
+//                        decorative6ImageView.setImageResource(cakeClasses.get(0).getDecoImage());
+
+                    }
+
+                } else {
+                    Log.d("확인", "Error getting documents: ", task.getException());
+                }
+            }});
         polaroidCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
