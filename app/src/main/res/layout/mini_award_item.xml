@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     android:id="@+id/award_mini_ll"
-    android:background="@drawable/rectangle_rounded_corner_main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="190dp"
     android:layout_height="250dp"

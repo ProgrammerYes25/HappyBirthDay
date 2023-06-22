@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 import java.util.ArrayList;
 
 public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMycardRecyclerViewAdapter.ViewHolder> {
@@ -18,17 +20,23 @@ public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMyca
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nameAndBirth;
         public TextView cardName;
-
+        public ImageView mainMenu;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            mainMenu = itemView.findViewById(R.id.main_menu);
             nameAndBirth = itemView.findViewById(R.id.tv_name_birthday);
             cardName = itemView.findViewById(R.id.tv_nickname);
         }
     }
 
     ArrayList<CardListItem> items = new ArrayList<CardListItem>();
+
+    BottomSheetDialog bottomSheetDialog;
+    public void getBottomSheetDialog(BottomSheetDialog bottomSheetDialog){
+        this.bottomSheetDialog = bottomSheetDialog;
+    }
     public MainMycardRecyclerViewAdapter(){}
     public MainMycardRecyclerViewAdapter(ArrayList<CardListItem> mList) {
         this.items = mList;
@@ -62,6 +70,12 @@ public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMyca
         } else {
             holder.cardName.setText("");
         }
+        holder.mainMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetDialog.show();
+            }
+        });
     }
 
     @Override
