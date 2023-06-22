@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ public class PolaroidAdapter extends BaseAdapter {
             R.drawable.polaroid_frame_4, R.drawable.polaroid_frame_5,R.drawable.polaroid_frame_6,
             R.drawable.polaroid_frame_7, R.drawable.polaroid_frame_8, R.drawable.polaroid_frame_9 };
 
-    public void addItme(PolaroidClass item){
+    public void addItem(PolaroidClass item){
         items.add(item);
         for(int i =0;i< items.size(); i++) {
             Log.d("확인", items.get(i) + "!");
@@ -53,7 +54,7 @@ public class PolaroidAdapter extends BaseAdapter {
         }
         ImageView photoImageView = convertView.findViewById(R.id.polaroid_photo_image_view);
         ImageView polaroidImageView = convertView.findViewById(R.id.polaroid_image_view);
-        EditText polaroidEditText = convertView.findViewById(R.id.polaroid_edit_text);
+        TextView polaroidEditText = convertView.findViewById(R.id.polaroid_edit_text);
 
         Log.d("확인 ", polaroidClass.getPolaroidText()+"" );
         Log.d("확인 ", polaroidClass.getPhotoImage()+"" );
@@ -63,8 +64,8 @@ public class PolaroidAdapter extends BaseAdapter {
         String photoImage =  polaroidClass.getPhotoImage();
         int polaroidImage = polaroidClass.getPolaroidImage();
         String polaroidText = polaroidClass.getPolaroidText();
-        photoImageView.setImageURI(Uri.parse(photoImage));
-        polaroidImageView.setImageResource(polaroidImage);
+        //photoImageView.setImageURI(Uri.parse(photoImage));
+        polaroidImageView.setImageResource(polaroidFrame[polaroidImage]);
         polaroidEditText.setText(polaroidText);
 
         return convertView;

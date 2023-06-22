@@ -14,7 +14,11 @@ public class PolaroidClass {
         this.polaroidImage = polaroidImage;
         this.polaroidText = polaroidText;
     }
-
+    public PolaroidClass(String photoImage, String polaroidImage, String polaroidText) {
+        this.photoImage = photoImage;
+        this.polaroidImage = Integer.parseInt(polaroidImage);
+        this.polaroidText = polaroidText;
+    }
 
     public String getPhotoImage() {
         return photoImage;

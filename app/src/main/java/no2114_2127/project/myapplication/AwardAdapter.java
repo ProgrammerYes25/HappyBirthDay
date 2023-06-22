@@ -17,7 +17,7 @@ public class AwardAdapter extends BaseAdapter {
     ArrayList<AwardClass> items = new ArrayList<AwardClass>();
     Context context;
 
-    public void addItme(AwardClass item){
+    public void addItem(AwardClass item){
         items.add(item);
         for(int i =0;i< items.size(); i++) {
             Log.d("확인", items.get(i) + "!");
@@ -47,7 +47,7 @@ public class AwardAdapter extends BaseAdapter {
         AwardClass awardClass = items.get(position);
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.mini_polaroid_item, parent, false);
+            convertView = inflater.inflate(R.layout.mini_award_item, parent, false);
         }
         TextView awardTitleEditText = convertView.findViewById(R.id.award_title);
         TextView awardTextEditText = convertView.findViewById(R.id.award_to_name);
