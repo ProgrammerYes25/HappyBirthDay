@@ -11,6 +11,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.gif.GifBitmapProvider;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
+
 import java.util.ArrayList;
 
 public class PolaroidAdapter extends BaseAdapter {
@@ -19,6 +28,8 @@ public class PolaroidAdapter extends BaseAdapter {
     int polaroidFrame[] = {R.drawable.polaroid_frame_1, R.drawable.polaroid_frame_2, R.drawable.polaroid_frame_3,
             R.drawable.polaroid_frame_4, R.drawable.polaroid_frame_5,R.drawable.polaroid_frame_6,
             R.drawable.polaroid_frame_7, R.drawable.polaroid_frame_8, R.drawable.polaroid_frame_9 };
+
+
 
     public void addItem(PolaroidClass item){
         items.add(item);
@@ -48,6 +59,7 @@ public class PolaroidAdapter extends BaseAdapter {
         context = parent.getContext();
         Log.d("확인 !", convertView+"" );
         PolaroidClass polaroidClass = items.get(position);
+
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.mini_polaroid_item, parent, false);
@@ -64,7 +76,14 @@ public class PolaroidAdapter extends BaseAdapter {
         String photoImage =  polaroidClass.getPhotoImage();
         int polaroidImage = polaroidClass.getPolaroidImage();
         String polaroidText = polaroidClass.getPolaroidText();
-        //photoImageView.setImageURI(Uri.parse(photoImage));
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference("images/");
+        storageReference.child(photoImage).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(context).load(uri).into(photoImageView);
+            }
+        });
+
         polaroidImageView.setImageResource(polaroidFrame[polaroidImage]);
         polaroidEditText.setText(polaroidText);
 

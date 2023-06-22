@@ -9,6 +9,11 @@ public class VideoClass {
         // 기본 생성자
     }
 
+    public VideoClass(String videoString) {
+        this.videoString = videoString;
+        // 기본 생성자
+    }
+
     public void setVideoName(String videoString) {
         this.videoString = videoString;
     }

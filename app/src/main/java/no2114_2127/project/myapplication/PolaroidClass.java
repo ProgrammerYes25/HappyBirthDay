@@ -1,5 +1,9 @@
 package no2114_2127.project.myapplication;
 
+import android.widget.GridView;
+
+import com.google.firebase.firestore.CollectionReference;
+
 public class PolaroidClass {
     private String photoImage;
     private int polaroidImage;

@@ -50,8 +50,8 @@ public class AwardAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.mini_award_item, parent, false);
         }
         TextView awardTitleEditText = convertView.findViewById(R.id.award_title);
-        TextView awardTextEditText = convertView.findViewById(R.id.award_to_name);
-        TextView awardToNameEditText = convertView.findViewById(R.id.award_text);
+        TextView awardTextEditText = convertView.findViewById(R.id.award_text);
+        TextView awardToNameEditText = convertView.findViewById(R.id.award_to_name);
         TextView awardDateEditText = convertView.findViewById(R.id.award_date);
         TextView awardFromEditText = convertView.findViewById(R.id.award_from);
 

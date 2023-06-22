@@ -62,8 +62,6 @@ public class CardMakePageActivity extends AppCompatActivity {
         });
         Log.d("확인 : ", VariableClass.stage+"번");
         startFragment();
-
-
     }
 
     public void startFragment(){
