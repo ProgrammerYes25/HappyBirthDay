@@ -10,11 +10,11 @@ public class CakeClass {
         // 기본 생성자
     }
 
-    public CakeClass(String rollingPaper, String from, int decoImage, int letterPaper) {
+    public CakeClass(String rollingPaper, String from, String decoImage, String  letterPaper) {
         this.rollingPaper = rollingPaper;
         this.from = from;
-        this.decoImage = decoImage;
-        this.letterPaper = letterPaper;
+        this.decoImage = Integer.parseInt(decoImage);
+        this.letterPaper =  Integer.parseInt(letterPaper);
     }
 
 
