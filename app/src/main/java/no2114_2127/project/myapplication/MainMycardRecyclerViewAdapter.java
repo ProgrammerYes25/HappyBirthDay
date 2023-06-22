@@ -28,8 +28,13 @@ public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMyca
             mainMenu = itemView.findViewById(R.id.main_menu);
             nameAndBirth = itemView.findViewById(R.id.tv_name_birthday);
             cardName = itemView.findViewById(R.id.tv_nickname);
+
         }
+
+
     }
+
+
 
     ArrayList<CardListItem> items = new ArrayList<CardListItem>();
 
@@ -73,7 +78,7 @@ public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMyca
         holder.mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bottomSheetDialog.show();
+//                bottomSheetDialog.show();
             }
         });
     }

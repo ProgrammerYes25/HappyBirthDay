@@ -34,7 +34,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/finish_made_link_text_view"
+            android:id="@+id/finish_card_text_view"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="5dp"
@@ -43,7 +43,7 @@
             android:fontFamily="@font/notosans_regular"
             android:gravity="center"
             android:padding="5dp"
-            android:text="@string/finish_made_link_text"
+            android:text="내가 만든 카드 확인하기"
             android:textColor="@color/white"
             android:textSize="16sp" />
         <TextView

@@ -1,10 +1,12 @@
 package no2114_2127.project.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,11 +26,30 @@ public class FromFinishPageFragment extends Fragment {
 
     StorageReference mountainsReference;
     StorageReference storageReference;
+    TextView cardMake;
+    TextView finishCard;
     byte[] data;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_form_finish_page, container, false);
+        cardMake=view.findViewById(R.id.new_form_make_text_view);
+        cardMake.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        finishCard=view.findViewById(R.id.finish_card_text_view);
+        finishCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),CardShowPageActivity.class);
+                startActivity(intent);
+            }
+        });
+
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
         data = MediaClass.getImageClass();

@@ -1,6 +1,8 @@
 package no2114_2127.project.myapplication;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.widget.AdapterView;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -45,7 +48,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class MycardFragment extends Fragment {
-    private GridView MycardGridView;
+//    private GridView MycardGridView;
     Dialog addCard;
     TextView cardName;
     TextView nameBirth;
@@ -135,6 +138,10 @@ public class MycardFragment extends Fragment {
         bottomSheetDialog = new BottomSheetDialog(getActivity());
         bottomSheetDialog.setContentView(view4);
 
+
+
+
+
         view.findViewById(R.id.card_add_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -184,6 +191,7 @@ public class MycardFragment extends Fragment {
         mList = new ArrayList<>();
         mList2 = new ArrayList<>();
     }
+
 
 
     public void showAddCard(){
@@ -290,7 +298,7 @@ public class MycardFragment extends Fragment {
     }
     public void setAdapter() {
         List<String> documenPath = new ArrayList<String>();
-        mRecyclerViewAdapter.getBottomSheetDialog(bottomSheetDialog);
+//        mRecyclerViewAdapter.getBottomSheetDialog(bottomSheetDialog);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
         userCardColl.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
