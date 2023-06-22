@@ -60,11 +60,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/decorative2_image_view"
+                        android:id="@+id/decorative1_image_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/img_decorative_example" />
+                         />
                 </LinearLayout>
                 <!--케이크 2충 레이아웃-->
                 <LinearLayout
@@ -76,20 +76,18 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/decorative4_image_view"
+                        android:id="@+id/decorative2_image_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/img_decorative_example" />
+                        android:layout_margin="5dp"/>
 
                     <ImageView
-                        android:id="@+id/decorative5_image_view"
+                        android:id="@+id/decorative3_image_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/img_decorative_example" />
+                        android:layout_margin="5dp"/>
                 </LinearLayout>
                 <!--케이크 1충 레이아웃-->
                 <LinearLayout
@@ -100,28 +98,25 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/decorative4_image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp" />
+
+                    <ImageView
+                        android:id="@+id/decorative5_image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"/>
+
+                    <ImageView
                         android:id="@+id/decorative6_image_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/img_decorative_example" />
-
-                    <ImageView
-                        android:id="@+id/decorative7_image_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/img_decorative_example" />
-
-                    <ImageView
-                        android:id="@+id/decorative8_image_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:src="@drawable/img_decorative_example" />
+                        android:layout_margin="5dp" />
 
                 </LinearLayout>
             </LinearLayout>

@@ -87,6 +87,7 @@ public class CardMakeingPageActivity extends AppCompatActivity {
         }
     }
 
+
     View.OnClickListener onClickListener = new View.OnClickListener() {
 
         @Override

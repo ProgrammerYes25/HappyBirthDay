@@ -54,7 +54,7 @@ public class CardShowPageFragment extends Fragment {
     VideoAdapter makeVideoAdapter;
     String userUid;
     ArrayList<CakeClass> cakeClasses = new ArrayList<CakeClass>();
-    int int1, cakeInt, cakeIndex[];
+    int int1, cakeInt, cakeIndex[], cardNum;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -102,6 +102,8 @@ public class CardShowPageFragment extends Fragment {
         videoGridView=view.findViewById(R.id.video_grid_view);
         makeAwardGridView=view.findViewById(R.id.make_award_grid_view);
 
+        cardNum = 0;
+
         cakeCardColl = db.collection("cards").document(VariableClass.cadeID).collection("cakeValue");
         polaroidCardColl = db.collection("cards").document(VariableClass.cadeID).collection("polaroidValue");
         awardCardColl = db.collection("cards").document(VariableClass.cadeID).collection("awardValue");
@@ -118,39 +120,112 @@ public class CardShowPageFragment extends Fragment {
         public void onClick(View view) {
             switch (view.getId()){
                 case R.id.left_layout:
-//                    if(((cakeClasses.size()-1)%cakeInt)>0){
-//                        if((int1-cakeInt)==0) {
-//                            decorative1ImageView.setImageResource(cakeClasses.get(0).getDecoImage());
-//                            cakeInt= int1;
-//                            cakeIndex[0] = int1;
-//                        }else if(int1==1){
-//                            decorative2ImageView.setImageResource(cakeClasses.get(1).getDecoImage());
-//                            cakeInt= int1;
-//                            cakeIndex[1] = int1;
-//                        }else if(int1==2){
-//                            decorative3ImageView.setImageResource(cakeClasses.get(2).getDecoImage());
-//                            cakeInt= int1;
-//                            cakeIndex[2] = int1;
-//                        }else if(int1==3) {
-//                            decorative4ImageView.setImageResource(cakeClasses.get(3).getDecoImage());
-//                            cakeInt= int1;
-//                            cakeIndex[3] = int1;
-//                        }
-//                        else if(int1==4){
-//                            decorative5ImageView.setImageResource(cakeClasses.get(4).getDecoImage());
-//                            cakeInt= int1;
-//                            cakeIndex[4] = int1;
-//                        }
-//                        else if(int1==5){
-//                            decorative6ImageView.setImageResource(cakeClasses.get(5).getDecoImage());
-//                            cakeInt= int1;
-//                            cakeIndex[5] = int1;
-//                        }
-//                    }
-                    Toast.makeText(getContext(),"왼쪽",Toast.LENGTH_SHORT).show();
+                    if(cakeClasses.size()+cakeInt>=cakeClasses.size()){
+                        decorative1ImageView.setVisibility(View.INVISIBLE);
+                        decorative2ImageView.setVisibility(View.INVISIBLE);
+                        decorative3ImageView.setVisibility(View.INVISIBLE);
+                        decorative4ImageView.setVisibility(View.INVISIBLE);
+                        decorative5ImageView.setVisibility(View.INVISIBLE);
+                        decorative6ImageView.setVisibility(View.INVISIBLE);
+                        int num =cakeInt;
+                        for(int i = cakeClasses.size()-1; i>=0;i--){
+                            if(i-num==num+0) {
+                                decorative1ImageView.setVisibility(View.VISIBLE);
+                                decorative1ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[0] = i;
+                            }else if(i-num==num+1){
+                                decorative2ImageView.setVisibility(View.VISIBLE);
+                                decorative2ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[1] = i;
+                            }else if(i-num==num+2){
+                                decorative3ImageView.setVisibility(View.VISIBLE);
+                                decorative3ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[2] = i;
+                            }else if(i-num==num+3) {
+                                decorative4ImageView.setVisibility(View.VISIBLE);
+                                decorative4ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[3] = i;
+                            }
+                            else if(i-num==num+4){
+                                decorative5ImageView.setVisibility(View.VISIBLE);
+                                decorative5ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[4] = i;
+                            }
+                            else if(i-cakeInt==cakeInt+5){
+                                decorative6ImageView.setVisibility(View.VISIBLE);
+                                decorative6ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[5] = i;
+                            }
+                        }
+
+                    }else{
+                        Toast.makeText(getContext(),"카드가 더 이상 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
+                    }
+
                     break;
                 case R.id.right_layout:
-                    Toast.makeText(getContext(),"오른쪽",Toast.LENGTH_SHORT).show();
+                    if(cakeClasses.size()-cakeInt>=0 || cakeClasses.size()%6>0 ){
+                        decorative1ImageView.setVisibility(View.INVISIBLE);
+                        decorative2ImageView.setVisibility(View.INVISIBLE);
+                        decorative3ImageView.setVisibility(View.INVISIBLE);
+                        decorative4ImageView.setVisibility(View.INVISIBLE);
+                        decorative5ImageView.setVisibility(View.INVISIBLE);
+                        decorative6ImageView.setVisibility(View.INVISIBLE);
+
+                        for(int i = cakeInt; i<cakeClasses.size();i++){
+
+                            if(i-cakeInt==0) {
+                                decorative1ImageView.setVisibility(View.VISIBLE);
+                                decorative1ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[0] = i;
+                                cardNum+=1;
+                            }else if(i-cakeInt==1){
+                                decorative2ImageView.setVisibility(View.VISIBLE);
+                                decorative2ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[1] = i;
+                                cardNum+=1;
+                            }else if(i-cakeInt==2){
+                                decorative3ImageView.setVisibility(View.VISIBLE);
+                                decorative3ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[2] = i;
+                                cardNum+=1;
+                            }else if(i-cakeInt==3) {
+                                decorative4ImageView.setVisibility(View.VISIBLE);
+                                decorative4ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[3] = i;
+                                cardNum+=1;
+                            }
+                            else if(i-cakeInt==4){
+                                decorative5ImageView.setVisibility(View.VISIBLE);
+                                decorative5ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[4] = i;
+                                cardNum+=1;
+                            }
+                            else if(i-cakeInt==5){
+                                decorative6ImageView.setVisibility(View.VISIBLE);
+                                decorative6ImageView.setImageResource(cakeClasses.get(i).getDecoImage());
+                                cakeInt= i;
+                                cakeIndex[5] = i;
+                                cardNum+=1;
+                            }
+                        }
+
+                    }else{
+                        Toast.makeText(getContext(),"카드가 더 이상 존재하지 않습니다.",Toast.LENGTH_SHORT).show();
+                    }
+
+
                     break;
             }
         }
@@ -206,32 +281,37 @@ public class CardShowPageFragment extends Fragment {
 //                                                    //decorative1ImageView.setImageResource(cakeClasses.get(0).getDecoImage());
                                                     Log.d("확인확인!", int1+"");
 
-                                                    if(int1==0) {
+                                                    if(int1==0 && cakeClasses.size() >=0) {
                                                         decorative1ImageView.setImageResource(cakeClasses.get(0).getDecoImage());
                                                         cakeInt= int1;
                                                         cakeIndex[0] = int1;
-                                                    }else if(int1==1){
+                                                        cardNum+=1;
+                                                    }else if(int1==1 && cakeClasses.size() >=1){
                                                         decorative2ImageView.setImageResource(cakeClasses.get(1).getDecoImage());
                                                         cakeInt= int1;
                                                         cakeIndex[1] = int1;
-                                                    }else if(int1==2){
+                                                        cardNum+=1;
+                                                    }else if(int1==2 && cakeClasses.size() >=2){
                                                         decorative3ImageView.setImageResource(cakeClasses.get(2).getDecoImage());
                                                         cakeInt= int1;
                                                         cakeIndex[2] = int1;
-                                                    }else if(int1==3) {
+                                                    }else if(int1==3 && cakeClasses.size() >=3) {
                                                         decorative4ImageView.setImageResource(cakeClasses.get(3).getDecoImage());
                                                         cakeInt= int1;
                                                         cakeIndex[3] = int1;
+                                                        cardNum+=1;
                                                     }
-                                                    else if(int1==4){
+                                                    else if(int1==4 && cakeClasses.size() >=4){
                                                         decorative5ImageView.setImageResource(cakeClasses.get(4).getDecoImage());
                                                         cakeInt= int1;
                                                         cakeIndex[4] = int1;
+                                                        cardNum+=1;
                                                     }
-                                                    else if(int1==5){
+                                                    else if(int1==5 && cakeClasses.size() >=5){
                                                         decorative6ImageView.setImageResource(cakeClasses.get(5).getDecoImage());
                                                         cakeInt= int1;
                                                         cakeIndex[5] = int1;
+                                                        cardNum+=1;
                                                     }
                                                     int1++;
                                                 }
