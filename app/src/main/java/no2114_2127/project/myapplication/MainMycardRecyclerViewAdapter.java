@@ -1,10 +1,12 @@
 package no2114_2127.project.myapplication;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,25 +16,67 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 
+
 public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMycardRecyclerViewAdapter.ViewHolder> {
 
+    public interface OnItemClickListener {
+        void onItemClick(int pos);
+    }
+
+    private OnItemClickListener onItemClickListener = null;
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
+
+    public interface OnLongItemClickListener {
+        void onLongItemClick(int pos);
+    }
+
+    private OnLongItemClickListener onLongItemClickListener = null;
+
+    public void setOnLongItemClickListener(OnLongItemClickListener listener) {
+        this.onLongItemClickListener = listener;
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nameAndBirth;
         public TextView cardName;
         public ImageView mainMenu;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+
 
             mainMenu = itemView.findViewById(R.id.main_menu);
             nameAndBirth = itemView.findViewById(R.id.tv_name_birthday);
             cardName = itemView.findViewById(R.id.tv_nickname);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        if (onItemClickListener != null) {
+                            onItemClickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
+
         }
 
 
+
     }
+
+
+
+
+
 
 
 
@@ -81,6 +125,7 @@ public class MainMycardRecyclerViewAdapter extends RecyclerView.Adapter<MainMyca
 //                bottomSheetDialog.show();
             }
         });
+
     }
 
     @Override

@@ -102,6 +102,17 @@ public class MycardFragment extends Fragment {
         mRecyclerViewAdapter = new MainMycardRecyclerViewAdapter();
         mRecyclerView.addItemDecoration(new RecyclerViewDecoration(60));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false));
+
+
+        mRecyclerViewAdapter.setOnItemClickListener(new MainMycardRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                Intent intent=new Intent(getActivity(),CardShowPageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         setAdapter();
         //축하 기록 recyclerView
 //        mRecyclerView2 = view.findViewById(R.id.my_congratulatory_record_recyclerView);
