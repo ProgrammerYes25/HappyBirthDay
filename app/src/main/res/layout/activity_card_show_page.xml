@@ -40,7 +40,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:fontFamily="@font/notosans_regular"
-                    android:text="OO의 생일"/>
+                    android:text="생일 축하 카드"/>
             </RelativeLayout>
         </FrameLayout>
     </com.google.android.material.appbar.AppBarLayout>

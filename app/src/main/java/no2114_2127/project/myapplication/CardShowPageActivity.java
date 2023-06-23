@@ -2,6 +2,7 @@ package no2114_2127.project.myapplication;
 
 import static no2114_2127.project.myapplication.CardMakeingPageActivity.rollingPaperLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -16,20 +17,30 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
+
 public class CardShowPageActivity extends AppCompatActivity {
 
     ImageView cancelButtonImageView;
     Fragment cardShowPageFragment;
+    String userUid;
     static EditText rollingPaperContent, rollingPaperFrom;
 
     static LinearLayout rollingPaperShowLayout;
     static LayoutInflater inflaterShow1;
-
-
+    private FirebaseAuth mAuth;
+    FirebaseFirestore firebaseFirestore;
     static LinearLayout.LayoutParams paramsShow;
     static TextView rollingPaperNextTextView, rollingPaperPreviousTextView;
     static ImageView rollingPaperIcon, rollingPaperFrame;
-
+    TextView cerdShowTitleTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +51,7 @@ public class CardShowPageActivity extends AppCompatActivity {
         rollingPaperShowLayout.setBackgroundColor(Color.parseColor("#99000000"));
         paramsShow = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT);
         cancelButtonImageView = findViewById(R.id.cancel_button_imate_view);
+        cerdShowTitleTextView=findViewById(R.id.cerd_show_title_text_view);
 
         // rollingPaper를 보여주기 위한 셋팅
         addContentView(rollingPaperShowLayout, paramsShow);
@@ -65,7 +77,19 @@ public class CardShowPageActivity extends AppCompatActivity {
         });
         cardShowPageFragment = new CardShowPageFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.card_show_frame_layout, cardShowPageFragment).commitAllowingStateLoss();
-
+//        mAuth = FirebaseAuth.getInstance(); //FirevaseAuth 객체 정의
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        userUid = currentUser.getUid();
+//        firebaseFirestore.collection("cards")
+//                .document(userUid)
+//                .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                        Map<String, Object> data =  task.getResult().getData();
+//                        String cardName = (String) data.get("cardName");
+//                        cerdShowTitleTextView.setText(cardName);
+//                    }
+//                });
     }
     public static void rollingPaperSheet(){
         //rollingPapaerLinearLayout.setVisibility(View.VISIBLE);
