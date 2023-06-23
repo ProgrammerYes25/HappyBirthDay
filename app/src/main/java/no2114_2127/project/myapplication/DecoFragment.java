@@ -372,7 +372,7 @@ public class DecoFragment extends Fragment {
         noBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                inputLink.setText(null);
                 // 원하는 기능 구현
                 addLink.dismiss(); // 다이얼로그 닫기
             }
@@ -412,7 +412,7 @@ public class DecoFragment extends Fragment {
                     addLink.dismiss();
 
                 }
-
+                inputLink.setText(null);
                     //inputLink.setError("입력이 필요합니다.");
 
 

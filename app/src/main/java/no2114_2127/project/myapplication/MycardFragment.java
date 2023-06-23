@@ -219,6 +219,7 @@ public class MycardFragment extends Fragment {
         EditText inputCard=addCard.findViewById(R.id.put_text);
         TextView noBtn = addCard.findViewById(R.id.btn_cancel);
         TextView yesBtn = addCard.findViewById(R.id.btn_save);
+
         // 취소 버튼
         inputCard.addTextChangedListener(new TextWatcher() {
 
@@ -252,6 +253,7 @@ public class MycardFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // 원하는 기능 구현
+                inputCard.setText(null);
                 addCard.dismiss(); // 다이얼로그 닫기
             }
         });
@@ -303,6 +305,7 @@ public class MycardFragment extends Fragment {
                     addCard.dismiss();
 
                 }
+                inputCard.setText(null);
             }
         });
 
